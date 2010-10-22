@@ -1,0 +1,918 @@
+
+<caf>
+	<documentProperties>
+		<name
+			label="">XForms/FileConnector/FileManager</name>
+		<description>FileManager</description>
+		<caption/>
+		<mimeType>caf</mimeType>
+		<notes/>
+		<version>vcmdemo10</version>
+		<revision/>
+		<createdBy></createdBy>
+		<creationDate></creationDate>
+		<lastModifiedBy></lastModifiedBy>
+		<lastModificationDate></lastModificationDate>
+		<customProperties>
+			<published></published>
+			<publishDate></publishDate>
+			<publishUser></publishUser>
+			<publishPath>/cordys/XForms/FileConnector/FileManager.caf</publishPath>
+		</customProperties>
+	</documentProperties>
+	<content>
+		<modelProperties>
+			<dataObject>
+				<uniquenamemodel>Yes</uniquenamemodel>
+				<migratetouniquename>true</migratetouniquename>
+			</dataObject>
+		</modelProperties>
+		<xformhtml
+			xformsversion="1"
+			key="/FileManager_vcmdemo10.caf"
+			focusatstartup="true"
+			wcpforms:vcmVersion="vcmdemo10"
+			xmlns="http://schemas.cordys.com/1.0/xform"
+			xmlns:xforms="http://www.w3.org/2002/xforms/cr"
+			xmlns:ev="http://www.w3.org/2001/xml-events"
+			xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+			xmlns:eibus="http://schemas.cordys.com/wcp/webframework">
+			<xhead>
+				<script
+					src="/cordys/coe/fileconnector/filemanager-common.js"
+					xmlns=""
+				/>
+				<xforms:model
+					id="GetListOfFilesOperationModel"
+					wcpforms:businessElement="tuple"
+					wcpforms:automatic="false"
+					wcpforms:gateway="com.eibus.web.soap.Gateway.wcp"
+					wcpforms:nontransactional="true"
+					singleTransaction="false"
+					promptToSave="true"
+					isConstraintValidation="false"
+					isInitializationRequired="false"
+					isApplyAccessControl="false"
+					associatedmodel=""
+					xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+					xmlns:ev="http://www.w3.org/2001/xml-events"
+					xmlns:xforms="http://www.w3.org/2002/xforms/cr">
+					<xforms:instance
+						wcpforms:iteratorSize="50"
+						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+						xmlns:xforms="http://www.w3.org/2002/xforms/cr">
+						<wcpforms:dataset
+							src="http://schemas.cordys.com/1.0/ac/FileConnector/GetListOfFiles"
+							type="get">
+							<directory
+								fieldRef="directory"
+								xmlns="http://schemas.cordys.com/1.0/ac/FileConnector"
+							/>
+							<resultpathtype
+								xmlns="http://schemas.cordys.com/1.0/ac/FileConnector"
+							/>
+							<filter
+								xmlns="http://schemas.cordys.com/1.0/ac/FileConnector"
+							/>
+						</wcpforms:dataset>
+					</xforms:instance>
+					<wcpforms:instanceschema/>
+					<xforms:action
+						ev:event="xforms-onrequest">
+						<xforms:GetListOfFilesOperationModel_OnRequest/>
+					</xforms:action>
+					<xforms:action
+						ev:event="xforms-onresponse">
+						<xforms:GetListOfFilesOperationModel_OnResponse/>
+					</xforms:action>
+					<xforms:action
+						ev:event="xforms-ondatacompleted">
+						<xforms:GetListOfFilesOperationModel_OnDataCompleted/>
+					</xforms:action>
+					<wcpforms:xpathmetainfo
+						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms">
+						<wcpforms:namespace
+							prefix="xmlns">http://schemas.cordys.com/1.0/ac/FileConnector</wcpforms:namespace>
+						<wcpforms:namespace
+							prefix="tns">http://schemas.cordys.com/1.0/ac/FileConnector</wcpforms:namespace>
+					</wcpforms:xpathmetainfo>
+				</xforms:model>
+				<xforms:model
+					id="DeleteFileOperationModel"
+					wcpforms:businessElement="DeleteFileResponse"
+					wcpforms:automatic="false"
+					wcpforms:gateway="com.eibus.web.soap.Gateway.wcp"
+					wcpforms:nontransactional="true"
+					singleTransaction="false"
+					promptToSave="true"
+					isConstraintValidation="false"
+					isInitializationRequired="false"
+					isApplyAccessControl="false"
+					associatedmodel=""
+					xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+					xmlns:ev="http://www.w3.org/2001/xml-events"
+					xmlns:xforms="http://www.w3.org/2002/xforms/cr">
+					<xforms:instance
+						wcpforms:iteratorSize="50"
+						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+						xmlns:xforms="http://www.w3.org/2002/xforms/cr">
+						<wcpforms:dataset
+							src="http://schemas.cordys.com/1.0/ac/FileConnector/DeleteFile"
+							type="get">
+							<fileName
+								xmlns="http://schemas.cordys.com/1.0/ac/FileConnector"
+							/>
+						</wcpforms:dataset>
+					</xforms:instance>
+					<wcpforms:instanceschema/>
+					<wcpforms:xpathmetainfo
+						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms">
+						<wcpforms:namespace
+							prefix="xmlns">http://schemas.cordys.com/1.0/ac/FileConnector</wcpforms:namespace>
+						<wcpforms:namespace
+							prefix="tns">http://schemas.cordys.com/1.0/ac/FileConnector</wcpforms:namespace>
+					</wcpforms:xpathmetainfo>
+				</xforms:model>
+				<xforms:model
+					id="FindSoapNodesModel"
+					wcpforms:businessElement="SearchLDAPResponse"
+					wcpforms:automatic="true"
+					wcpforms:gateway="com.eibus.web.soap.Gateway.wcp"
+					wcpforms:nontransactional="true"
+					singleTransaction="false"
+					promptToSave="true"
+					isConstraintValidation="false"
+					isInitializationRequired="false"
+					isApplyAccessControl="false"
+					associatedmodel=""
+					xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+					xmlns:ev="http://www.w3.org/2001/xml-events"
+					xmlns:xforms="http://www.w3.org/2002/xforms/cr">
+					<xforms:instance
+						wcpforms:iteratorSize="50"
+						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+						xmlns:xforms="http://www.w3.org/2002/xforms/cr">
+						<wcpforms:dataset
+							src="http://schemas.cordys.com/1.0/ldap/SearchLDAP"
+							type="get">
+							<dn
+								xmlns="http://schemas.cordys.com/1.0/ldap"
+							/>
+							<scope
+								xmlns="http://schemas.cordys.com/1.0/ldap"
+							/>
+							<filter
+								xmlns="http://schemas.cordys.com/1.0/ldap"
+							/>
+							<sort
+								xmlns="http://schemas.cordys.com/1.0/ldap"
+							/>
+							<returnValues
+								xmlns="http://schemas.cordys.com/1.0/ldap"
+							/>
+						</wcpforms:dataset>
+					</xforms:instance>
+					<wcpforms:instanceschema/>
+					<xforms:action
+						ev:event="xforms-onrequest">
+						<xforms:FindSoapNodesModel_OnRequest/>
+					</xforms:action>
+					<wcpforms:xpathmetainfo
+						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms">
+						<wcpforms:namespace
+							prefix="xmlns">http://schemas.cordys.com/1.0/ldap</wcpforms:namespace>
+						<wcpforms:namespace
+							prefix="tns">http://schemas.cordys.com/1.0/ldap</wcpforms:namespace>
+					</wcpforms:xpathmetainfo>
+				</xforms:model>
+				<xml
+					xmlns="">
+					<xml
+						id="uploadPageDef">
+						<Application>
+							<description>Upload file to server</description>
+							<caption>Upload File</caption>
+							<id>FC_UploadFile</id>
+							<url>/cordys/XForms/FileConnector/UploadForm.caf</url>
+							<frame
+								docked="false"
+								width="550"
+								height="135">main</frame>
+						</Application>
+					</xml>
+					<xml
+						id="downloadRequest">
+						<SOAP:Envelope
+							xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+							<SOAP:Body>
+								<ReadFile
+									xmlns="http://schemas.cordys.com/1.0/ac/FileConnector">
+									<filename/>
+									<encoded>true</encoded>
+								</ReadFile>
+							</SOAP:Body>
+						</SOAP:Envelope>
+					</xml>
+				</xml>
+			</xhead>
+			<xbody>
+				<xforms:group
+					appearance="toolbar"
+					id="toolbar">
+					<xforms:trigger
+						id="toolbarSaveButton">
+						<xforms:label>
+							<img
+								src="/cordys/wcp/icons/action/save.gif"
+								xmlns=""
+							/>
+						</xforms:label>
+						<xforms:hint>Save</xforms:hint>
+						<xforms:action
+							ev:event="xforms-activate">
+							<xforms:saveAllModels/>
+						</xforms:action>
+					</xforms:trigger>
+				</xforms:group>
+				<xforms:group
+					wcpforms:layout="free"
+					id="xbody_group"
+					wcpforms:labelalign="ontop">
+					<xforms:group
+						appearance="box"
+						id="Find_GetListOfFilesOperationModelGroup"
+						wcpforms:collapsible="true"
+						wcpforms:expanded="true"
+						requestModel="GetListOfFilesOperationModel"
+						wcpforms:layout="free"
+						wcpforms:class="f_layout"
+						wcpforms:size="980 120"
+						wcpforms:anchors="10px 10px 12px null"
+						wcpforms:position="10 10"
+						wcpforms:labelalign="ontop">
+						<xforms:label
+							wcpforms:class="groupheader collapse">GetListOfFiles</xforms:label>
+						<xforms:input
+							id="directory"
+							ref="directory"
+							wcpforms:textalign="left_align"
+							wcpforms:dataType="string"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="800 null"
+							wcpforms:anchors="10px 10px 168px null"
+							wcpforms:position="10 10">
+							<xforms:label
+								wcpforms:class="v_label">Directory</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="filter"
+							ref="filter"
+							wcpforms:textalign="left_align"
+							wcpforms:dataType="string"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="144 null"
+							wcpforms:anchors="null 10px 14px null"
+							wcpforms:position="820 10">
+							<xforms:label
+								wcpforms:class="v_label">Filter (regexp)</xforms:label>
+						</xforms:input>
+						<xforms:group
+							appearance="controlbox"
+							id="controlbox1"
+							controltype="button"
+							wcpforms:layout="horizontal"
+							wcpforms:class="f_layout"
+							wcpforms:align="left_align"
+							wcpforms:size="144 23"
+							wcpforms:position="10 60">
+							<xforms:trigger
+								id="button1"
+								wcpforms:class="h_button"
+								wcpforms:size="90 23">
+								<xforms:label>List files</xforms:label>
+								<xforms:action
+									ev:event="xforms-activate">
+									<xforms:doGetListOfFilesOperation/>
+								</xforms:action>
+							</xforms:trigger>
+						</xforms:group>
+						<xforms:group
+							appearance="frame"
+							id="DownloadFrame"
+							wcpforms:class="f_layout"
+							wcpforms:size="50 30"
+							wcpforms:anchors="null null 138px 8px"
+							wcpforms:position="790 60"
+						/>
+					</xforms:group>
+					<xforms:repeat
+						wcpforms:displayContextMenu="true"
+						wcpforms:toggleColumns="true"
+						wcpforms:saveState="false"
+						id="table1"
+						nodeset="tuple/entries/file"
+						synchronizedDialogFrame="main"
+						model="GetListOfFilesOperationModel"
+						wcpforms:textalign="left_align"
+						fixedWidth="true"
+						wcpforms:gridtype="navgrid"
+						wcpforms:checkboxes="true"
+						wcpforms:layout="table"
+						wcpforms:class="f_layout"
+						wcpforms:size="980 730"
+						wcpforms:anchors="10px 150px 12px 35px"
+						wcpforms:position="10 150">
+						<xforms:group
+							appearance="elementbar"
+							id="_elementBar">
+							<xforms:group
+								appearance="controlbar"
+								id="_controlBar"
+								wcpforms:class="controlbar">
+								<xforms:trigger
+									id="navDelete1"
+									standardid="navDelete">
+									<xforms:label>
+										<img
+											src="/cordys/wcp/icons/action/delete_eb.gif"
+											xmlns=""
+										/>
+									</xforms:label>
+									<xforms:hint>Delete</xforms:hint>
+									<xforms:action
+										ev:event="onbeforedelete">
+										<xforms:navDelete1_BeforeDelete/>
+									</xforms:action>
+								</xforms:trigger>
+								<xforms:trigger
+									id="UploadButton">
+									<xforms:label>
+										<img
+											src=" /cordys/wcp/icons/action/upload_eb.gif"
+											xmlns=""
+										/>
+									</xforms:label>
+									<xforms:action
+										ev:event="xforms-activate">
+										<xforms:UploadButton_Click/>
+									</xforms:action>
+								</xforms:trigger>
+								<xforms:trigger
+									id="DownloadButton">
+									<xforms:label>
+										<img
+											src="/cordys/wcp/icons/action/download_eb.gif"
+											xmlns=""
+										/>
+									</xforms:label>
+									<xforms:action
+										ev:event="xforms-activate">
+										<xforms:DownloadButton_Click/>
+									</xforms:action>
+								</xforms:trigger>
+							</xforms:group>
+							<xforms:group
+								appearance="paginationbar"
+								id="_paginationBar"
+								wcpforms:class="paginationbar">
+								<xforms:trigger
+									id="navFirst2"
+									standardid="navFirst">
+									<xforms:label>
+										<img
+											src="/cordys/wcp/icons/pagination/first_eb.gif"
+											xmlns=""
+										/>
+									</xforms:label>
+									<xforms:hint>First</xforms:hint>
+								</xforms:trigger>
+								<xforms:trigger
+									id="navPrevious2"
+									standardid="navPrevious">
+									<xforms:label>
+										<img
+											src="/cordys/wcp/icons/pagination/previous_eb.gif"
+											xmlns=""
+										/>
+									</xforms:label>
+									<xforms:hint>Previous</xforms:hint>
+								</xforms:trigger>
+								<xforms:trigger
+									id="navNext2"
+									standardid="navNext">
+									<xforms:label>
+										<img
+											src="/cordys/wcp/icons/pagination/next_eb.gif"
+											xmlns=""
+										/>
+									</xforms:label>
+									<xforms:hint>Next</xforms:hint>
+								</xforms:trigger>
+								<xforms:trigger
+									id="navLast2"
+									standardid="navLast">
+									<xforms:label>
+										<img
+											src="/cordys/wcp/icons/pagination/last_eb.gif"
+											xmlns=""
+										/>
+									</xforms:label>
+									<xforms:hint>Last</xforms:hint>
+								</xforms:trigger>
+							</xforms:group>
+						</xforms:group>
+						<xforms:output
+							id="file"
+							ref="./@name"
+							wcpforms:textalign="left_align"
+							wcpforms:dataType="string"
+							doEBIValidate="false"
+							wcpforms:size="430 null">
+							<xforms:label>file</xforms:label>
+							<xforms:action
+								ev:event="xforms-before-data-bind">
+								<xforms:file_BeforeBind/>
+							</xforms:action>
+						</xforms:output>
+						<xforms:select1
+							id="_type"
+							ref="./@type"
+							doEBIValidate="false"
+							initializeValueSets="0"
+							wcpforms:enumerated="false"
+							multiple="false"
+							wcpforms:size="100 null">
+							<xforms:label>type</xforms:label>
+							<xforms:item>
+								<xforms:label>directory</xforms:label>
+								<xforms:value>directory</xforms:value>
+							</xforms:item>
+							<xforms:item>
+								<xforms:label>file</xforms:label>
+								<xforms:value>file</xforms:value>
+							</xforms:item>
+							<xforms:item>
+								<xforms:label>unknown</xforms:label>
+								<xforms:value>unknown</xforms:value>
+							</xforms:item>
+						</xforms:select1>
+						<xforms:output
+							id="modified"
+							ref="./@modified"
+							doEBIValidate="false"
+							wcpforms:displayformat="shortdate longtime"
+							wcpforms:dataType="date"
+							wcpforms:required="false">
+							<xforms:label>modified</xforms:label>
+						</xforms:output>
+						<xforms:action
+							ev:event="xforms-onrowselect">
+							<xforms:table1_OnSelectRow/>
+						</xforms:action>
+					</xforms:repeat>
+					<xforms:select1
+						id="SoapNodeSelect"
+						doEBIValidate="false"
+						wcpforms:enumerated="false"
+						multiple="false"
+						wcpforms:dataType="string"
+						wcpforms:textalign="left_align"
+						initializeValueSets="0"
+						wcpforms:class="f_layout"
+						wcpforms:size="980 null"
+						wcpforms:anchors="10px null 12px 6px"
+						wcpforms:position="10 890">
+						<xforms:label
+							wcpforms:class="h_label left_align"
+							wcpforms:size="80 null">SOAP Node</xforms:label>
+						<xforms:itemset
+							model=""
+							xmlns:xforms="http://www.w3.org/2002/xforms/cr">
+							<xforms:label
+								ref="@dn"
+							/>
+							<xforms:value
+								ref="@dn"
+							/>
+						</xforms:itemset>
+						<xforms:action
+							ev:event="xforms-value-changed">
+							<xforms:SoapNodeSelect_Change/>
+						</xforms:action>
+					</xforms:select1>
+				</xforms:group>
+			</xbody>
+			<xformsscript>
+				<![CDATA[//Global reference to the download control, so it can be used in all events.
+var downloadControl = null;
+
+// Data object for the upload page.
+var uploadPageData = null;
+
+var dataFetched = false;
+
+function doGetListOfFilesOperation(eventObject)
+{
+    if (! directory.getValue()) {
+        return;
+    }
+
+    //Note:  AUTO GENERATED code, do not edit manually!
+    WebForm.sendRequest(Find_GetListOfFilesOperationModelGroup);
+
+}
+
+function Form_Init(eventObject)
+{
+    DownloadFrame.hide();
+
+    //Create upload control and fill the reference
+    downloadControl = document.createElement("EIBUS:DOWNLOAD");
+
+    //Set download properties
+    downloadControl.setAttribute("searchPath", "<data>");
+    downloadControl.setAttribute("frameId", "DownloadFrame");
+    downloadControl.setAttribute("contentType ", "application/octet-stream");
+    downloadControl.request = downloadRequest;
+
+    //Add the download library from the webtoolkit
+    application.addLibrary("/cordys/wcp/library/util/download.htm",downloadControl);
+    
+    //directory.attachEvent("onkeyup", function(e) { if (e.keyCode == 13) { doGetListOfFilesOperation(); } } );
+}
+
+function Form_InitDone(eventObject)
+{
+    //directory.setValue("d:/temp");
+    filter.setValue(".*");
+
+    if (! fillSoapNodeSelect()) {
+        alert("Unable to find a File Connector SOAP node.");
+        application.container.close();
+        return;
+    }
+}
+
+function fillSoapNodeSelect()
+{
+    var soapNodes = FindSoapNodesModel.getData().selectNodes("//SearchLDAPResponse/tuple/old/entry");
+    
+    if (soapNodes.length == 0) {
+        return false;
+    }
+
+    // First try to locate the SOAP node in the current and system organization.
+    var currentOrgDn = application.organization;
+    var systemOrgDn = "o=system," + application.organization.substring(application.organization.indexOf(',') + 1);
+    var currentNodeDn = null;
+    var systemNodeDn = null;
+    var selectContent = new Array();
+    
+    for (var i = 0; i < soapNodes.length; i++) {
+        var entry = soapNodes[i];
+        var dn = entry.getAttribute("dn");
+        
+        if (! dn) {
+            continue;
+        }
+        
+        var pos;
+        
+        if ((pos = dn.indexOf(currentOrgDn)) > 0 && pos == dn.length - currentOrgDn.length) {
+            currentNodeDn = dn;
+        } else if ((pos = dn.indexOf(currentOrgDn)) > 0 && pos == dn.length - systemOrgDn.length) {
+            systemNodeDn = dn;
+        }
+        
+        SoapNodeSelect.addOption({ description: dn, value: dn });
+    }
+    
+    if (! currentNodeDn) {
+        currentNodeDn = systemNodeDn;
+        if (! currentNodeDn) {        
+            // Todo: Here we should open a dialog for selecting the SOAP node.
+            currentNodeDn = soapNodes[0].getAttribute("dn");
+        }
+    }
+    
+    SoapNodeSelect.setValue(currentNodeDn);
+    
+    return true;
+}
+
+function getResponseDirectory()
+{
+    var node = GetListOfFilesOperationModel.getData().selectSingleNode("//tuple/directory/text()");
+    
+    if (! node) {
+        return null;
+    }
+    
+    return node.text;
+}
+
+function table1_OnSelectRow(eventObject)
+{
+    if (eventObject.selectType == "default") {
+       return;
+    }
+    
+    var baseDir = getResponseDirectory();
+    
+    if (! baseDir) {
+        alert("Unable to get directory from SOAP response.");
+        return;
+    }
+
+    var index = eventObject.rowIndex - 1;
+    var rows = table1.getRows();
+    
+    if (index < 0 || index >= rows.length) {
+        alert("Index out of range: " + index);
+        return;
+    }
+  
+    var bo = rows[index].businessObject;
+    var node = bo ? bo.selectSingleNode("@type") : null;
+    var type = node ? node.text : null;
+    
+    if (type == "directory") {
+        directory.setValue(bo.text);
+        doGetListOfFilesOperation();
+    }
+}
+
+function GetListOfFilesOperationModel_OnRequest(eventObject)
+{
+    //eventObject.request.selectSingleNode("//GetListOfFiles/resultpathtype").text = "relative";
+}
+
+function GetListOfFilesOperationModel_OnResponse(eventObject)
+{
+   var entriesNode = eventObject.response.selectSingleNode("//GetListOfFilesResponse/tuple/entries");
+    
+    if (! entriesNode) {
+        return;
+    }
+    
+    var directoryNode = entriesNode.selectSingleNode("../directory");
+    
+    if (! directoryNode || ! directoryNode.text) {
+        return;
+    }
+    
+    var dirPath = directoryNode.text;
+    var parentDirPath = null;
+    var pathSep;
+    if (dirPath.indexOf("/") >= 0) {
+        var pos;
+        if ((pos = dirPath.lastIndexOf("/")) > 0) {
+            parentDirPath = dirPath.substring(0, pos);
+        }
+        pathSep = "/";
+    } else {
+        var pos;
+        if ((pos = dirPath.lastIndexOf("\\")) >= 2 && pos < dirPath.length - 1) {
+            parentDirPath = dirPath.substring(0, pos > 2 ? pos : pos + 1);
+        }
+        pathSep = "\\";        
+    }
+    
+    // Create a name attribute which is shown in the table.
+    var files = entriesNode.selectNodes("file");
+    
+    for (var i = 0; i < files.length; i++) {
+        var file = files[i];
+        var path = file.text;
+        var pos;
+        
+   if (! path) {
+            continue;
+        }
+                     
+        if ((pos = path.lastIndexOf(pathSep)) > 0) {
+            file.setAttribute("name", path.substring(pos + 1));
+        }      
+    }    
+    
+    // Sort the nodes.
+    sortGetListOfFilesResponse(eventObject.response);
+    
+    // Create the parent folder ("..")
+    if (parentDirPath) {
+        var parentDirNode = entriesNode.ownerDocument.createElement("file");
+
+        parentDirNode.setAttribute("type", "directory");
+        parentDirNode.setAttribute("name", "..");        
+        parentDirNode.text = parentDirPath;
+       
+        entriesNode.insertBefore(parentDirNode, entriesNode.firstChild);
+    }
+    
+    dataFetched = true;
+}
+
+function GetListOfFilesOperationModel_OnDataCompleted(eventObject)
+{
+    table1.setIndex(0);    
+}
+
+function sortGetListOfFilesResponse(responseXml) {
+    var entryNode = responseXml.selectSingleNode("//GetListOfFilesResponse/tuple/entries");
+    
+    if (! entryNode ) {
+        alert("Response method node not found.");
+        return;
+    }
+    
+    var folderNodeArray = new Array();
+    var fileNodeArray = new Array();
+    
+    while (entryNode .childNodes.length > 0) {
+        var t = entryNode .childNodes[0];
+
+        t = t.parentNode.removeChild(t);
+        
+        if (t.getAttribute("type") == "directory") {
+            folderNodeArray.push(t); 
+        } else {
+            fileNodeArray.push(t);
+        }    
+    }
+    
+    // Sort the arrays.
+    folderNodeArray.sort(sortNodes);
+    fileNodeArray.sort(sortNodes);
+        
+    // Create new XML from the two sorted arrays.
+    for (var i = 0; i < folderNodeArray.length; i++) {
+        entryNode.appendChild(folderNodeArray[i]);
+    }
+
+    for (var i = 0; i < fileNodeArray.length; i++) {
+        entryNode.appendChild(fileNodeArray[i]);
+    }
+    
+    //alert(responseXml.xml);
+}
+
+function sortNodes(a, b) {
+    //alert("a="+a.xml + "\r\nb=" + b.xml);
+
+    var va, vb;
+    
+    if (! a || ! (va = a.getAttribute("name"))) {
+        return -1;
+    }
+
+    if (! b || ! (vb = b.getAttribute("name"))) {
+        return 1;
+    }
+    
+    va = va.toLowerCase();
+    vb = vb.toLowerCase();
+    //alert("vat: " + va + ", vbt: " + vb + ",res: " + (va < vb ? -1 : (va == vb ? 0 : 1)));    
+
+    return va < vb ? -1 : (va == vb ? 0 : 1);
+}
+
+function UploadButton_Click(eventObject)
+{
+    if (! dataFetched) {
+        return;
+    }
+
+    if (! uploadPageData) {
+        uploadPageData = new ChildPageData();
+        uploadPageData.path = directory.getValue();
+        uploadPageData.destSoapNodeDn = SoapNodeSelect.getValue();
+        uploadPageData.onChildClose = OnUploadPageClose;
+        
+        application.select(uploadPageDef.documentElement, uploadPageData);   
+    }   
+}
+
+function OnUploadPageClose(uploadOk)
+{
+    if (uploadOk) {
+        doGetListOfFilesOperation();
+    }
+    
+    uploadPageData = false;
+}
+
+function DownloadButton_Click(eventObject)
+{
+    if (! dataFetched) {
+        return;
+    }
+    
+    var baseDir = getResponseDirectory();
+    
+    if (! baseDir) {
+ alert("Unable to get directory from SOAP response.");
+        return;
+    }
+
+    var index = table1.getIndex() - 1;
+    var rows = table1.getRows();
+    
+    if (index < 0 || index >= rows.length) {
+        return;
+    }
+    
+    var bo = rows[index].businessObject;
+    var node;
+    var path = (node = bo.selectSingleNode("./text()")) ? node.text : null;
+    var type = (node = bo.selectSingleNode("@type")) ? node.text : null;
+    var name = (node = bo.selectSingleNode("@name")) ? node.text : null;
+    
+    if (type == "file" && name && path) {
+        downloadControl.request.selectSingleNode("//ReadFile/filename").text =path
+        downloadControl.setAttribute("fileName", name);
+        downloadControl.downloadFile();
+    }
+}
+
+function file_BeforeBind(eventObject)
+{
+    if (! eventObject.srcElement.businessObject) {
+        return;
+    }
+
+    var isFolder = eventObject.srcElement.businessObject.getAttribute("type") == "directory";
+    
+    eventObject.srcElement.style.fontWeight = (isFolder ? "bold" : "normal");
+}
+
+function navDelete1_BeforeDelete(eventObject)
+{
+    var rows = table1.getCheckedRows();
+    var count = 0;
+    
+    if (rows.length > 0 && 
+       ! confirm("Do you want to delete " + 
+                   (rows.length > 1 ? "these " + rows.length + " files?" : "this file?"))) {
+        eventObject.returnValue = false;
+        return;               
+    }
+    
+    for (var i = 0; i < rows.length; i++) {
+        var bo = rows[i].businessObject;
+        var path = bo ? bo.text : null;
+        var type = (node = bo.selectSingleNode("@type")) ? node.text : null;
+    
+        if (! path || type != "file") {
+            continue;
+        }
+        
+        DeleteFileOperationModel.getMethodRequest().selectSingleNode("//DeleteFile/fileName").text = path;
+        DeleteFileOperationModel.getDataset();
+        if (DeleteFileOperationModel.soapFaultOccurred) {
+            break;
+    }
+        
+        count++;
+    }
+    
+    if (count > 0) {
+        doGetListOfFilesOperation();
+    }
+    
+    eventObject.returnValue = false;
+}
+
+function FindSoapNodesModel_OnRequest(eventObject)
+{
+    var ldapRootDn = application.organization.substring(application.organization.indexOf(',') + 1);
+    var methodNode = eventObject.request.selectSingleNode("//SearchLDAP");
+    
+    WebForm.setNodeValue(methodNode, "dn", ldapRootDn , false);
+    WebForm.setNodeValue(methodNode, "scope", 2, false);
+    WebForm.setNodeValue(methodNode, "returnValues", "true", false);
+    WebForm.setNodeValue(methodNode, "filter", "&(objectclass=bussoapnode)(labeleduri=http://schemas.cordys.com/1.0/ac/FileConnector)", false);
+    WebForm.setNodeValue(methodNode, "sort", "ascending", false);
+}
+
+function SoapNodeSelect_Change(eventObject)
+{
+    var dn = SoapNodeSelect.getValue();
+
+    GetListOfFilesOperationModel.instance.setReceiver(dn);
+    DeleteFileOperationModel.instance.setReceiver(dn);
+    downloadControl.receiver = dn;
+}]]>
+			</xformsscript>
+			<xforms:action
+				ev:event="xforms-initialize-done">
+				<xforms:Form_InitDone/>
+			</xforms:action>
+			<xforms:action
+				ev:event="xforms-init">
+				<xforms:Form_Init/>
+			</xforms:action>
+		</xformhtml>
+	</content>
+</caf>
