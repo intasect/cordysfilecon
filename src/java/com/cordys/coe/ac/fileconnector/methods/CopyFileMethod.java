@@ -1,0 +1,128 @@
+/**
+ * (c) 2008 Cordys R&D B.V. All rights reserved. The computer program(s) is the
+ * proprietary information of Cordys B.V. and provided under the relevant
+ * License Agreement containing restrictions on use and disclosure. Use is
+ * subject to the License Agreement.
+ */
+package com.cordys.coe.ac.fileconnector.methods;
+
+import com.cordys.coe.ac.fileconnector.ApplicationConfiguration;
+import com.cordys.coe.ac.fileconnector.IFileConnectorMethod;
+import com.cordys.coe.ac.fileconnector.ISoapRequestContext;
+import com.cordys.coe.ac.fileconnector.exception.ConfigException;
+import com.cordys.coe.ac.fileconnector.exception.FileException;
+import com.cordys.coe.ac.fileconnector.utils.GeneralUtils;
+import com.cordys.coe.ac.fileconnector.utils.XmlUtils;
+
+import java.io.File;
+
+/**
+ * Implements CopyFile SOAP method.
+ *
+ * @author  mpoyhone
+ */
+public class CopyFileMethod
+    implements IFileConnectorMethod
+{
+    /**
+     * Contains the SOAP method name.
+     */
+    public static final String METHOD_NAME = "CopyFile";
+    /**
+     * Old filename request parameter for CopyFile and MoveFile methods.
+     */
+    private static final String PARAM_OLDFILENAME = "oldFileName";
+    /**
+     * New filename request parameter for CopyFile and MoveFile methods.
+     */
+    private static final String PARAM_NEWFILENAME = "newFileName";
+    /**
+     * Contains the FileConnector configuration.
+     */
+    private ApplicationConfiguration acConfig;
+
+    /**
+     * @see  com.cordys.coe.ac.fileconnector.IFileConnectorMethod#cleanup()
+     */
+    public void cleanup()
+                 throws ConfigException
+    {
+    }
+
+    /**
+     * @see  com.cordys.coe.ac.fileconnector.IFileConnectorMethod#initialize(com.cordys.coe.ac.fileconnector.ApplicationConfiguration)
+     */
+    public boolean initialize(ApplicationConfiguration acConfig)
+                       throws ConfigException
+    {
+        this.acConfig = acConfig;
+
+        return true;
+    }
+
+    /**
+     * @see  com.cordys.coe.ac.fileconnector.IFileConnectorMethod#onReset()
+     */
+    public void onReset()
+    {
+    }
+
+    /**
+     * @see  com.cordys.coe.ac.fileconnector.IFileConnectorMethod#process(com.cordys.coe.ac.fileconnector.ISoapRequestContext)
+     */
+    public EResult process(ISoapRequestContext req)
+                    throws FileException
+    {
+        int requestNode = req.getRequestRootNode();
+
+        // Get the needed parameters from the SOAP request
+        String sOldFileName = XmlUtils.getStringParameter(requestNode, PARAM_OLDFILENAME, true);
+        String sNewFileName = XmlUtils.getStringParameter(requestNode, PARAM_NEWFILENAME, true);
+
+        // Create File objects for the source and destination files
+        File fSrcFile = new File(sOldFileName);
+        File fDestFile = new File(sNewFileName);
+
+        // Do some sanity checking.
+        if (!acConfig.isFileAllowed(fSrcFile))
+        {
+            throw new FileException("Source file access is not allowed.");
+        }
+
+        if (!acConfig.isFileAllowed(fDestFile))
+        {
+            throw new FileException("Destination file access is not allowed.");
+        }
+
+        if (!fSrcFile.exists())
+        {
+            throw new FileException("Source file does not exist.");
+        }
+
+        if (fSrcFile.isDirectory())
+        {
+            throw new FileException("Source file is a directory.");
+        }
+
+        if (fDestFile.exists())
+        {
+            if (fDestFile.isDirectory())
+            {
+                throw new FileException("Destination file exists and is a directory.");
+            }
+        }
+
+        // Copy the source file contents to the destination file
+        GeneralUtils.copyFile(fSrcFile, fDestFile);
+
+        return EResult.FINISHED;
+    }
+
+    /**
+     * @see  com.cordys.coe.ac.fileconnector.IFileConnectorMethod#getMethodName()
+     */
+    public String getMethodName()
+    {
+        return METHOD_NAME;
+    }
+}
