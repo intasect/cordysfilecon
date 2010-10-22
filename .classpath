@@ -42,7 +42,7 @@
 			<attribute name="javadoc_location" value="jar:platform:/resource/FileConnector/platform/docs/bcp-javadocs.zip!/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="platform/ext/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="platform/ext/log4j-1.2.14_cordys.jar"/>
 	<classpathentry kind="lib" path="platform/ext/ldap.jar"/>
 	<classpathentry kind="lib" path="sdk/lib/coelib.jar" sourcepath="/coelib">
 		<attributes>
