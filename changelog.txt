@@ -1,3 +1,6 @@
+Version 1.2.15 (released 2010-11-08)
+- Moved fileconnector source code base to opensource model. The project is hosted @ code.google and changes are made in build scripts, svn:exteranal to point to opensourced Build Framework binaries etc.
+
 Version 1.2.14 (released 2009-08-03)
 - Fix:  DirectoryPoller configuration reading is fixed for BOP-4
 - Change: Drive mappings are loaded before the directory poller. This fixes problems when drive mappings were used in the poller input folder names

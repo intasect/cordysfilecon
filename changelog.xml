@@ -14,6 +14,9 @@
     <body>
         <release description="Development release" version="@NEXT@">
 				</release>
+<release date="2010-11-08" description="Migration release" version="1.2.15">
+        <action dev="rbiju" type="migration">Moved fileconnector source code base to opensource model. The projects hosted @ code.google and changes are made build scripts, svn:exteranal to point to opensourced Build Framework binaries etc.</action>
+	</release>
 <release date="2009-08-03" description="Development release" version="1.2.14">
             <action dev="mpoyhone" type="fix">DirectoryPoller configuration reading is fixed for BOP-4</action>
             <action dev="mpoyhone" type="change">Drive mappings are loaded before the directory poller. This fixes problems when drive mappings were used in the poller input folder names</action>
