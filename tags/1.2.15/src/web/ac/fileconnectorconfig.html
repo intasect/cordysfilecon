@@ -1,0 +1,293 @@
+<!--
+	© 2008 Cordys R&D B.V. All rights reserved.
+	The computer program(s) is the proprietary information of Cordys R&D B.V. 
+	and provided under the relevant License Agreement containing restrictions 
+	on use and disclosure. Use is subject to the License Agreement.
+-->
+<html xmlns:eibus onapplicationready="onAppReady()">
+    <head>
+        <script src="/cordys/wcp/application.js"></script>
+        <title>FileConnector Configuration</title>
+    </head>
+    <script	src="/cordys/wcp/admin/behavior/applicationconnector.js"></script>
+    <script src="common.js"></script>
+    <script>
+    	/**
+    	 * An array of loaded configuration pages. Contains objects
+    	 * with the following attributes:
+    	 * - pageDef  - Page definition XML node
+    	 * - tab	  - Tab containing the page
+    	 * - pageData - Object that is passed to the child page. Used for communication.
+    	 */
+    	var configPages = [ ];
+		/**
+		 * Contains the current connector configuration XML.
+		 */
+		var connectorConfig = null;
+	
+        /**
+         * Initializes this page.
+         */
+        function onAppReady()
+        {		
+			var tmp = getPageNodes();
+            
+            tmp.sort(sortConfigNodes);
+        	
+        	for (var i = 0; i < tmp.length; i++) {
+        		var n = tmp[i];
+        		var pageObj = new Object();
+        		
+        		pageObj.pageDef = n;
+        		pageObj.tab = loadConfigPage(pageObj, "FC_FRAME_" + i);
+        		
+        		if (pageObj.tab) {
+        			configPages.push(pageObj);
+        		}
+        	}
+        	
+        	initialize();
+        }
+        
+        /**
+         * Returns an array of all configuration page XML nodes.
+         */ 
+        function getPageNodes()
+        {
+        	var res = new Array();
+            /*var request = configRequest.XMLDocument.cloneNode(true);
+            
+            bdiConfig.request = request;
+            bdiConfig.reset();
+ 
+            var configEntries = bdiConfig.data.selectNodes(".//tuple/old/FileConnectorConfigPage");
+            */
+            
+            var configEntries = staticPageConfiguration.documentElement.selectNodes("//FileConnectorConfigPage");
+            
+            for (var i = 0; i < configEntries.length; i++) {
+            	var n = configEntries[i];
+            	
+            	res.push(n.cloneNode(true));
+            }        
+            
+            return res;    
+        }
+
+		/**
+		 * Sorts configuration nodes based on the position element.
+		 */        
+        function sortConfigNodes(a, b) {
+			var va, vb;
+			
+			if (! a || ! (va = a.selectSingleNode("Position"))) {
+				return -1;
+			}
+		
+			if (! b || ! (vb = b.selectSingleNode("Position"))) {
+				return 1;
+			}
+			
+			var ia = parseInt(va.text);
+			var ib = parseInt(vb.text);
+			
+			return ia < ib ? -1 : (ia > ib ? 1 : 0);
+		}
+		
+		/**
+		 * Loads the configuration page from the given configuration XML.
+		 * @param pageObj Page object containing the application definition XML. 
+		 * @param frameid New ID of the frame where the page will be loaded.
+		 */
+		function loadConfigPage(pageObj, frameid)
+		{
+			var appDef = pageObj.pageDef.selectSingleNode("Application");
+			
+			if (! appDef) {
+				return null;
+			}
+			
+			var frameDiv = document.all[frameid + "_DIV"];
+			
+			if (! frameDiv) {
+				return null;
+			}
+		
+			var tab = tabControl.getTab("TAB-" + frameid);
+			var caption = pageObj.pageDef.selectSingleNode("PageTitle");
+			var tooltip = pageObj.pageDef.selectSingleNode("PageTooltip");
+						
+			tab.appendChild(frameDiv);			
+            
+            if (caption && caption.text) {
+            	tab.setCaption(caption.text);
+            }
+            
+            if (tooltip && tooltip.text) {
+	            tab.setTooltip(tooltip.text);
+	        }
+	        
+	        // Replace the frame element.
+	        var frameNode = appDef.selectSingleNode("frame");
+	        
+	        if (frameNode) {
+	        	frameNode.parentNode.removeChild(frameNode);
+	        }
+	        
+	        frameNode = appDef.ownerDocument.createElement("frame");
+	        frameNode.setAttribute("docked", "true");
+	        frameNode.text = frameid;
+	        appDef.appendChild(frameNode);
+	        
+	        application.select(appDef, pageObj);
+	        
+	        return frameDiv.firstChild;
+		}
+
+        /**
+         * This method creates the needed configuration for the connector
+         *
+         * @param xmlConfig The configuration-XML.
+         */
+        function createConnectorConfiguration(xmlConfig)
+        {
+            var bReturn = true;
+            var xmlDoc = xmlConfig.ownerDocument;
+            var nConfig = xmlDoc.createElement("Configuration");
+            xmlConfig.appendChild(nConfig);
+
+            connectorConfig = nConfig;
+       
+			for (var i = 0; i < configPages.length; i++) {
+       			var page = configPages[i];
+
+      			if (page && 
+	      			page.isPageLoaded && 
+	      			page.isPageLoaded() &&
+	      			page.createConnectorConfiguration) {
+      				if (! page.createConnectorConfiguration(connectorConfig)) {
+      					bReturn = false;
+      					break;
+      				}
+      			}
+    		}
+
+    		addStartupDependency(xmlConfig, "http://schemas.cordys.com/1.0/xmlstore");
+            
+			return bReturn;
+        }
+        
+        /**
+         * This method fills the inputfields based on the XML
+         *
+         * @param xmlConfig The configuration-XML.
+         */
+        function fillInPropertyScreen(xmlConfig)
+        {   
+        	if (! (connectorConfig = xmlConfig.selectSingleNode("Configuration"))) {
+        		// Create a dummy element.
+        		connectorConfig = xmlConfig.ownerDocument.createElement("Configuration");
+        	}
+        	        	
+        	fillChildPageConfigation();
+        	
+			return true;
+        }
+        
+        function fillChildPageConfigation()
+       	{
+       		if (! connectorConfig) {
+       			return;
+       		}
+       	
+       		var loadedCount = 0;
+       		
+       		for (var i = 0; i < configPages.length; i++) {
+       			var page = configPages[i];
+       			
+       			if (page.pageConfigurationLoaded) {
+       				loadedCount++;
+       				continue;
+       			}
+       			
+       			if (! page.isPageLoaded || 
+       				! page.isPageLoaded() ||
+       				! page.fillInPropertyScreen) {
+       				continue;
+       			}
+       			
+  				page.fillInPropertyScreen(connectorConfig);       			
+       			page.pageConfigurationLoaded = true;
+       			loadedCount++;
+       		}
+       		
+       		if (loadedCount < configPages.length) {
+				setTimeout("fillChildPageConfigation()", 300);
+			}
+       	}
+        
+    </script>
+    <body>
+		<eibus:dataisland
+		    id="bdiConfig"
+		    async="false"
+		    automatic="false">
+		    <xml id="configRequest">
+		        <SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+		            <SOAP:Body>
+					    <GetCollection xmlns="http://schemas.cordys.com/1.0/xmlstore">
+					      <folder recursive="false" detail="true">/Cordys/fileconnector/pages</folder>
+					    </GetCollection>
+		            </SOAP:Body>
+		        </SOAP:Envelope>
+		    </xml>
+		</eibus:dataisland>
+		
+		<xml id="staticPageConfiguration">
+			<pages>
+				<FileConnectorConfigPage>
+					<Position>0</Position>
+					<PageTitle>Main</PageTitle>
+					<PageTooltip>Main Configuration</PageTooltip>
+					
+				    <Application>
+				        <id>FileConnectorPage_Main</id>
+				        <url>/cordys/coe/fileconnector/ac/fileconnectorconfig_main.html</url>
+				    </Application>
+				</FileConnectorConfigPage>
+				<FileConnectorConfigPage>
+					<Position>1</Position>
+					<PageTitle>Drive Mappings</PageTitle>
+					<PageTooltip>Drive Mappings Configuration</PageTooltip>
+					
+				    <Application>
+				        <id>FileConnectorPage_DriveMap</id>
+				        <url>/cordys/coe/fileconnector/ac/fileconnectorconfig_drivemap.html</url>
+				    </Application>
+				</FileConnectorConfigPage>
+				<FileConnectorConfigPage>
+					<Position>2</Position>
+					<PageTitle>Directory Poller</PageTitle>
+					<PageTooltip>Directory Poller Configuration</PageTooltip>
+					
+				    <Application>
+				        <id>FileConnectorPage_DirectoryPoller</id>
+				        <url>/cordys/coe/fileconnector/ac/fileconnectorconfig_directorypoller.html</url>
+				    </Application>
+				</FileConnectorConfigPage>	
+			</pages>		
+		</xml>
+		
+		<div id="FC_FRAME_0_DIV">
+			<iframe class="container" id="FC_FRAME_0" style="width:100%;height:100%"></iframe>
+		</div>		
+		<div id="FC_FRAME_1_DIV">
+			<iframe class="container" id="FC_FRAME_1" style="width:100%;height:100%"></iframe>
+		</div>			
+   		<div id="FC_FRAME_2_DIV">
+			<iframe class="container" id="FC_FRAME_2" style="width:100%;height:100%"></iframe>
+		</div>
+					
+    	<eibus:tabs id="tabControl"  tabsatbottom="false" />
+    </body>
+</html>
