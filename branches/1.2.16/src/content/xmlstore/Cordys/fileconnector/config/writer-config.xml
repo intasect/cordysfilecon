@@ -1,0 +1,12 @@
+<configuration>
+	<filetype name="WRITE_TEST">
+		<select path="./r">
+			<output path="./value1" type="text" width="60" align="right" />	
+			<output path="./value2" type="text" width="60" align="right" />	
+			<output path="./value3" type="text" width="60" align="right" />	
+			<output type="text">
+				<input fixed="\n" />
+			</output>
+		</select>
+	</filetype>	
+</configuration>
