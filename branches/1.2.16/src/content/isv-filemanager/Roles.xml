@@ -1,0 +1,3 @@
+<roles>
+    <role file="${src.content.roles}/File Manager.xml"/>
+</roles>
