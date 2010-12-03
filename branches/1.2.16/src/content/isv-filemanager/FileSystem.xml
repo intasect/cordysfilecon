@@ -1,0 +1,9 @@
+
+<filesystem
+	xmlns="">
+	<file
+		destdir="\Web\${project.web.name}"
+		ecxdir="cordys_install_dir"
+		source="src/web-filemanager"
+	/>
+</filesystem>
