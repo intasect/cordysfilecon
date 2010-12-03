@@ -14,6 +14,12 @@
     <body>
         <release description="Development release" version="@NEXT@">
 				</release>
+				<release date="2010-12-02" description="Development release" version="1.2.16">
+        <action dev="yravi" type="fix">ReadXmlFileRecords gave an error because it is unable to read configuration properties.modified xpath expression for the variables in the ApplicationConfiguration file.</action>
+		        <action dev="yravi" type="add">A patch added to get the list of files for the webservice "getListOfFiles".Added "filesize" attribute to the getListOfFiles repsonse.
+</action>
+<action dev="yravi" type="update">Updated FileConnector Manual document according to the changes.</action>
+	</release>
 <release date="2010-11-08" description="Migration release" version="1.2.15">
         <action dev="rbiju" type="migration">Moved fileconnector source code base to opensource model. The projects hosted @ code.google and changes are made build scripts, svn:exteranal to point to opensourced Build Framework binaries etc.</action>
 	</release>

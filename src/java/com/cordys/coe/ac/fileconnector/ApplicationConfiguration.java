@@ -54,36 +54,36 @@ public class ApplicationConfiguration
      * The tag name which holds the XMLStore record reader configuration file name in the processor
      * configuration xml.
      */
-    private static final String READER_CONFIG_FILENAME = "readerconfigfile";
+    private static final String READER_CONFIG_FILENAME = "/configuration/Configuration/readerconfigfile";
     /**
      * The tag name which holds character set name for ReadFileRecords method.
      */
-    private static final String READER_CHARACTER_SET = "readercharset";
+    private static final String READER_CHARACTER_SET = "/configuration/Configuration/readercharset";
     /**
      * The tag name which holds character set name for WriteFileRecords method.
      */
-    private static final String WRITER_CHARACTER_SET = "writercharset";
+    private static final String WRITER_CHARACTER_SET = "/configuration/Configuration/writercharset";
     /**
      * The tag name which holds the XMLStore record writer configuration file name in the processor
      * configuration xml.
      */
-    private static final String WRITER_CONFIG_FILENAME = "writerconfigfile";
+    private static final String WRITER_CONFIG_FILENAME = "/configuration/Configuration/writerconfigfile";
     /**
      * The tag name which holds the configuration reload flag name.
      */
-    private static final String RELOAD_CONFIG = "reload-configuration";
+    private static final String RELOAD_CONFIG = "/configuration/Configuration/reload-configuration";
     /**
      * The tag name which holds the simple XPath flag name.
      */
-    private static final String USE_SIMPLE_XPATH = "use-simple-xpath";
+    private static final String USE_SIMPLE_XPATH = "/configuration/Configuration/use-simple-xpath";
     /**
      * The name of the tag holding all the drive mappings.
      */
-    private static final String PROP_DRIVE_MAPPINGS = "drivemappings";
+    private static final String PROP_DRIVE_MAPPINGS = "/configuration/Configuration/drivemappings";
     /**
      * The name of the tag holding the definition of a drive mapping.
      */
-    private static final String PROP_DRIVE_MAPPING = "drivemapping";
+    private static final String PROP_DRIVE_MAPPING = "/configuration/Configuration/drivemapping";
     /**
      * Identifies the Logger.
      */
