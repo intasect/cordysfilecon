@@ -1,4 +1,0 @@
-<localizations>
-    <localization destdir="/localization" ecxdir="cordys_install_dir" source="${src.content.localizations}/com.cordys.coe.ac.fileconnector.LogMessages.xml"/>
-    <localization destdir="/localization" ecxdir="cordys_install_dir" source="${src.content.localizations}/com.cordys.coe.ac.fileconnector.extensions.directorypoller.LogMessages.xml"/>
-</localizations>
