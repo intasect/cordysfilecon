@@ -1,0 +1,122 @@
+<configuration>
+	<!--
+		A sample configuration for reading comma separated values.
+		
+		Input file looks like this :
+			100;CSV Test;CSV Test Adress;
+			101;Name-101;Adress-101;
+			102;Name-102;Adress-102;
+		
+		Input SOAP request looks like this :	
+		
+		<ReadFileRecords xmlns="http://schemas.cordys.com/1.0/ac/FileConnector">
+		  <filename>c:\temp\read-csv-input.csv</filename>
+		  <filetype>csv-sample</filetype>
+		  <numrecords>-1</numrecords>
+		  <offset>0</offset>
+		  <validateonly>false</validateonly>
+		</ReadFileRecords>		
+		
+		Output SOAP response looks like this :
+		
+		<ReadFileRecordsResponse xmlns="http://schemas.cordys.com/1.0/ac/FileConnector">
+		  <endoffset>81</endoffset>
+		  <recordsread>3</recordsread>
+		  <errorcount>0</errorcount>
+		  <data>
+			<tuple>
+			  <line>
+				<ID>100</ID>
+				<Name>CSV Test</Name>
+				<Address>CSV Test Adress</Address>
+			  </line>
+			</tuple>
+			<tuple>
+			  <line>
+				<ID>101</ID>
+				<Name>Name-101</Name>
+				<Address>Adress-101</Address>
+			  </line>
+			</tuple>
+			<tuple>
+			  <line>
+				<ID>102</ID>
+				<Name>Name-102</Name>
+				<Address>Adress-102</Address>
+			  </line>
+			</tuple>
+		  </data>
+		</ReadFileRecordsResponse>		
+		
+	-->
+	<filetype name="csv-sample" recordsequence="line" >
+		<record name="line" pattern="([^\n\r]*)[\n\r]+" index="0">
+			<field name="ID" pattern="([^;]*);" index="0" />
+			<field name="Name" pattern="([^;]*);" index="0" />
+			<field name="Address" pattern="([^;]*);" index="0" />
+		</record>
+	</filetype>
+	
+	<!--
+		A sample configuration for reading fixed length fields.
+		In this sample fields a left-padded with spaces. The spaces
+		are not present in the SOAP response.
+		
+		Input file looks like this (| means the beginning of the line,
+		do not copy it) :
+	 	 	|   100   Fixed Length Test      Fixed Length Test Adress
+			|   101            Name-101                    Adress-101
+			|   102            Name-102                    Adress-102
+			
+		Field lengths are :
+ 			|   6 |                 20 |                          30 |
+			
+		Input SOAP request looks like this :	
+		
+		<ReadFileRecords xmlns="http://schemas.cordys.com/1.0/ac/FileConnector">
+		  <filename>c:\temp\read-fixedlength-input.txt</filename>
+		  <filetype>fixedlength-sample</filetype>
+		  <numrecords>-1</numrecords>
+		  <offset>0</offset>
+		  <validateonly>false</validateonly>
+		</ReadFileRecords>		
+		
+		Output SOAP response looks like this :
+		
+	   <ReadFileRecordsResponse xmlns="http://schemas.cordys.com/1.0/ac/FileConnector">
+ 	 	 <endoffset>171</endoffset>
+		 <recordsread>3</recordsread>
+		 <errorcount>0</errorcount>
+		 <data>
+		   <tuple>
+			 <line>
+			   <ID>100</ID>
+			   <Name>Fixed Length Test</Name>
+			   <Address>Fixed Length Test Adress</Address>
+			 </line>
+		   </tuple>
+		   <tuple>
+		 	<line>
+	 		   <ID>101</ID>
+			   <Name>Name-101</Name>
+			   <Address>Adress-101</Address>
+			 </line>
+		   </tuple>
+		   <tuple>
+			 <line>
+			   <ID>102</ID>
+			   <Name>Name-102</Name>
+			   <Address>Adress-102</Address>
+			 </line>
+		   </tuple>
+		 </data>
+	   </ReadFileRecordsResponse>			
+	-->
+	<filetype name="fixedlength-sample" recordsequence="line" >
+		<record name="line" pattern="([^\n\r]*)[\n\r]+" index="0">
+			<field name="ID" pattern="\s*(\d+)" index="0" width="6" />
+			<field name="Name" pattern="\s*(.*)" index="0" width="20" />
+			<field name="Address" pattern="\s*(.*)" index="0" width="30" />
+		</record>
+	</filetype>	
+</configuration>
