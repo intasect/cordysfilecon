@@ -237,8 +237,13 @@ public class GetListOfFilesMethod
             String sTimeString = new SimpleDateFormat(sFileDateFormat).format(new Date(lModificationTime));
 
             iFileNode = Node.createTextElement("file", sPath, iEntries);
+            long lFilesize = fFile.length();
+            String sFileSizeStr = Long.toString(lFilesize);
+            
+            
             Node.setAttribute(iFileNode, "type", sType);
             Node.setAttribute(iFileNode, "modified", sTimeString);
+            Node.setAttribute(iFileNode, "filesize", sFileSizeStr);
         }
 
         return EResult.FINISHED;

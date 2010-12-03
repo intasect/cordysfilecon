@@ -440,6 +440,10 @@
 										name="modified"
 										type="xsd:dateTime"
 								/>
+								<xsd:attribute
+										name="filesize"
+										type="xsd:long"
+								/>
 						</xsd:extension>
 				</xsd:simpleContent>
 		</xsd:complexType>	</xsd:element>
