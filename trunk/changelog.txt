@@ -1,6 +1,10 @@
+version 1.2.17 (released 2011-01-13)
+-fix: File poller doesnot process the files, if polling folder and processing folder is configured to different file systems.This is now fixed
+
 version 1.2.16 (released 2010-12-02)
 -fix: ReadXmlFileRecords gave an error because it is unable to read configuration properties.modified xpath expression for the variables in the ApplicationConfiguration file.
 -add: A patch added to get the list of files for the webservice "getListOfFiles".Added "filesize" attribute to the getListOfFiles repsonse.
+
 -update: Updated FileConnector Manual document according to the changes.
 
 version 1.2.15 (released 2010-11-08)
