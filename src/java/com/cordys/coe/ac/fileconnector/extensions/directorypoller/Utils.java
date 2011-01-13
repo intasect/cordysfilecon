@@ -18,8 +18,10 @@
  */
  package com.cordys.coe.ac.fileconnector.extensions.directorypoller;
 
+import com.cordys.coe.ac.fileconnector.exception.FileException;
 import com.cordys.coe.ac.fileconnector.extensions.directorypoller.statelog.StateLog_ProcessingFolder;
 import com.cordys.coe.ac.fileconnector.extensions.directorypoller.states.StateError;
+import com.cordys.coe.ac.fileconnector.utils.GeneralUtils;
 
 import com.eibus.util.system.Native;
 
@@ -209,8 +211,27 @@ public class Utils
 
         if (!res || !destFile.exists())
         {
-            throw new IOException("The renaming of file " + srcFile + " to " + destFile +
-                                  " failed.");
+            
+        	File parentDir = destFile.getParentFile();
+        	if(!parentDir.exists())
+        	{
+        		parentDir.mkdir();
+        	}
+            try {
+				// Files might be on different file systems, so copy the source file contents to the
+				// destination file
+				GeneralUtils.copyFile(srcFile, destFile);
+
+				// Delete the source file
+				if (!srcFile.delete())
+				{
+					destFile.delete();
+				    throw new FileException("Unable to delete the source file.");
+				}
+			} catch (FileException e) {
+				throw new IOException("Moving of file " + srcFile + " to " + destFile +
+                " failed.");
+			}
         }
     }
 

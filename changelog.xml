@@ -14,6 +14,9 @@
     <body>
         <release description="Development release" version="@NEXT@">
 				</release>
+			<release date="2011-01-13" description="Development release" version="1.2.17">
+				<action dev="jraveend" type="fix">File poller doesnot process the files, if polling folder and processing folder is configured to different file systems.This is now fixed</action>
+		    </release>
 				<release date="2010-12-02" description="Development release" version="1.2.16">
         <action dev="yravi" type="fix">ReadXmlFileRecords gave an error because it is unable to read configuration properties.modified xpath expression for the variables in the ApplicationConfiguration file.</action>
 		        <action dev="yravi" type="add">A patch added to get the list of files for the webservice "getListOfFiles".Added "filesize" attribute to the getListOfFiles repsonse.
