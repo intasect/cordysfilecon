@@ -102,7 +102,7 @@ public class CreateDirectoryMethod
         
         if (!fParentDir.exists())
         {
-            throw new FileException("Parent directory does not exist.");
+            throw new FileException("The specified parent directory cannot be found by the system.");
         }
 
         try 
