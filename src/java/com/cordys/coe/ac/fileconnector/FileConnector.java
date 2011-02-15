@@ -24,6 +24,7 @@ import com.cordys.coe.ac.fileconnector.extensions.directorypoller.DirectoryPolle
 import com.cordys.coe.ac.fileconnector.extensions.drivemap.DriveMap;
 import com.cordys.coe.ac.fileconnector.methods.CopyFileMethod;
 import com.cordys.coe.ac.fileconnector.methods.CountNumberOfLinesMethod;
+import com.cordys.coe.ac.fileconnector.methods.CreateDirectoryMethod;
 import com.cordys.coe.ac.fileconnector.methods.DeleteFileMethod;
 import com.cordys.coe.ac.fileconnector.methods.GetListOfFilesMethod;
 import com.cordys.coe.ac.fileconnector.methods.MoveFileMethod;
@@ -85,7 +86,7 @@ public class FileConnector extends ApplicationConnector
      */
     private static final Class<?>[] methodClasses =
     {
-        CopyFileMethod.class, CountNumberOfLinesMethod.class, DeleteFileMethod.class,
+        CopyFileMethod.class, CountNumberOfLinesMethod.class, CreateDirectoryMethod.class, DeleteFileMethod.class,
         GetListOfFilesMethod.class, MoveFileMethod.class, ReadFileMethod.class,
         ReadFileRecordsMethod.class, ReadXmlFileRecordsMethod.class,
         ReadLargeXmlFileRecordsMethod.class, SelectAndMoveFileMethod.class, WriteFileMethod.class,
