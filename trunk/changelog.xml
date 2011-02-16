@@ -13,7 +13,8 @@
     </template>
     <body>
         <release description="Development release" version="@NEXT@">
-				</release>
+        	<action dev="phanisrinivas" type="add">Implemented CreateDirectory webservice</action>
+		</release>
 			<release date="2011-01-13" description="Development release" version="1.2.17">
 				<action dev="jraveend" type="fix">File poller doesnot process the files, if polling folder and processing folder is configured to different file systems.This is now fixed</action>
 		    </release>
