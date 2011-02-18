@@ -4,7 +4,7 @@
 	and provided under the relevant License Agreement containing restrictions 
 	on use and disclosure. Use is subject to the License Agreement.
 -->
-<html xmlns:eibus onapplicationready="onAppReady()">
+<html xmlns:eibus onapplicationready="onAppReady()" onbeforeapplicationclose="handleClose()">
     <head>
         <script src="/cordys/wcp/application.js"></script>
         <title>FileConnector Configuration</title>
@@ -48,6 +48,32 @@
         	
         	initialize();
         }
+
+        /**
+		 * Make sure the application is closed properly. For this we go through the configured pages and 
+		 * get their application IDs. Each application which was opened by the application.select needs 
+		 * to be gracefully closed here, otherwise the page will stay blank in BOP4. 
+		 */
+		function handleClose()
+		{
+			if (configPages.length > 0)
+			{
+				for (var count = 0; count < configPages.length; count++)
+				{
+					var pageDef = configPages[count].pageDef;
+
+					//Get the application ID.
+					var appID = pageDef.selectSingleNode(".//Application/id");
+					if (appID != null && appID.text != "")
+					{
+						if (system.windows[appID.text] && system.windows[appID.text].application)
+						{
+							system.windows[appID.text].application.container.close(true);
+						} 
+					}
+				}
+			}
+		}
         
         /**
          * Returns an array of all configuration page XML nodes.
@@ -55,13 +81,6 @@
         function getPageNodes()
         {
         	var res = new Array();
-            /*var request = configRequest.XMLDocument.cloneNode(true);
-            
-            bdiConfig.request = request;
-            bdiConfig.reset();
- 
-            var configEntries = bdiConfig.data.selectNodes(".//tuple/old/FileConnectorConfigPage");
-            */
             
             var configEntries = staticPageConfiguration.documentElement.selectNodes("//FileConnectorConfigPage");
             

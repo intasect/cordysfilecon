@@ -1,21 +1,21 @@
 /**
- * Copyright 2005 Cordys R&D B.V. 
- * 
- * This file is part of the Cordys SAP Connector. 
+ * Copyright 2005 Cordys R&D B.V.
+ *
+ * This file is part of the Cordys SAP Connector.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- package com.cordys.coe.ac.fileconnector;
+package com.cordys.coe.ac.fileconnector;
 
 import com.cordys.coe.ac.fileconnector.charset.ascii.AsciiCharsetProvider;
 import com.cordys.coe.ac.fileconnector.exception.ConfigException;
@@ -87,10 +87,9 @@ public class FileConnector extends ApplicationConnector
     private static final Class<?>[] methodClasses =
     {
         CopyFileMethod.class, CountNumberOfLinesMethod.class, CreateDirectoryMethod.class, DeleteFileMethod.class,
-        GetListOfFilesMethod.class, MoveFileMethod.class, ReadFileMethod.class,
-        ReadFileRecordsMethod.class, ReadXmlFileRecordsMethod.class,
-        ReadLargeXmlFileRecordsMethod.class, SelectAndMoveFileMethod.class, WriteFileMethod.class,
-        WriteFileRecordsMethod.class,
+        GetListOfFilesMethod.class, MoveFileMethod.class, ReadFileMethod.class, ReadFileRecordsMethod.class,
+        ReadXmlFileRecordsMethod.class, ReadLargeXmlFileRecordsMethod.class, SelectAndMoveFileMethod.class,
+        WriteFileMethod.class, WriteFileRecordsMethod.class,
     };
 
     /**
@@ -123,8 +122,7 @@ public class FileConnector extends ApplicationConnector
      *
      * @param  pProcessor
      */
-    @Override
-    public void close(Processor pProcessor)
+    @Override public void close(Processor pProcessor)
     {
         if (LOG.isDebugEnabled())
         {
@@ -149,8 +147,7 @@ public class FileConnector extends ApplicationConnector
      *
      * @return  The created transaction object
      */
-    @Override
-    public ApplicationTransaction createTransaction(SOAPTransaction soapTransaction)
+    @Override public ApplicationTransaction createTransaction(SOAPTransaction soapTransaction)
     {
         if (cConnector == null)
         {
@@ -172,8 +169,7 @@ public class FileConnector extends ApplicationConnector
             return null;
         }
 
-        return new FileTransaction(this, cConnector, soapTransaction.getUserCredentials(),
-                                   acConfig);
+        return new FileTransaction(this, cConnector, soapTransaction.getUserCredentials(), acConfig);
     }
 
     /**
@@ -181,8 +177,7 @@ public class FileConnector extends ApplicationConnector
      *
      * @param  processor  The SOAP processor object
      */
-    @Override
-    public void open(Processor processor)
+    @Override public void open(Processor processor)
     {
         // Check the CoELib version.
         try
@@ -203,6 +198,34 @@ public class FileConnector extends ApplicationConnector
         if (LOG.isDebugEnabled())
         {
             LOG.debug("Executing open-method.");
+        }
+
+        // Check if the coe.connector.startup.delay is set to an int bigger then 0.
+        // If so we will sleep to allow attaching of the debugger.
+        String sTemp = System.getProperty("coe.connector.startup.delay");
+
+        if ((sTemp != null) && (sTemp.length() > 0))
+        {
+            try
+            {
+                long lTime = Long.parseLong(sTemp);
+
+                if (lTime > 0)
+                {
+                    if (LOG.isDebugEnabled())
+                    {
+                        LOG.debug("Going to pause for " + lTime + " ms to allow debugger attachment.");
+                    }
+                    Thread.sleep(lTime);
+                }
+            }
+            catch (Exception e)
+            {
+                if (LOG.isDebugEnabled())
+                {
+                    LOG.debug("Error checking for debugger delay", e);
+                }
+            }
         }
 
         // Create a new connector object based on the SOAP
@@ -233,8 +256,7 @@ public class FileConnector extends ApplicationConnector
         }
         catch (Exception e)
         {
-            String errorMsg = "Unable to get the configuration element. Exception " +
-                              Util.getStackTrace(e);
+            String errorMsg = "Unable to get the configuration element. Exception " + Util.getStackTrace(e);
 
             if (LOG.isEnabled(Severity.ERROR))
             {
@@ -266,14 +288,14 @@ public class FileConnector extends ApplicationConnector
         catch (RuntimeException e)
         {
             LOG.log(Severity.ERROR, "Unable to initialize extensions: " + e, e);
-            
+
             // Just throw it.
             throw e;
         }
         catch (Exception e)
         {
             LOG.log(Severity.ERROR, "Unable to initialize extensions: " + e, e);
-            
+
             // Wrap the exception.
             String msg = e.getMessage();
 
@@ -293,8 +315,7 @@ public class FileConnector extends ApplicationConnector
      *
      * @param  procesor  The SOAP processor object
      */
-    @Override
-    public void reset(Processor procesor)
+    @Override public void reset(Processor procesor)
     {
         if (LOG.isDebugEnabled())
         {
@@ -375,8 +396,7 @@ public class FileConnector extends ApplicationConnector
     /**
      * @see  com.eibus.soap.ApplicationConnector#createManagedComponent()
      */
-    @Override
-    protected IManagedComponent createManagedComponent()
+    @Override protected IManagedComponent createManagedComponent()
     {
         jmxComponent = super.createManagedComponent();
 
@@ -386,8 +406,7 @@ public class FileConnector extends ApplicationConnector
     /**
      * @see  com.eibus.soap.ApplicationConnector#getManagementDescription()
      */
-    @Override
-    protected ILocalizableString getManagementDescription()
+    @Override protected ILocalizableString getManagementDescription()
     {
         return LogMessages.CONNECTOR_MANAGEMENT_DESCRIPTION;
     }
@@ -395,8 +414,7 @@ public class FileConnector extends ApplicationConnector
     /**
      * @see  com.eibus.soap.ApplicationConnector#getManagementName()
      */
-    @Override
-    protected String getManagementName()
+    @Override protected String getManagementName()
     {
         return "File Connector";
     }
@@ -432,8 +450,7 @@ public class FileConnector extends ApplicationConnector
             }
             catch (Exception e)
             {
-                LOG.log(Severity.WARN, "SOAP method " + method.getMethodName() + " cleanup failed.",
-                        e);
+                LOG.log(Severity.WARN, "SOAP method " + method.getMethodName() + " cleanup failed.", e);
             }
         }
     }
@@ -485,8 +502,7 @@ public class FileConnector extends ApplicationConnector
             }
             catch (Exception e)
             {
-                throw new IllegalStateException("Unable to load extension class: " +
-                                                extensionClass.getName());
+                throw new IllegalStateException("Unable to load extension class: " + extensionClass.getName());
             }
 
             if (!(obj instanceof IFileConnectorExtension))
@@ -553,8 +569,7 @@ public class FileConnector extends ApplicationConnector
             }
             catch (Exception e)
             {
-                throw new IllegalStateException("Unable to load SOAP method class: " +
-                                                methodClass.getName());
+                throw new IllegalStateException("Unable to load SOAP method class: " + methodClass.getName());
             }
 
             if (!(obj instanceof IFileConnectorMethod))
@@ -586,11 +601,9 @@ public class FileConnector extends ApplicationConnector
             }
             catch (Exception e)
             {
-                LOG.log(Severity.WARN,
-                        "SOAP method " + method.getMethodName() + " initialization failed.", e);
+                LOG.log(Severity.WARN, "SOAP method " + method.getMethodName() + " initialization failed.", e);
 
-                throw new IllegalStateException("SOAP method " + method.getMethodName() +
-                                                " initialization failed.", e);
+                throw new IllegalStateException("SOAP method " + method.getMethodName() + " initialization failed.", e);
             }
         }
     }
@@ -607,8 +620,7 @@ public class FileConnector extends ApplicationConnector
          * @see  com.cordys.coe.ac.fileconnector.INomConnector#createSoapMethod(java.lang.String,java.lang.String,
          *       java.lang.String, java.lang.String)
          */
-        public int createSoapMethod(String organization, String orgUser, String methodName,
-                                    String namespace)
+        public int createSoapMethod(String organization, String orgUser, String methodName, String namespace)
                              throws DirectoryException
         {
             return cConnector.createSOAPMethod(orgUser, organization, namespace, methodName);
