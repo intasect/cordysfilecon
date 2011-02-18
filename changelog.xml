@@ -16,6 +16,8 @@
             <action dev="phanisrinivas" type="add">Implemented CreateDirectory webservice</action>
             <action dev="pgussow" type="fix">Fixed the configuration page to be compatible with BOP4.</action>
             <action dev="pgussow" type="fix">Fixed issue 8: drivemappings don't work anymore</action>
+            <action dev="pgussow" type="fix">Fixed issue 11: empty page after save</action>
+            <action dev="pgussow" type="fix">Fixed issue 3: use-simple-xpath was not stored.</action>
         </release>
         <release date="2011-01-13" description="Development release" version="1.2.17">
             <action dev="jraveend" type="fix">File poller doesnot process the files, if polling folder and processing folder is configured to different file systems.This is now fixed</action>
