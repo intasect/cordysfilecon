@@ -1,0 +1,5 @@
+<applicationconnectors>
+    <applicationconnector file="${src.content.appcon}/com.cordys.coe.ac.fileconnector.FileConnector"
+                          key="/Cordys/WCP/Application Connector/com.cordys.coe.ac.fileconnector.FileConnector"
+                          name="com.cordys.coe.ac.fileconnector.FileConnector"/>
+</applicationconnectors>
