@@ -17,6 +17,13 @@
  */
  package com.cordys.coe.ac.fileconnector;
 
+import java.io.File;
+import java.nio.charset.spi.CharsetProvider;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.regex.Pattern;
+
 import com.cordys.coe.ac.fileconnector.charset.ascii.AsciiCharset;
 import com.cordys.coe.ac.fileconnector.exception.ConfigException;
 import com.cordys.coe.ac.fileconnector.utils.XPathWrapperFactory;
@@ -24,23 +31,11 @@ import com.cordys.coe.ac.fileconnector.utils.XmlUtils;
 import com.cordys.coe.exception.GeneralException;
 import com.cordys.coe.util.XMLProperties;
 import com.cordys.coe.util.win32.NetworkDrive;
-
+import com.cordys.coe.util.xml.nom.XPathHelper;
 import com.eibus.util.Base64;
 import com.eibus.util.logger.CordysLogger;
 import com.eibus.util.logger.Severity;
-
-import com.eibus.xml.nom.Find;
 import com.eibus.xml.nom.Node;
-
-import java.io.File;
-
-import java.nio.charset.spi.CharsetProvider;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
-import java.util.regex.Pattern;
 
 /**
  * This class holds the configuration details for the FileConnector. The configuration specifies the
@@ -79,11 +74,7 @@ public class ApplicationConfiguration
     /**
      * The name of the tag holding all the drive mappings.
      */
-    private static final String PROP_DRIVE_MAPPINGS = "/configuration/Configuration/drivemappings";
-    /**
-     * The name of the tag holding the definition of a drive mapping.
-     */
-    private static final String PROP_DRIVE_MAPPING = "/configuration/Configuration/drivemapping";
+    private static final String PROP_DRIVE_MAPPINGS = "/configuration/Configuration/drivemappings/drivemapping";
     /**
      * Identifies the Logger.
      */
@@ -242,8 +233,8 @@ public class ApplicationConfiguration
      */
     public NetworkDrive[] getNetworkDrives()
     {
-        int iMappings = xpBase.getXMLNode(PROP_DRIVE_MAPPINGS);
-        int[] aiMapping = Find.match(iMappings, "fChild<" + PROP_DRIVE_MAPPING + ">");
+        int[] aiMapping = XPathHelper.selectNodes(xpBase.getConfigNode(), PROP_DRIVE_MAPPINGS);
+        
         ArrayList<NetworkDrive> alTemp = new ArrayList<NetworkDrive>();
 
         for (int iCount = 0; iCount < aiMapping.length; iCount++)
