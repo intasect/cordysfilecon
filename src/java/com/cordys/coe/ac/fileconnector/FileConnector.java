@@ -1,7 +1,7 @@
 /**
  * Copyright 2005 Cordys R&D B.V.
  *
- * This file is part of the Cordys SAP Connector.
+ * This file is part of the Cordys File Connector.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
