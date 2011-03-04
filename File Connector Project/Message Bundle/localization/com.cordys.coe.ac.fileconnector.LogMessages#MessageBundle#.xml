@@ -1,0 +1,75 @@
+
+
+<MessageBundle id="com.cordys.coe.ac.fileconnector.LogMessages">
+    <Message id="DriveMappingUnreadable">
+        <MessageText><![CDATA[Exception reading drive mappings]]></MessageText>
+        <Description/>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="NoConnectorFound">
+        <MessageText><![CDATA[No connector object found. Aborting.]]></MessageText>
+        <Description/>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="NoConfigurationFound">
+        <MessageText><![CDATA[No application configuration found. Aborting.]]></MessageText>
+        <Description/>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="CoeLibVersionInvalid">
+        <MessageText><![CDATA[There is a problem with the CoE library version.]]></MessageText>
+        <Description/>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToOpenConnector">
+        <MessageText><![CDATA[Unable to open the connector object.]]></MessageText>
+        <Description/>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToLoadCharset">
+        <MessageText><![CDATA[Unable to load the custom character set provider.]]></MessageText>
+        <Description/>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToGetConfigurationElement">
+        <MessageText><![CDATA[Unable to get the configuration element.]]></MessageText>
+        <Description/>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToCreateMapping">
+        <MessageText><![CDATA[The mapping to {0} could not be created]]></MessageText>
+        <Description/>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="TransactionFailed">
+        <MessageText><![CDATA[FileConnector transaction failed.]]></MessageText>
+        <Description/>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="CONNECTOR_MANAGEMENT_DESCRIPTION">
+        <MessageText><![CDATA[File Connector]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+</MessageBundle>

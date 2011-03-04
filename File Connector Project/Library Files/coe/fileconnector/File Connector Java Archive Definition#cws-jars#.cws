@@ -1,0 +1,90 @@
+
+<JavaArchiveSource
+	type="com.cordys.cws.documenttypes.javaarchivesource.JavaArchiveSource"
+	RuntimeDocumentID="000c2902-72aa-11e0-e87f-c688f99456d5">
+	<DocumentID>000c2902-72aa-11e0-e87f-c688f98f56d4</DocumentID>
+	<Name>File Connector Java Archive Definition</Name>
+	<Description>File Connector Java Archive Definition</Description>
+	<CreatedBy>srkrishnan</CreatedBy>
+	<CreationDate>2011-03-01T12:21:19.266</CreationDate>
+	<Notes/>
+	<JarFileName>fileconnector</JarFileName>
+	<NamespacePrefix></NamespacePrefix>
+	<Dependencies>
+		<JavaArchiveBinaryDependency
+			type="com.cordys.cws.documenttypes.javaarchivesource.JavaArchiveBinaryDependency"
+			RuntimeDocumentID="000c2902-72aa-11e0-e87f-c688f937d6c3">
+			<DocumentID>000c2902-72aa-11e0-e87f-c688f932d6c2</DocumentID>
+			<Name>File Connector Project_Library Files_coe_fileconnector_stax_wstx-asl-3.2.3.jar</Name>
+			<Description>File Connector Project_Library Files_coe_fileconnector_stax_wstx-asl-3.2.3.jar</Description>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-03-01T12:21:40.699</CreationDate>
+			<Notes/>
+			<DependsOnJAR>
+				<uri
+					id="000c2902-72aa-11e0-e87f-bc252f2c5d55"
+					path="File Connector Project/Library Files/coe/fileconnector/stax/wstx-asl-3.2.3.jar"
+					type="com.cordys.cws.documenttypes.javaarchive.JavaArchiveBinary"
+				/>
+			</DependsOnJAR>
+		</JavaArchiveBinaryDependency>
+		<JavaArchiveBinaryDependency
+			type="com.cordys.cws.documenttypes.javaarchivesource.JavaArchiveBinaryDependency"
+			RuntimeDocumentID="000c2902-72aa-11e0-e87f-c688f95716c9">
+			<DocumentID>000c2902-72aa-11e0-e87f-c688f95216c8</DocumentID>
+			<Name>File Connector Project_Library Files_coe_fileconnector_stax_stax2-2.1.jar</Name>
+			<Description>File Connector Project_Library Files_coe_fileconnector_stax_stax2-2.1.jar</Description>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-03-01T12:21:29.384</CreationDate>
+			<Notes/>
+			<DependsOnJAR>
+				<uri
+					id="000c2902-72aa-11e0-e87f-bc31873f1d59"
+					path="File Connector Project/Library Files/coe/fileconnector/stax/stax2-2.1.jar"
+					type="com.cordys.cws.documenttypes.javaarchive.JavaArchiveBinary"
+				/>
+			</DependsOnJAR>
+		</JavaArchiveBinaryDependency>
+		<JavaArchiveBinaryDependency
+			type="com.cordys.cws.documenttypes.javaarchivesource.JavaArchiveBinaryDependency"
+			RuntimeDocumentID="000c2902-72aa-11e0-e87f-c688f97156ce">
+			<DocumentID>000c2902-72aa-11e0-e87f-c688f96b16cd</DocumentID>
+			<Name>File Connector Project_Library Files_coe_fileconnector_stax_stax-api-1.0.jar</Name>
+			<Description>File Connector Project_Library Files_coe_fileconnector_stax_stax-api-1.0.jar</Description>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-03-01T12:21:19.266</CreationDate>
+			<Notes/>
+			<DependsOnJAR>
+				<uri
+					id="000c2902-72aa-11e0-e87f-bc31df2e5d5d"
+					path="File Connector Project/Library Files/coe/fileconnector/stax/stax-api-1.0.jar"
+					type="com.cordys.cws.documenttypes.javaarchive.JavaArchiveBinary"
+				/>
+			</DependsOnJAR>
+		</JavaArchiveBinaryDependency>
+		<JavaArchiveBinaryDependency
+			type="com.cordys.cws.documenttypes.javaarchivesource.JavaArchiveBinaryDependency"
+			RuntimeDocumentID="000c2902-72aa-11e0-e880-b1732416565c">
+			<DocumentID>000c2902-72aa-11e0-e880-b1732411565b</DocumentID>
+			<Name>File Connector Project_Library Files_coe_fileconnector_coelib.jar</Name>
+			<Description>File Connector Project_Library Files_coe_fileconnector_coelib.jar</Description>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-03-01T13:25:08.172</CreationDate>
+			<Notes/>
+			<DependsOnJAR>
+				<uri
+					id="000c2902-72aa-11e0-e87f-bc31ff7c5d61"
+					path="File Connector Project/Library Files/coe/fileconnector/coelib.jar"
+					type="com.cordys.cws.documenttypes.javaarchive.JavaArchiveBinary"
+				/>
+			</DependsOnJAR>
+		</JavaArchiveBinaryDependency>
+	</Dependencies>
+	<SourceFolder>
+		<uri
+			id="000c2902-72aa-11e0-e87e-eb67cff39f70"
+			path="File Connector Project/src"
+			type="com.cordys.cws.runtime.types.folder.StudioFolder"
+		/>
+	</SourceFolder>
+</JavaArchiveSource>

@@ -1,0 +1,44 @@
+
+<ApplicationConnectorDesigntime
+	type="com.cordys.applicationconnector.ApplicationConnectorDesigntime"
+	typeVersion="0014C25C-F38B-71DF-A966-2C0BB1243A56"
+	RuntimeDocumentID="000c2902-72aa-11e0-e87f-c688f862169d">
+	<DocumentID>000c2902-72aa-11e0-e87f-c688f85d169c</DocumentID>
+	<Name>File Connector</Name>
+	<Description>File Connector</Description>
+	<CreatedBy>srkrishnan</CreatedBy>
+	<CreationDate>2011-03-01T12:31:43.814</CreationDate>
+	<Notes/>
+	<LoggerCategoryGroups>
+		<loggercategory
+			xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/"
+			xmlns=""
+		/>
+	</LoggerCategoryGroups>
+	<StartupDependencies>
+		<startupDependency
+			xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/"
+			xmlns=""
+		/>
+	</StartupDependencies>
+	<SupportsJVMSharing>true</SupportsJVMSharing>
+	<ClassPath>coe/fileconnector/fileconnector.jar;coe/fileconnector/coelib.jar;coe/fileconnector/stax/stax2-2.1.jar;coe/fileconnector/stax/wstx-asl-3.2.3.jar;coe/fileconnector/stax/stax-api-1.0.jar;</ClassPath>
+	<ImplementationClass>com.cordys.coe.ac.fileconnector.FileConnector</ImplementationClass>
+	<TypeImplementationMappings/>
+	<PropertyPage>
+		<uri
+			id="000c2902-72aa-11e0-e87f-dc00bfc0dfb1"
+			path="File Connector Project/Web Files/coe/fileconnector/ac/fileconnectorconfig.html"
+			type="com.cordys.cws.documenttypes.hypertextmarkup.Html"
+		/>
+	</PropertyPage>
+	<MetadataPage/>
+	<ConfigurationPage/>
+	<Image>
+		<uri
+			id="000c2902-72aa-11e0-e87f-fbc158f59fa6"
+			path="File Connector Project/Web Files/wcp/images/admin/configurationconnector.gif"
+			type="com.cordys.cws.documenttypes.image.Gif"
+		/>
+	</Image>
+</ApplicationConnectorDesigntime>

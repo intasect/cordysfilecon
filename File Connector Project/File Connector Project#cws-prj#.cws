@@ -1,0 +1,42 @@
+
+<Project
+	type="com.cordys.cws.documenttypes.project.Project"
+	typeVersion="0019B980-5ADC-71DF-9C5A-1C9DE0779704"
+	RuntimeDocumentID="000c2902-72aa-11e0-e87e-eb67d1659fae">
+	<DocumentID>000c2902-72aa-11e0-e87e-eb67d1609fad</DocumentID>
+	<Name>File Connector Project</Name>
+	<Description>File Connector Project</Description>
+	<CreatedBy>srkrishnan</CreatedBy>
+	<CreationDate>2011-03-01T11:33:56.324</CreationDate>
+	<Notes/>
+	<NamespacePrefix></NamespacePrefix>
+	<SourceFolder>
+		<uri
+			id="000c2902-72aa-11e0-e87e-eb67d1555fab"
+			path="File Connector Project"
+			type="com.cordys.cws.runtime.types.folder.StudioFolder"
+		/>
+	</SourceFolder>
+	<ISVPackageInfo>
+		<ISVPackageInfo
+			type="com.cordys.cws.packaging.isvp.ISVPackageInfo"
+			RuntimeDocumentID="000c2902-72aa-11e0-e87e-eb67d1451fa8">
+			<DocumentID>000c2902-72aa-11e0-e87e-eb67d1401fa7</DocumentID>
+			<Name>Cordys File Connector Project</Name>
+			<Description>Cordys File Connector Project</Description>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-03-01T11:33:56.324</CreationDate>
+			<Notes/>
+			<ISVPackageFileName>Cordys File Connector Project 1.0.0</ISVPackageFileName>
+			<BuildNumber>0</BuildNumber>
+			<Version>1.0</Version>
+			<PackageForRuntime>true</PackageForRuntime>
+			<ISVPackageOwner>Cordys</ISVPackageOwner>
+			<Product>File Connector Project</Product>
+			<PostISVLoaderInformation/>
+			<LicenseAgreement/>
+			<ThirdPartyAgreement/>
+		</ISVPackageInfo>
+	</ISVPackageInfo>
+	<RuntimeQualifiedName/>
+</Project>
