@@ -1,0 +1,19 @@
+
+<WebSource
+	type="com.cordys.cws.documenttypes.websource.WebSource"
+	RuntimeDocumentID="000c2902-72aa-11e0-e87f-c688f8c396b0">
+	<DocumentID>000c2902-72aa-11e0-e87f-c688f8be96af</DocumentID>
+	<Name>File Connector Web Library Definition</Name>
+	<Description>File Connector Web Library Definition</Description>
+	<CreatedBy>srkrishnan</CreatedBy>
+	<CreationDate>2011-03-01T12:25:32.584</CreationDate>
+	<Notes/>
+	<NamespacePrefix></NamespacePrefix>
+	<SourceFolder>
+		<uri
+			id="000c2902-72aa-11e0-e87f-c688f919d6bd"
+			path="File Connector Project/Web Files"
+			type="com.cordys.cws.runtime.types.folder.StudioFolder"
+		/>
+	</SourceFolder>
+</WebSource>

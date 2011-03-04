@@ -1,0 +1,16 @@
+
+<Solution
+	type="com.cordys.cws.documenttypes.solution.Solution"
+	RuntimeDocumentID="000c2902-72aa-11e0-e87e-eb67d1a55fb9">
+	<DocumentID>000c2902-72aa-11e0-e87e-eb67d19f1fb8</DocumentID>
+	<Name>File Connector Solution</Name>
+	<Description>File Connector Solution</Description>
+	<CreatedBy>srkrishnan</CreatedBy>
+	<CreationDate>2011-03-01T11:33:43.01</CreationDate>
+	<Notes/>
+	<Projects>
+		<uri
+			id="000c2902-72aa-11e0-e87e-eb67d1609fad"
+		/>
+	</Projects>
+</Solution>

@@ -1,0 +1,20 @@
+
+<XMLStoreSource
+	type="com.cordys.xmlstore.sourceroot.XMLStoreSource"
+	RuntimeDocumentID="000c2902-72aa-11e0-e8cb-b4f3098b97d9">
+	<DocumentID>000c2902-72aa-11e0-e8cb-b4f3098557d8</DocumentID>
+	<Name>File Connector XML Store Definition</Name>
+	<Description>File Connector XML Store Definition</Description>
+	<CreatedBy>srkrishnan</CreatedBy>
+	<CreationDate>2011-03-04T13:12:20.529</CreationDate>
+	<Notes/>
+	<NamespacePrefix></NamespacePrefix>
+	<SecurityDescriptor/>
+	<SourceFolder>
+		<uri
+			id="000c2902-72aa-11e0-e8cb-b4f309c797e5"
+			path="File Connector Project/XMLStore"
+			type="com.cordys.cws.runtime.types.folder.StudioFolder"
+		/>
+	</SourceFolder>
+</XMLStoreSource>
