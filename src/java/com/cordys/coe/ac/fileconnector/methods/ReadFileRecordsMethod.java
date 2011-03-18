@@ -202,9 +202,18 @@ public class ReadFileRecordsMethod
         boolean bValidateOnly = XmlUtils.getBooleanParameter(requestNode, PARAM_VALIDATEONLY);
         boolean bUseTupleOld = XmlUtils.getBooleanParameter(requestNode, PARAM_USETUPLEOLD);
 
+        int iSheetNumber=-1;
         if (lOffset > Integer.MAX_VALUE) {
             throw new FileException("Files bigger than 2GB are not supported.");
         }
+
+        if (sFileType.equalsIgnoreCase("Excel")) { //Check for Excel File Type to remove sheetindex (filename#sheetno)
+            if(sFileName.contains("#"))
+            {
+                iSheetNumber=Integer.parseInt(sFileName.substring(sFileName.lastIndexOf("#")+1));
+                sFileName=sFileName.substring(0, sFileName.lastIndexOf("#"));
+            }
+         }
 
         // Create File objects for the source and destination files
         File fFile = new File(sFileName);
@@ -247,7 +256,7 @@ public class ReadFileRecordsMethod
             if (sFileType.equalsIgnoreCase("Excel")) { //Check for Excel File Type
                 //read excel file
                 iResultNode = dDoc.createElement("data");
-                ExcelRead.readall(sFileName, dDoc, iResultNode, -1, (int) lOffset, iNumRecords, -1, -1);
+                ExcelRead.readall(sFileName, dDoc, iResultNode, iSheetNumber, (int) lOffset, iNumRecords, -1, -1);
             } else { //For other file types
                 // Create the validator object
                 RecordValidator rvValidator = new RecordValidator(vcConfig);
@@ -257,13 +266,10 @@ public class ReadFileRecordsMethod
                 long lCurrentFileOffset = lOffset;
 
 
-                 //testing for record offset
-                //int iCurrentRecord = iStartRecordNumber; // Note that this is relative to the start
+                 
+                int iCurrentRecord = iStartRecordNumber; // Note that this is relative to the start
                 // offset.
-                lCurrentFileOffset=0;
-                int iCurrentRecord =(int)lOffset;
-                //end testing
-
+                
                 // If we are returning the records, create the root element for them.
                 if (!bValidateOnly) {
                     iResNode = dDoc.createElement("data");
