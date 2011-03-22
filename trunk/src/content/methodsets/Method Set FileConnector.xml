@@ -951,6 +951,13 @@
 										name="usetupleold"
 										default="false"
 									/>
+									<xsd:element
+										type="xsd:boolean"
+										maxOccurs="1"
+										minOccurs="0"
+										name="continueonerror"
+										default="false"
+									/>
 								</xsd:sequence>
 							</xsd:complexType>
 						</xsd:element>
@@ -958,6 +965,21 @@
 							name="ReadFileRecordsResponse">
 							<xsd:complexType>
 								<xsd:sequence>
+									<xsd:element
+										name="errorrecords"
+										maxOccurs="1"
+										minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element
+													name="errorData"
+													type="xsd:string"
+													maxOccurs="unbounded"
+													minOccurs="0"
+												/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
 									<xsd:element
 										name="endoffset"
 										type="xsd:integer"

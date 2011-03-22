@@ -13,7 +13,8 @@
     </template>
     <body>
         <release description="Development release" version="@NEXT@">
-				</release>
+			<action dev="kdinesh" type="add">ReadFileRecords method includes the probable error records in the response.</action>
+		</release>
 <release date="2011-02-19" description="Development release" version="1.2.18">
             <action dev="phanisrinivas" type="add">Implemented CreateDirectory webservice</action>
             <action dev="pgussow" type="fix">Fixed the configuration page to be compatible with BOP4.</action>

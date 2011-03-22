@@ -27,6 +27,7 @@ import com.cordys.coe.ac.fileconnector.utils.GeneralUtils;
 import com.cordys.coe.ac.fileconnector.utils.XmlUtils;
 import com.cordys.coe.ac.fileconnector.validator.RecordValidator;
 import com.cordys.coe.ac.fileconnector.validator.ValidatorConfig;
+import com.cordys.coe.ac.fileconnector.validator.RecordValidator.ErrorRecordDetails;
 import com.cordys.coe.util.soap.SOAPWrapper;
 import com.cordys.coe.util.xmlstore.XMLStoreWrapper;
 
@@ -88,6 +89,10 @@ public class ReadFileRecordsMethod
      * Validation only request parameter for ReadFieldRecords.
      */
     private static final String PARAM_VALIDATEONLY = "validateonly";
+    /**
+     * Indicates whether to continue on error or not.
+     */
+    private static final String PARAM_CONTINUEONERROR = "continueonerror";
     /**
      * Contains the FileConnector configuration.
      */
@@ -220,6 +225,7 @@ public class ReadFileRecordsMethod
         long lOffset = XmlUtils.getLongParameter(requestNode, PARAM_OFFSET, true);
         boolean bValidateOnly = XmlUtils.getBooleanParameter(requestNode, PARAM_VALIDATEONLY);
         boolean bUseTupleOld = XmlUtils.getBooleanParameter(requestNode, PARAM_USETUPLEOLD);
+        boolean bContinueOnError = XmlUtils.getBooleanParameter(requestNode, PARAM_CONTINUEONERROR);
 
         if (lOffset > Integer.MAX_VALUE)
         {
@@ -268,6 +274,7 @@ public class ReadFileRecordsMethod
 
             // Create the validator object
             RecordValidator rvValidator = new RecordValidator(vcConfig);
+            rvValidator.setContinueOnError(bContinueOnError);
 
             boolean bSuccess = false;
             int iResNode = 0;
@@ -321,9 +328,9 @@ public class ReadFileRecordsMethod
                                 while (Node.getNumChildren(iNode) > 0)
                                 {
                                     int iChildNode = Node.getFirstChild(iNode);
-
+                                    
                                     Node.unlink(iChildNode);
-                                    Node.appendToChildren(iChildNode, iOldNode);
+                                   	Node.appendToChildren(iChildNode, iOldNode);
                                 }
 
                                 // Add the old node to the tuple node.
@@ -338,9 +345,11 @@ public class ReadFileRecordsMethod
                             {
                                 LOGGER.debug("End of file reached");
                             }
-
+                            if(! (bContinueOnError && "true".equals(Node.getAttribute(iNode, "error"))) )
+                            {
+                            	atEndOfFile = true;//Make sure that there is no infinite loop ever
+                            }
                             Node.delete(iNode);
-                            atEndOfFile = true;
                         }
                     } else {
                         // For validation only we need to check if the record count has changed.
@@ -349,7 +358,6 @@ public class ReadFileRecordsMethod
                             {
                                 LOGGER.debug("End of file reached");
                             }
-
                             Node.delete(iNode);
                             atEndOfFile = true;
                         }
@@ -361,19 +369,25 @@ public class ReadFileRecordsMethod
                     }
 
                     // Get the actual offset where the parsing stopped.
-                    lCurrentFileOffset = w.fcsInputSeq.getFileOffset(rvValidator
-                                                                     .getValidationEndPosition());
+                    int iValidationEndPosition = rvValidator.getValidationEndPosition();
+
+                    long lEndRecordFileOffset = w.fcsInputSeq.getFileOffset(iValidationEndPosition < 
+                    		0 ? (iValidationEndPosition * -1) : iValidationEndPosition);
+                    
+                    lCurrentFileOffset = lEndRecordFileOffset;
 
                     // Get the end record number where the parsing stopped.
                     iCurrentRecord = rvValidator.getEndRecordNumber();
 
+                    
+                    
                     // If we are at the end of the file, stop.
                     if (atEndOfFile)
                     {
                         break;
                     }
                 }
-
+                addErrorRecords(rvValidator.getErrorRecordDetails(), req);
                 bSuccess = true;
             }
             catch (Exception e)
@@ -449,7 +463,28 @@ public class ReadFileRecordsMethod
         return EResult.FINISHED;
     }
 
-    /**
+	/**
+     * Adds Error records to the response.
+     *
+     * @param  lErrorRecordDetailsList  List of all error records.
+	 *
+	 * @param  req  Current SOAP request.
+     */
+    private void addErrorRecords(List<ErrorRecordDetails> lErrorRecordDetailsList, ISoapRequestContext req ) {
+    	Document doc = req.getNomDocument();
+		int iErrorRecodsNodes = doc.createElement("errorrecords");
+		if( lErrorRecordDetailsList != null )
+		{
+    		Iterator<ErrorRecordDetails> iErrorRecordIter = lErrorRecordDetailsList.iterator();
+    		while (iErrorRecordIter.hasNext()) {
+				ErrorRecordDetails erdErroneous = (ErrorRecordDetails) iErrorRecordIter.next();
+        		Node.appendToChildren(erdErroneous.toXML(doc), iErrorRecodsNodes);
+			}
+		}
+		req.addResponseElement(iErrorRecodsNodes);
+	}
+
+	/**
      * @see  com.cordys.coe.ac.fileconnector.IFileConnectorMethod#getMethodName()
      */
     public String getMethodName()
