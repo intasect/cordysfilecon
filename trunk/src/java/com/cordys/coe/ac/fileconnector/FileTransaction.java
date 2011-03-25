@@ -17,26 +17,21 @@
  */
  package com.cordys.coe.ac.fileconnector;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.cordys.coe.ac.fileconnector.exception.FileException;
 import com.cordys.coe.exception.GeneralException;
 import com.cordys.coe.util.XMLProperties;
-
 import com.eibus.connector.nom.Connector;
-
 import com.eibus.security.ac.AccessControlObject;
-
 import com.eibus.soap.ApplicationTransaction;
 import com.eibus.soap.BodyBlock;
-
+import com.eibus.soap.fault.Fault;
 import com.eibus.util.logger.CordysLogger;
-import com.eibus.util.logger.Severity;
-
 import com.eibus.xml.nom.Document;
 import com.eibus.xml.nom.Find;
 import com.eibus.xml.nom.Node;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * FileConnector connector transaction object. Receives the SOAP request and passes it on to the
@@ -189,7 +184,7 @@ public class FileTransaction
                 LOGGER.warn(e, LogMessages.TRANSACTION_FAILED);
             }
 
-            bbResponse.createSOAPFault("Server.Exception", e.toString());
+            bbResponse.createSOAPFault(Fault.Codes.SERVER, LogMessages.TRANSACTION_FAILED, e.toString());
 
             return false;
         }
