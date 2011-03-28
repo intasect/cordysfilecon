@@ -202,18 +202,12 @@ public class ReadFileRecordsMethod
         boolean bValidateOnly = XmlUtils.getBooleanParameter(requestNode, PARAM_VALIDATEONLY);
         boolean bUseTupleOld = XmlUtils.getBooleanParameter(requestNode, PARAM_USETUPLEOLD);
 
-        int iSheetNumber=-1;
+        int iSheetNumber = -1;
         if (lOffset > Integer.MAX_VALUE) {
             throw new FileException("Files bigger than 2GB are not supported.");
         }
 
-        if (sFileType.equalsIgnoreCase("Excel")) { //Check for Excel File Type to remove sheetindex (filename#sheetno)
-            if(sFileName.contains("#"))
-            {
-                iSheetNumber=Integer.parseInt(sFileName.substring(sFileName.lastIndexOf("#")+1));
-                sFileName=sFileName.substring(0, sFileName.lastIndexOf("#"));
-            }
-         }
+
 
         // Create File objects for the source and destination files
         File fFile = new File(sFileName);
@@ -234,6 +228,7 @@ public class ReadFileRecordsMethod
         // Fetch the validator configuration object.
         ValidatorConfig vcConfig = getConfiguration(req);
 
+
         Document dDoc = req.getNomDocument();
         int iResultNode = 0;
         List<FileException> lErrorList = new LinkedList<FileException>();
@@ -253,23 +248,28 @@ public class ReadFileRecordsMethod
             assert w.fcsInputSeq != null;
 
 
+
             if (sFileType.equalsIgnoreCase("Excel")) { //Check for Excel File Type
                 //read excel file
+                System.out.println(vcConfig.mConfigMap.get("excel").sSheetindex);
                 iResultNode = dDoc.createElement("data");
-                ExcelRead.readall(sFileName, dDoc, iResultNode, iSheetNumber, (int) lOffset, iNumRecords, -1, -1);
+                if (vcConfig.mConfigMap.get("excel").sSheetindex != null) {
+                    iSheetNumber = Integer.parseInt(vcConfig.mConfigMap.get("excel").sSheetindex);
+                }
+                ExcelRead.readall(vcConfig,sFileName, dDoc, iResultNode, iSheetNumber, (int) lOffset, iNumRecords, -1, -1);
             } else { //For other file types
+
                 // Create the validator object
                 RecordValidator rvValidator = new RecordValidator(vcConfig);
-
                 boolean bSuccess = false;
                 int iResNode = 0;
                 long lCurrentFileOffset = lOffset;
 
 
-                 
+
                 int iCurrentRecord = iStartRecordNumber; // Note that this is relative to the start
                 // offset.
-                
+
                 // If we are returning the records, create the root element for them.
                 if (!bValidateOnly) {
                     iResNode = dDoc.createElement("data");
@@ -382,7 +382,7 @@ public class ReadFileRecordsMethod
             req.addResponseElement("recordsread", Long.toString(iNumberOfReadRecords));
             req.addResponseElement("endoffile", Boolean.toString(lFileSize != -1 && lEndFileOffset >= lFileSize));
         }
-            
+
         // Add the errors to the reply
         if (lErrorList.size() > 0) {
             int iErrorsNode = dDoc.createElement("errors");
