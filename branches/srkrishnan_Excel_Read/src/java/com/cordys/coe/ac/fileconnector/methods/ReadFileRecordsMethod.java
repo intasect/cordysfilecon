@@ -256,7 +256,7 @@ public class ReadFileRecordsMethod
                 if (vcConfig.mConfigMap.get("excel").sSheetindex != null) {
                     iSheetNumber = Integer.parseInt(vcConfig.mConfigMap.get("excel").sSheetindex);
                 }
-                ExcelRead.readall(vcConfig,sFileName, dDoc, iResultNode, iSheetNumber, (int) lOffset, iNumRecords, -1, -1);
+                ExcelRead.readall(vcConfig,bUseTupleOld,sFileName, dDoc, iResultNode, iSheetNumber, (int) lOffset, iNumRecords, -1, -1);
             } else { //For other file types
 
                 // Create the validator object
