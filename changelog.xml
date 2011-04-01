@@ -13,8 +13,9 @@
     </template>
     <body>
         <release description="Development release" version="@NEXT@">
-				</release>
-<release date="2011-02-19" description="Development release" version="1.2.18">
+			<action dev="srkrishnan" type="add">ReadFileRecords method includes a feature to read Excel files.</action>
+		</release>
+		<release date="2011-02-19" description="Development release" version="1.2.18">
             <action dev="phanisrinivas" type="add">Implemented CreateDirectory webservice</action>
             <action dev="pgussow" type="fix">Fixed the configuration page to be compatible with BOP4.</action>
             <action dev="pgussow" type="fix">Fixed issue 8: drivemappings don't work anymore</action>
