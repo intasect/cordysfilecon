@@ -251,12 +251,15 @@ public class ReadFileRecordsMethod
 
             if (sFileType.equalsIgnoreCase("Excel")) { //Check for Excel File Type
                 //read excel file
-                System.out.println(vcConfig.mConfigMap.get("excel").sSheetindex);
-                iResultNode = dDoc.createElement("data");
                 if (vcConfig.mConfigMap.get("excel").sSheetindex != null) {
                     iSheetNumber = Integer.parseInt(vcConfig.mConfigMap.get("excel").sSheetindex);
                 }
-                ExcelRead.readall(vcConfig,bUseTupleOld,sFileName, dDoc, iResultNode, iSheetNumber, (int) lOffset, iNumRecords, -1, -1);
+                ExcelRead.validate(vcConfig, sFileName, dDoc, iResultNode, iSheetNumber,(int) lOffset, (int) lOffset+iNumRecords-1, lErrorList);
+
+                if (lErrorList.isEmpty() && !bValidateOnly) {
+                    iResultNode = dDoc.createElement("data");
+                    ExcelRead.readall(vcConfig, bUseTupleOld, sFileName, dDoc, iResultNode, iSheetNumber, (int) lOffset, (int) lOffset+iNumRecords-1, -1, -1);
+                }
             } else { //For other file types
 
                 // Create the validator object
@@ -377,7 +380,11 @@ public class ReadFileRecordsMethod
             closeFile(w);
         }
 
-        if (!sFileType.equalsIgnoreCase("Excel")) { //Check for files not of Type Excel
+        if (sFileType.equalsIgnoreCase("Excel")) { //Check for files of Type Excel
+            req.addResponseElement("endoffset", "n/a");
+            req.addResponseElement("recordsread", ""+ExcelRead.getRecordsread());
+            req.addResponseElement("endoffile", ""+ExcelRead.getEndoffile());
+        } else {
             req.addResponseElement("endoffset", Long.toString(lEndFileOffset));
             req.addResponseElement("recordsread", Long.toString(iNumberOfReadRecords));
             req.addResponseElement("endoffile", Boolean.toString(lFileSize != -1 && lEndFileOffset >= lFileSize));
