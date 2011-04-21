@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<role
+	name="File Manager"
+	description="File Manager">
+	<menu>/Cordys/WCP/Menu/Cordys/FileConnector/File Connector Administrator</menu>
+</role>
