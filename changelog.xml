@@ -13,6 +13,8 @@
     </template>
     <body>
         <release description="Development release" version="@NEXT@">
+				</release>
+<release date="2011-04-21" description="Development release" version="1.2.19">
 			<action dev="srkrishnan" type="add">ReadFileRecords method includes a feature to read Excel files.</action>
 		</release>
 		<release date="2011-02-19" description="Development release" version="1.2.18">

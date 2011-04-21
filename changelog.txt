@@ -1,3 +1,6 @@
+version 1.2.19 (released 2011-04-21)
+-add: ReadFileRecords method includes a feature to read Excel files.
+
 version 1.2.18 (released 2011-02-19)
 -add: Implemented CreateDirectory webservice
 -fix: Fixed the configuration page to be compatible with BOP4.
