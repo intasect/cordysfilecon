@@ -64,7 +64,7 @@ public class GetListOfFilesMethod_Docs_Test extends FileConnectorTestCase
                                                     new File(tempFolder, "test2.bin").getAbsolutePath());
         int response = execute("absolute", null);
         
-        XPathHelper.setNodeValue(response, XPath.getXPathInstance("//file/@modified"), null, "", true);
+        XPathHelper.setNodeValue(response, new XPath("//file/@modified"), null, "", true);
         
         assertNodesEqual(parse(outputSoapXml), response, true);
         
@@ -100,7 +100,7 @@ public class GetListOfFilesMethod_Docs_Test extends FileConnectorTestCase
                                                     "test2.bin");
         int response = execute("relative", null);
         
-        XPathHelper.setNodeValue(response, XPath.getXPathInstance("//file/@modified"), null, "", true);
+        XPathHelper.setNodeValue(response, new XPath("//file/@modified"), null, "", true);
         
         assertNodesEqual(parse(outputSoapXml), response, true);
         
@@ -131,7 +131,7 @@ public class GetListOfFilesMethod_Docs_Test extends FileConnectorTestCase
                                                     "test1.txt");
         int response = execute("relative", ".*\\.txt");
         
-        XPathHelper.setNodeValue(response, XPath.getXPathInstance("//file/@modified"), null, "", true);
+        XPathHelper.setNodeValue(response, new XPath("//file/@modified"), null, "", true);
         
         assertNodesEqual(parse(outputSoapXml), response, true);
         
@@ -175,10 +175,10 @@ public class GetListOfFilesMethod_Docs_Test extends FileConnectorTestCase
         ISoapRequestContext request = executeMethod(method, inputSoapXml);     
         int response = request.getResponseRootNode();
         
-        XmlUtils.sortNodes(response, XPath.getXPathInstance("//file"), XPath.getXPathInstance("."), null);
+        XmlUtils.sortNodes(response, new XPath("//file"), new XPath("."), null);
         
         // Remove the extra namespace declaration introduced by sorting.
-        int[] nodes = XPath.getXPathInstance("//file").selectElementNodes(response);
+        int[] nodes = new XPath("//file").selectElementNodes(response);
         
         for (int n : nodes)
         {

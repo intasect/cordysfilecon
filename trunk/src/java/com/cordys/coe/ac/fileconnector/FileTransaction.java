@@ -189,7 +189,7 @@ public class FileTransaction
                 LOGGER.warn(e, LogMessages.TRANSACTION_FAILED);
             }
 
-            bbResponse.createSOAPFault(Fault.Codes.SERVER, LogMessages.TRANSACTION_FAILED, e.toString());
+            bbResponse.createSOAPFault("Server.Exception", e.toString());
 
             return false;
         }

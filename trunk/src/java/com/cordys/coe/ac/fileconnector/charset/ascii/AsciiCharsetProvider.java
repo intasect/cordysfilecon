@@ -53,7 +53,7 @@ public class AsciiCharsetProvider extends CharsetProvider
     /**
      * Supported character set objects. Contains only the configured character set.
      */
-    private Set<Charset> sCharsets = new HashSet<Charset>();
+    private Set<AsciiCharset> sCharsets = new HashSet<AsciiCharset>();
 
     /**
      * Creates a new AsciiCharsetProvider object.
@@ -99,13 +99,12 @@ public class AsciiCharsetProvider extends CharsetProvider
         return mcCharset;
     }
 
-
-    /**
+    /* (non-Javadoc)
      * @see java.nio.charset.spi.CharsetProvider#charsets()
      */
     @Override
-
-    public Iterator<Charset> charsets()
+    @SuppressWarnings("unchecked")
+    public Iterator charsets()
     {
         return sCharsets.iterator();
     }
