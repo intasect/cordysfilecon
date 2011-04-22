@@ -464,6 +464,7 @@ public class PerformanceTester
         long executionTime;
         long maxHeapMemory;
         long maxNonheapMemory;
+        String cursorData;
         
         /**
          * @see java.lang.Object#toString()
