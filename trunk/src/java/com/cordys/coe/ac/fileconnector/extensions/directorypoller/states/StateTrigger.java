@@ -65,7 +65,7 @@ public class StateTrigger
     /**
      * XPath expression for finding the parameters from the configuration XML.
      */
-    private static final XPath PARAM_ATTRIB_XPATH = new XPath("//@*[name() = 'FCDP:element-data']");
+    private static final XPath PARAM_ATTRIB_XPATH = XPath.getXPathInstance("//@*[name() = 'FCDP:element-data']");
     /**
      * Contains the file context object.
      */
