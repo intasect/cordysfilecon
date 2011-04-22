@@ -6,9 +6,6 @@ import java.text.MessageFormat;
 import com.cordys.coe.ac.fileconnector.FileConnectorTestCase;
 import com.cordys.coe.ac.fileconnector.ISoapRequestContext;
 import com.cordys.coe.ac.fileconnector.utils.GeneralUtils;
-import com.cordys.coe.util.test.junit.FileTestUtils;
-
-import junit.framework.TestCase;
 
 public class CreateDirectoryMethodTest extends FileConnectorTestCase
 {

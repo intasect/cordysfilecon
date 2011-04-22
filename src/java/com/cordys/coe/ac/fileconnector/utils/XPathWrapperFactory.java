@@ -175,7 +175,7 @@ public class XPathWrapperFactory
 
         try
         {
-            return new XPath(xpath);
+            return XPath.getXPathInstance(xpath);
         }
         catch (Exception e)
         {
