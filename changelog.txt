@@ -1,3 +1,8 @@
+version 1.2.19 (released 2011-04-25)
+-add: ReadFileRecords method includes a feature to read Excel files.
+-add: ReadFileRecords method includes the probable error records in the response.
+-add: Web service / SOAP message can be triggered if an exception occurs in the file poller, which is also configurable.
+
 version 1.2.18 (released 2011-02-19)
 -add: Implemented CreateDirectory webservice
 -fix: Fixed the configuration page to be compatible with BOP4.
