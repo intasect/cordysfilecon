@@ -57,6 +57,16 @@ public class RecordValidator {
      * The validation configuration object.
      */
     protected ValidatorConfig vcConfig = null;
+    
+    /**
+     * Indicates whether to continue on error or not
+     */
+    protected boolean bContinueOnError = false;
+    
+    /**
+     * The list of the unmatched i.e. probable error records
+     */
+    protected List<ErrorRecordDetails> lErrorRecordDetails = null;
 
     /**
      * Creates a new RecordValidator object.
@@ -67,6 +77,19 @@ public class RecordValidator {
         this.vcConfig = vcConfig;
     }
 
+    public void setContinueOnError(boolean bContinueOnError)
+    {
+    	this.bContinueOnError = bContinueOnError;
+    }
+    public boolean getContinueOnError()
+    {
+    	return this.bContinueOnError;
+    }
+    
+    public List<ErrorRecordDetails> getErrorRecordDetails() 
+    {
+    	return this.lErrorRecordDetails;
+    }
     /**
      * Creates a new configuration object from the XML structure.
      *
@@ -137,14 +160,18 @@ public class RecordValidator {
         List<List<String>> lReadRecordFieldValuesList = new LinkedList<List<String>>(); // Contains List-elements of record field values for matched records.
 
         iCurrentRecordNumber = iStartRecordNumber;
+        int iErrorPosition = 0;
 
+      //Contains the probable error record details for unmatched records
+        LinkedList<ErrorRecordDetails> lErrorRecordDetailsList = null;
+        
         // Scan the sequence until we have validated all the configured records,
         // or we scanned past the end.
         while (iInputPos < csInput.length()) {
             RecordType rtMatchedRecord = null;
             List<String> lResFieldValueList = null; // Contains the read field values for the
             // matching record.
-
+            
             // Try to match all the records until we find a record that matches the current
             // input and the file type record sequence pattern.
             for (Iterator<RecordType> iter = ftFileType.lRecordList.iterator(); iter.hasNext();) {
@@ -156,12 +183,26 @@ public class RecordValidator {
                 if (dResDoc != null) {
                     lResFieldValueList = new LinkedList<String>();
                 }
+                
+                if( bContinueOnError )
+                {
+                	if( lErrorRecordDetailsList == null )
+                	{
+                		lErrorRecordDetailsList = new LinkedList<ErrorRecordDetails>();
+                	}
+                }
 
                 // Try to match the record
-                iNextPos = matchRecord(rtRecord, iInputPos, csInput, lResFieldValueList);
+                iNextPos = matchRecord(rtRecord, iInputPos, csInput, lResFieldValueList, lErrorRecordDetailsList);
 
                 if (iNextPos < 0) {
-                    // Match failed, try the next one.
+                	if( iNextPos < -1)
+                	{
+                		//Store the end offset of the failed record.Assumption: no more record sequences configured
+                		iErrorPosition = iNextPos;
+                	}
+                	
+                	// Match failed, try the next one.
                     continue;
                 }
 
@@ -214,12 +255,15 @@ public class RecordValidator {
             // As the previous record failed to match, see the file type record sequence pattern
             // still matches our record list.
             if (!ftFileType.pmPartialRecordMatcher.isCompleteMatch(sbReadRecordNames)) {
-                // The pattern was not matched completely.
-                throw new ValidationException("At line " + iCurrentRecordNumber + " : "
-                        + "No matching record found. "
-                        + "Already read records: " + sbReadRecordNames);
-            }
+            	if( !bContinueOnError )
+            	{
+	                // The pattern was not matched completely.
+	                throw new ValidationException("At line " + iCurrentRecordNumber + " : " +
+	                                              "No matching record found. " +
+	                                              "Already read records: " + sbReadRecordNames);
 
+            	}
+            }
             // Now we have matched the whole record list properly and we can stop matching.
             break;
         }
@@ -243,14 +287,37 @@ public class RecordValidator {
 
                 createRecordNode(rtRecord, lFieldValueList, dResDoc, iResultNode);
             }
+            //Here the error details should be populated if the record did not match
+            if( Node.getNumChildElements(iResultNode) == 0 )
+            {
+            	if( bContinueOnError )
+            	{
+            		if( lErrorRecordDetailsList != null )
+            		{
+	            		Iterator<ErrorRecordDetails> iErrorRecordIter = lErrorRecordDetailsList.iterator();
+	            		while (iErrorRecordIter.hasNext()) {
+							ErrorRecordDetails erdErroneous = (ErrorRecordDetails) iErrorRecordIter.next();
+							erdErroneous.iLineNo = iCurrentRecordNumber;
+							erdErroneous.lStartOffset = iValidationEndPosition;
+		            		createErrorRecordNode(erdErroneous, iResultNode);
+						}
+            		}
+            	}
+            }
         }
 
         iEndRecordNumber = iCurrentRecordNumber;
-        iValidationEndPosition = iInputPos;
+        iValidationEndPosition = (bContinueOnError && iErrorPosition < -1 ) ? (iErrorPosition) : iInputPos;
 
         return iResultNode;
     }
 
+    private void createErrorRecordNode(ErrorRecordDetails erdErroneous, int iResultNode)
+    {
+//    	int iErrorRecordNode = erdErroneous.toXML(Node.getDocument(iResultNode));
+//    	Node.appendToChildren(iErrorRecordNode, iResultNode);
+    	Node.setAttribute(iResultNode, "error", "true");
+    }
     /**
      * Returns the end record number that is the start record number plus number of read records.
      *
@@ -606,6 +673,19 @@ public class RecordValidator {
         return iRecNode;
     }
 
+    private void addErrorRecordDetails(String errorRecordData, List<ErrorRecordDetails> lErrorRecordDetails)
+    {
+    	if( lErrorRecordDetails != null )
+    	{
+    		ErrorRecordDetails erdErroneous = new ErrorRecordDetails();
+    		erdErroneous.sErrorRecord =  errorRecordData;
+    		if( this.lErrorRecordDetails == null )
+    			this.lErrorRecordDetails = new LinkedList<ErrorRecordDetails>();
+    		lErrorRecordDetails.add(erdErroneous);    		
+    		this.lErrorRecordDetails.add(erdErroneous);
+    	}
+    }
+    
     /**
      * Tries to match the record from the input sequence.
      *
@@ -614,19 +694,21 @@ public class RecordValidator {
      * @param   csInput             The input sequence to be matched
      * @param   lResFieldValueList  The list that should receive the matched field values, or null,
      *                              if the record needs to be validated only.
-     *
+     * @param	lErrorRecordDetails The list that should receive the unmatched records/lines
+     * 
      * @return  The position in the input string after the match, or -1 if no match was found.
      *
      * @throws  ValidationException  Thrown if the record was not configured correctly.
      */
     private int matchRecord(RecordType rtRecord, int iInputPos, CharSequence csInput,
-            List<String> lResFieldValueList)
-            throws ValidationException {
+                            List<String> lResFieldValueList, List<ErrorRecordDetails> lErrorRecordDetails)
+                     throws ValidationException
+    {
         // First find the record boundaries based on the record pattern.
         CharSequence csRecordInput;
-        int iRecordStart;
-        int iRecordEnd;
-        int iRecordMatchEnd;
+        int iRecordStart; //The start of the record
+        int iRecordEnd; //The end of the record
+        int iRecordMatchEnd;//The record match end i.e. including the record delimiters
         int iReadPos;
         Matcher mMatcher;
 
@@ -670,12 +752,30 @@ public class RecordValidator {
 
                 if (!mMatcher.find(iReadPos)) {
                     // The field did not match, so the record does not match either.
-                    return -1;
+                    if( bContinueOnError )
+                    {
+                        addErrorRecordDetails(csInput.subSequence(iRecordStart, iRecordMatchEnd).toString(), lErrorRecordDetails);
+                        // The record match failed.
+                        return (-iRecordMatchEnd);
+                    }
+                    else
+                    {
+                    	return -1;
+                    }
                 }
 
                 if (mMatcher.start() != iReadPos) {
                     // The match does not start at the beginning of input.
-                    return -1;
+                    if( bContinueOnError )
+                    {
+                        addErrorRecordDetails(csInput.subSequence(iRecordStart, iRecordMatchEnd).toString(), lErrorRecordDetails);
+                        // The record match failed.
+                        return (-iRecordMatchEnd);
+                    }
+                    else
+                    {
+                    	return -1;
+                    }
                 }
 
                 iReadPos = mMatcher.end();
@@ -686,7 +786,7 @@ public class RecordValidator {
 
                 if (csRecordInput.length() < (iReadPos + len)) {
                     // Not enough data to read for this field.
-                    return -1;
+                	return bContinueOnError? -iRecordMatchEnd : -1;
                 }
 
                 CharSequence cdFieldData = csRecordInput.subSequence(iReadPos, iReadPos + len);
@@ -695,7 +795,7 @@ public class RecordValidator {
 
                 if (!mMatcher.matches()) {
                     // Field doesn't match.
-                    return -1;
+                	return bContinueOnError? -iRecordMatchEnd : -1;
                 }
 
                 iReadPos += len;
@@ -746,15 +846,21 @@ public class RecordValidator {
                     if (lResFieldValueList != null) {
                         lResFieldValueList.add("");
                     }
-
                     return iRecordMatchEnd;
                 }
             }
-
-            // The record match failed.
-            return -1;
+            
+            if( bContinueOnError )
+            {
+                addErrorRecordDetails(csInput.subSequence(iRecordStart, iRecordMatchEnd).toString(), lErrorRecordDetails);
+                // The record match failed.
+                return (-iRecordMatchEnd);
+            }
+            else
+            {
+            	return -1;
+            }
         }
-
         return iRecordMatchEnd;
     }
 
@@ -852,5 +958,41 @@ public class RecordValidator {
          * The record name string that is used in the record XML structure.
          */
         public String sRecordName;
+    }
+    
+    public static class ErrorRecordDetails
+    {
+    	/**
+    	 * The probable line number of the error record in the source data file
+    	 */
+    	public int iLineNo = -1;
+    	
+    	/**
+    	 * Probable start offset of the error record in the source data file
+    	 */
+    	public long lStartOffset;
+    	
+    	/**
+    	 * Probable end offset of the error record in the source data file
+    	 */
+    	public long lEndOffset;
+    	
+    	/**
+    	 * Probable error record in the source data file
+    	 */
+    	public String sErrorRecord;
+    	
+    	public int toXML(Document doc)
+    	{
+    		int iErrorDetailsNode = 0;
+    		if( doc != null )
+    		{
+        		iErrorDetailsNode = doc.createElementWithParentNS("errorData", sErrorRecord, iErrorDetailsNode);
+        		Node.setAttribute(iErrorDetailsNode, "lineNumber", String.valueOf(iLineNo));
+        		Node.setAttribute(iErrorDetailsNode, "startOffset", String.valueOf(lStartOffset));
+        		Node.setAttribute(iErrorDetailsNode, "endOffset", String.valueOf(lEndOffset));
+    		}
+    		return iErrorDetailsNode;
+    	}
     }
 }

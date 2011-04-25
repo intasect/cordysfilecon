@@ -204,7 +204,7 @@ public class XPathWrapper
      */
     public void setXPath(String xpath)
     {
-        this.xpath = new XPath(xpath);
+        this.xpath = XPath.getXPathInstance(xpath);
         this.xpathString = xpath;
     }
 

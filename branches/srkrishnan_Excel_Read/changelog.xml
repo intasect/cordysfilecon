@@ -11,11 +11,14 @@
 			</action>
         </release>
     </template>
+    </template>
     <body>
         <release description="Development release" version="@NEXT@">
 			<action dev="srkrishnan" type="add">ReadFileRecords method includes a feature to read Excel files.</action>
+			<action dev="kdinesh" type="add">ReadFileRecords method includes the probable error records in the response.</action>
+			<action dev="nicolaixfriis" type="add">Web service / SOAP message can be triggered if an exception occurs in the file poller, which is also configurable.</action>
 		</release>
-		<release date="2011-02-19" description="Development release" version="1.2.18">
+<release date="2011-02-19" description="Development release" version="1.2.18">
             <action dev="phanisrinivas" type="add">Implemented CreateDirectory webservice</action>
             <action dev="pgussow" type="fix">Fixed the configuration page to be compatible with BOP4.</action>
             <action dev="pgussow" type="fix">Fixed issue 8: drivemappings don't work anymore</action>

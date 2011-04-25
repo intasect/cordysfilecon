@@ -79,6 +79,10 @@ public class Folder
      */
     private int parametersNode;
     /**
+     * Holds the folder XML node for the configuration
+     */
+    private int folderNode;
+    /**
      * Tracking time for changes in the file before it is moved to the processing folder.
      */
     private long trackTime;
@@ -112,6 +116,7 @@ public class Folder
            throws FileException
     {
         this();
+        this.folderNode = Node.duplicate(folderNode);
         parseFromXML(folderNode, relFolder, defaultUserDn);
     }
 
@@ -124,6 +129,11 @@ public class Folder
         {
             Node.delete(parametersNode);
             parametersNode = 0;
+        }
+        if (folderNode != 0)
+        {
+            Node.delete(folderNode);
+            folderNode = 0;
         }
     }
 
@@ -367,6 +377,16 @@ public class Folder
     public int getParametersNode()
     {
         return parametersNode;
+    }
+    
+    /**
+     * Returns the folderNode.
+     *
+     * @return  Returns the folderNode.
+     */
+    public int getFolderNode()
+    {
+        return folderNode;
     }
 
     /**
