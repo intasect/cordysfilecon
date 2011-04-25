@@ -26,13 +26,6 @@
 	      <location>coe/fileconnector/stax/stax2-2.1.jar</location>
 	      <location>coe/fileconnector/stax/wstx-asl-3.2.3.jar</location>
 	      <location>coe/fileconnector/stax/stax-api-1.0.jar</location>
-		  <location>coe/fileconnector/excel/dom4j-1.6.1.jar</location>
-		  <location>coe/fileconnector/excel/geronimo-stax-api_1.0_spec-1.0.jar</location>
-		  <location>coe/fileconnector/excel/poi-3.7.jar</location>
-		  <location>coe/fileconnector/excel/poi-ooxml-3.7.jar</location>
-		  <location>coe/fileconnector/excel/poi-ooxml-schemas-3.7-20101029.jar</location>
-		  <location>coe/fileconnector/excel/poi-scratchpad-3.7-20101029.jar</location>
-		  <location>coe/fileconnector/excel/xmlbeans-2.3.0.jar</location>
 	    </classpath>		
 		<spycategory/>		
 	</step>
