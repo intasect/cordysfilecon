@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- package com.cordys.coe.ac.fileconnector.validator;
+package com.cordys.coe.ac.fileconnector.validator;
 
 import com.cordys.coe.ac.fileconnector.exception.ValidationException;
 import com.cordys.coe.ac.fileconnector.utils.PartialMatcher;
@@ -35,8 +35,8 @@ import java.util.regex.Pattern;
  *
  * @author  mpoyhone
  */
-public class RecordValidator
-{
+public class RecordValidator {
+
     /**
      * The current record number while scanning records.
      */
@@ -73,8 +73,7 @@ public class RecordValidator
      *
      * @param  vcConfig  The validator configuration object.
      */
-    public RecordValidator(ValidatorConfig vcConfig)
-    {
+    public RecordValidator(ValidatorConfig vcConfig) {
         this.vcConfig = vcConfig;
     }
 
@@ -102,9 +101,8 @@ public class RecordValidator
      * @throws  IllegalArgumentException  Thrown if there was errors in the configuration.
      */
     public static ValidatorConfig createConfigration(ValidatorConfig vcConfig,
-                                                     int iConfigNode)
-                                              throws IllegalArgumentException
-    {
+            int iConfigNode)
+            throws IllegalArgumentException {
         // Parse the configuration node.
         readConfiguration(vcConfig, iConfigNode);
 
@@ -124,8 +122,7 @@ public class RecordValidator
      * @throws  ValidationException  Thrown if the validation failed.
      */
     public int parseAndValidateRecord(String sFileType, CharSequence csInput, Document dResDoc)
-                               throws ValidationException
-    {
+            throws ValidationException {
         return parseAndValidateRecord(sFileType, csInput, 0, dResDoc);
     }
 
@@ -143,20 +140,18 @@ public class RecordValidator
      * @throws  ValidationException  Thrown if the validation failed.
      */
     public int parseAndValidateRecord(String sFileType, CharSequence csInput, int iInputPos,
-                                      Document dResDoc)
-                               throws ValidationException
-    {
+            Document dResDoc)
+            throws ValidationException {
         assert (vcConfig != null) && (vcConfig.mConfigMap != null);
 
         // Get the file type object is should be used for validation.
         FileType ftFileType = vcConfig.mConfigMap.get(sFileType);
 
-        if (ftFileType == null)
-        {
+        if (ftFileType == null) {
             throw new ValidationException("Invalid file type " + sFileType);
         }
-        
-        if (! ftFileType.bAllowEmptyFiles && csInput.length() == 0) {
+
+        if (!ftFileType.bAllowEmptyFiles && csInput.length() == 0) {
             throw new ValidationException("File is empty.");
         }
 
@@ -172,23 +167,20 @@ public class RecordValidator
         
         // Scan the sequence until we have validated all the configured records,
         // or we scanned past the end.
-        while (iInputPos < csInput.length())
-        {
+        while (iInputPos < csInput.length()) {
             RecordType rtMatchedRecord = null;
             List<String> lResFieldValueList = null; // Contains the read field values for the
-                                                    // matching record.
+            // matching record.
             
             // Try to match all the records until we find a record that matches the current
             // input and the file type record sequence pattern.
-            for (Iterator<RecordType> iter = ftFileType.lRecordList.iterator(); iter.hasNext();)
-            {
+            for (Iterator<RecordType> iter = ftFileType.lRecordList.iterator(); iter.hasNext();) {
                 RecordType rtRecord = iter.next();
                 int iNextPos;
 
                 // If we are returning the XML structure, create the field list that
                 // will contain the field values.
-                if (dResDoc != null)
-                {
+                if (dResDoc != null) {
                     lResFieldValueList = new LinkedList<String>();
                 }
                 
@@ -203,8 +195,7 @@ public class RecordValidator
                 // Try to match the record
                 iNextPos = matchRecord(rtRecord, iInputPos, csInput, lResFieldValueList, lErrorRecordDetailsList);
 
-                if (iNextPos < 0)
-                {
+                if (iNextPos < 0) {
                 	if( iNextPos < -1)
                 	{
                 		//Store the end offset of the failed record.Assumption: no more record sequences configured
@@ -220,16 +211,14 @@ public class RecordValidator
                 int iStrOldLength = sbReadRecordNames.length();
 
                 // Add the record name to the list.
-                if (sbReadRecordNames.length() > 0)
-                {
+                if (sbReadRecordNames.length() > 0) {
                     sbReadRecordNames.append(" ");
                 }
                 sbReadRecordNames.append(rtRecord.sRecordName);
 
                 // See if the beginning of the record pattern matches
                 // the string of already scanned records.
-                if (!ftFileType.pmPartialRecordMatcher.isPartialMatch(sbReadRecordNames))
-                {
+                if (!ftFileType.pmPartialRecordMatcher.isPartialMatch(sbReadRecordNames)) {
                     // Nope. Discard this record.
                     sbReadRecordNames.setLength(iStrOldLength);
                     continue;
@@ -244,15 +233,12 @@ public class RecordValidator
             // If we have matched a record, keep on scanning. The file type
             // record sequence is matched completely until no record matches
             // is anymore.
-            if (rtMatchedRecord != null)
-            {
+            if (rtMatchedRecord != null) {
                 // Add the matched record to the list and continue matching.
                 lReadRecordList.add(rtMatchedRecord);
 
-                if (dResDoc != null)
-                {
-                    if (lResFieldValueList == null)
-                    {
+                if (dResDoc != null) {
+                    if (lResFieldValueList == null) {
                         throw new IllegalArgumentException("INTERNAL_ERROR: lResFieldValueList is null.");
                     }
                 }
@@ -268,8 +254,7 @@ public class RecordValidator
 
             // As the previous record failed to match, see the file type record sequence pattern
             // still matches our record list.
-            if (!ftFileType.pmPartialRecordMatcher.isCompleteMatch(sbReadRecordNames))
-            {
+            if (!ftFileType.pmPartialRecordMatcher.isCompleteMatch(sbReadRecordNames)) {
             	if( !bContinueOnError )
             	{
 	                // The pattern was not matched completely.
@@ -286,20 +271,17 @@ public class RecordValidator
         int iResultNode = 0;
 
         // If we are creating the resulting XML tree, create it now from the record list.
-        if (dResDoc != null)
-        {
+        if (dResDoc != null) {
             iResultNode = dResDoc.createElement("tuple");
 
-            if (lReadRecordList.size() != lReadRecordFieldValuesList.size())
-            {
+            if (lReadRecordList.size() != lReadRecordFieldValuesList.size()) {
                 throw new IllegalArgumentException("INTERNAL_ERROR: Record list and record field value list size mismatch.");
             }
 
             Iterator<RecordType> iRecordIter = lReadRecordList.iterator();
             Iterator<List<String>> iFieldValueIter = lReadRecordFieldValuesList.iterator();
 
-            while (iRecordIter.hasNext() && iFieldValueIter.hasNext())
-            {
+            while (iRecordIter.hasNext() && iFieldValueIter.hasNext()) {
                 RecordType rtRecord = iRecordIter.next();
                 List<String> lFieldValueList = iFieldValueIter.next();
 
@@ -341,8 +323,7 @@ public class RecordValidator
      *
      * @return  The end record number.
      */
-    public int getEndRecordNumber()
-    {
+    public int getEndRecordNumber() {
         return iEndRecordNumber;
     }
 
@@ -351,8 +332,7 @@ public class RecordValidator
      *
      * @return  The start record number.
      */
-    public int getStartRecordNumber()
-    {
+    public int getStartRecordNumber() {
         return iStartRecordNumber;
     }
 
@@ -361,8 +341,7 @@ public class RecordValidator
      *
      * @return  The current validation position.
      */
-    public int getValidationEndPosition()
-    {
+    public int getValidationEndPosition() {
         return iValidationEndPosition;
     }
 
@@ -371,8 +350,7 @@ public class RecordValidator
      *
      * @param  startRecordNumber  The start record number
      */
-    public void setStartRecordNumber(int startRecordNumber)
-    {
+    public void setStartRecordNumber(int startRecordNumber) {
         iStartRecordNumber = startRecordNumber;
     }
 
@@ -385,16 +363,13 @@ public class RecordValidator
      * @throws  IllegalArgumentException  Thrown if there was an error in the configuration.
      */
     protected static void readConfiguration(ValidatorConfig vcReadConfig, int iNode)
-                                     throws IllegalArgumentException
-    {
+            throws IllegalArgumentException {
         // Check to root node name.
-        if (!Node.getName(iNode).equals("configuration"))
-        {
+        if (!Node.getName(iNode).equals("configuration")) {
             throw new IllegalArgumentException("Configuration root element missing.");
         }
 
-        if (Node.getNumChildren(iNode) == 0)
-        {
+        if (Node.getNumChildren(iNode) == 0) {
             throw new IllegalArgumentException("No file types defined in the configuration.");
         }
 
@@ -403,75 +378,71 @@ public class RecordValidator
         // Loop all 'filetype' nodes.
         iFileTypeNode = Node.getFirstChild(iNode);
 
-        while (iFileTypeNode != 0)
-        {
+        while (iFileTypeNode != 0) {
             // Check the file type node name.
-            if (!Node.getName(iFileTypeNode).equals("filetype"))
-            {
+            if (!Node.getName(iFileTypeNode).equals("filetype")) {
                 throw new IllegalArgumentException("Illegal configuration element. Expecting filetype.");
             }
 
             // Get the file type attributes
             String sFileType = Node.getAttribute(iFileTypeNode, "name");
             String sValidRecordSequence = Node.getAttribute(iFileTypeNode, "recordsequence");
+            String sSheetindex = sFileType.equalsIgnoreCase("excel") ? Node.getAttribute(iFileTypeNode, "sheet") : "";
             boolean bAllowEmptyFiles = "true".equals(Node.getAttribute(iFileTypeNode, "allowempty", "true"));
             FileType ftFileType = new FileType();
 
+            if (sFileType.equalsIgnoreCase("excel")) {
+                sFileType = sFileType.toLowerCase();
+            }
             // Check that the file type name attribute is given.
-            if ((sFileType == null) || sFileType.equals(""))
-            {
+            if ((sFileType == null) || sFileType.equals("")) {
                 throw new IllegalArgumentException("Filetype name not set");
             }
 
             // Check that the record sequence attribute is given.
-            if ((sValidRecordSequence == null) || sValidRecordSequence.equals(""))
-            {
-                throw new IllegalArgumentException("Record sequence not defined for file type " +
-                                                   sFileType);
+            if ((sValidRecordSequence == null) || sValidRecordSequence.equals("")) {
+                throw new IllegalArgumentException("Record sequence not defined for file type "
+                        + sFileType);
             }
 
             // The file type must have at least one record definition.
-            if (Node.getNumChildren(iFileTypeNode) == 0)
-            {
+            if (Node.getNumChildren(iFileTypeNode) == 0) {
                 throw new IllegalArgumentException("No records defined for file type " + sFileType);
             }
 
             // Add the attributes to the file type object
             ftFileType.sFileType = sFileType;
+            ftFileType.sSheetindex = sSheetindex;
             ftFileType.lRecordList = new LinkedList<RecordType>();
             ftFileType.bAllowEmptyFiles = bAllowEmptyFiles;
 
             // Parse the file type record sequence string.
-            try
-            {
+            try {
                 // Replace all white spaces and commas with space.
                 // This normalizes the pattern to be used with the validator.
                 String[] saParts = sValidRecordSequence.split("[,\\s\\t\\r\\n]+");
 
-                if ((saParts == null) || (saParts.length == 0))
-                {
-                    throw new IllegalArgumentException("Invalid record sequence pattern file type " +
-                                                       sFileType);
+                if ((saParts == null) || (saParts.length == 0)) {
+                    throw new IllegalArgumentException("Invalid record sequence pattern file type "
+                            + sFileType);
                 }
 
                 // Create the valid record sequence and partial matcher data. The parts need a
                 // space before them and parenthesis when using regexp operators, so they will
                 // match the partial record list in the order it is being generated.
-                for (int i = 1; i < saParts.length; i++)
-                {
+                for (int i = 1; i < saParts.length; i++) {
                     String sPart = saParts[i];
 
                     sPart = " " + sPart;
 
                     // If we have a regexp operator at the end of the part we need to change
                     // the part from form " part*" to "( part)*" so the
-                    switch (sPart.charAt(sPart.length() - 1))
-                    {
+                    switch (sPart.charAt(sPart.length() - 1)) {
                         case '*':
                         case '+':
                         case '?':
-                            sPart = "(" + sPart.substring(0, sPart.length() - 1) + ")" +
-                                    sPart.charAt(sPart.length() - 1);
+                            sPart = "(" + sPart.substring(0, sPart.length() - 1) + ")"
+                                    + sPart.charAt(sPart.length() - 1);
                             break;
                     }
 
@@ -479,11 +450,9 @@ public class RecordValidator
                 }
 
                 ftFileType.pmPartialRecordMatcher = new PartialMatcher(saParts);
-            }
-            catch (Exception e)
-            {
-                throw new IllegalArgumentException("Invalid record sequence pattern file type " +
-                                                   sFileType + ":" + e);
+            } catch (Exception e) {
+                throw new IllegalArgumentException("Invalid record sequence pattern file type "
+                        + sFileType + ":" + e);
             }
 
             // Map the file type object with its name.
@@ -492,11 +461,9 @@ public class RecordValidator
             // Read all the file type's records.
             int iRecordNode = Node.getFirstChild(iFileTypeNode);
 
-            while (iRecordNode != 0)
-            {
+            while (iRecordNode != 0) {
                 // Check the record node name.
-                if (!Node.getName(iRecordNode).equals("record"))
-                {
+                if (!Node.getName(iRecordNode).equals("record")) {
                     throw new IllegalArgumentException("Illegal configuration element. Expecting record.");
                 }
 
@@ -507,38 +474,31 @@ public class RecordValidator
                 int iRecordGroup = 0;
 
                 // Check that the record name exists.
-                if ((sRecordName == null) || sRecordName.equals(""))
-                {
+                if ((sRecordName == null) || sRecordName.equals("")) {
                     throw new IllegalArgumentException("Record name is missing.");
                 }
 
                 // Check that the record pattern regexp exists.
-                if ((sRecordPattern == null) || sRecordPattern.equals(""))
-                {
-                    throw new IllegalArgumentException("Record pattern is missing for record " +
-                                                       sRecordName);
+                if (((sRecordPattern == null) || sRecordPattern.equals("")) && !sFileType.equalsIgnoreCase("excel")) {
+                    throw new IllegalArgumentException("Record pattern is missing for record "
+                            + sRecordName);
                 }
 
                 // If the record group index is given, parse it to integer format.
-                if (sRecordGroup != null)
-                {
+                if (sRecordGroup != null) {
                     // Parse the correct index.
-                    try
-                    {
+                    try {
                         iRecordGroup = Integer.parseInt(sRecordGroup);
-                    }
-                    catch (Exception e)
-                    {
-                        throw new IllegalArgumentException("Invalid record index value: " +
-                                                           sRecordGroup);
+                    } catch (Exception e) {
+                        throw new IllegalArgumentException("Invalid record index value: "
+                                + sRecordGroup);
                     }
                 }
 
                 // Check that the record has one or more field definitions.
-                if (Node.getNumChildren(iRecordNode) == 0)
-                {
-                    throw new IllegalArgumentException("No fields specified for record " +
-                                                       sRecordName);
+                if (Node.getNumChildren(iRecordNode) == 0) {
+                    throw new IllegalArgumentException("No fields specified for record "
+                            + sRecordName);
                 }
 
                 // Create the record object and add the parameters to it.
@@ -549,14 +509,13 @@ public class RecordValidator
                 rtRecord.iRecordPatternGroup = iRecordGroup;
 
                 // Compile the record regexp pattern.
-                try
-                {
-                    rtRecord.pRecordPattern = Pattern.compile(sRecordPattern);
-                }
-                catch (Exception e)
-                {
-                    throw new IllegalArgumentException("Invalid pattern for record " + sRecordName +
-                                                       ": " + e);
+                if (!sFileType.equalsIgnoreCase("excel")) {
+                    try {
+                        rtRecord.pRecordPattern = Pattern.compile(sRecordPattern);
+                    } catch (Exception e) {
+                        throw new IllegalArgumentException("Invalid pattern for record " + sRecordName
+                                + ": " + e);
+                    }
                 }
 
                 // Add the record to the file type record list.
@@ -567,11 +526,9 @@ public class RecordValidator
 
                 iFieldNode = Node.getFirstChild(iRecordNode);
 
-                while (iFieldNode != 0)
-                {
+                while (iFieldNode != 0) {
                     // Check the field node name
-                    if (!Node.getName(iFieldNode).equals("field"))
-                    {
+                    if (!Node.getName(iFieldNode).equals("field")) {
                         throw new IllegalArgumentException("Illegal configuration element. Expecting field.");
                     }
 
@@ -581,56 +538,44 @@ public class RecordValidator
                     String sGroupIndex = Node.getAttribute(iFieldNode, "index");
                     String sFieldLength = Node.getAttribute(iFieldNode, "width");
                     String sTrimField = Node.getAttribute(iFieldNode, "trim");
+                    String sColumnIndex = Node.getAttribute(iFieldNode, "column");
                     int iGroupIndex = 0; // Default is the first group
                     int iFieldLength = -1;
 
                     // Check that the field name exists
-                    if ((sFieldName == null) || sFieldName.equals(""))
-                    {
+                    if ((sFieldName == null) || sFieldName.equals("")) {
                         throw new IllegalArgumentException("Field name is missing.");
                     }
 
                     // Check that the field pattern exists.
-                    if ((sPattern == null) || sPattern.equals(""))
-                    {
+                    if (((sPattern == null) || sPattern.equals("")) && !sFileType.equalsIgnoreCase("excel")) {
                         throw new IllegalArgumentException("Field pattern is missing.");
                     }
 
                     // If the field pattern group index is given, parse
                     // it to integer format. The default value is zero.
-                    if (sGroupIndex != null)
-                    {
-                        if (sGroupIndex.equals("none"))
-                        {
+                    if (sGroupIndex != null) {
+                        if (sGroupIndex.equals("none")) {
                             // This is the setting for no text selection for this field.
                             iGroupIndex = -1;
-                        }
-                        else
-                        {
+                        } else {
                             // Parse the correct index.
-                            try
-                            {
+                            try {
                                 iGroupIndex = Integer.parseInt(sGroupIndex);
-                            }
-                            catch (Exception e)
-                            {
-                                throw new IllegalArgumentException("Invalid group index value: " +
-                                                                   sGroupIndex);
+                            } catch (Exception e) {
+                                throw new IllegalArgumentException("Invalid group index value: "
+                                        + sGroupIndex);
                             }
                         }
                     }
 
                     // If the field length is given, parse it to integer format.
-                    if ((sFieldLength != null) && (sFieldLength.length() > 0))
-                    {
-                        try
-                        {
+                    if ((sFieldLength != null) && (sFieldLength.length() > 0)) {
+                        try {
                             iFieldLength = Integer.parseInt(sFieldLength);
-                        }
-                        catch (Exception e)
-                        {
-                            throw new IllegalArgumentException("Invalid field length: " +
-                                                               sFieldLength);
+                        } catch (Exception e) {
+                            throw new IllegalArgumentException("Invalid field length: "
+                                    + sFieldLength);
                         }
                     }
 
@@ -638,37 +583,31 @@ public class RecordValidator
                     FieldType ftField = new FieldType();
 
                     ftField.sFieldName = sFieldName;
+                    ftField.sColumnIndex = sColumnIndex;
                     ftField.iResultGroup = iGroupIndex;
 
-                    if (iFieldLength >= 0)
-                    {
+                    if (iFieldLength >= 0) {
                         ftField.fixedLength = iFieldLength;
                     }
 
                     // If the trim field parameter is given, parse it as a boolean.
-                    if ((sTrimField != null) && (sTrimField.length() > 0))
-                    {
-                        try
-                        {
+                    if ((sTrimField != null) && (sTrimField.length() > 0)) {
+                        try {
                             ftField.trimField = Boolean.parseBoolean(sTrimField);
-                        }
-                        catch (Exception e)
-                        {
-                            throw new IllegalArgumentException("Invalid field trim parameter: " +
-                                                               sTrimField);
+                        } catch (Exception e) {
+                            throw new IllegalArgumentException("Invalid field trim parameter: "
+                                    + sTrimField);
                         }
                     }
 
                     // Compile the field regexp pattern.
-                    try
-                    {
-                        ftField.pPattern = Pattern.compile(sPattern);
+                    if (!sFileType.equalsIgnoreCase("excel")) {
+                        try {
+                            ftField.pPattern = Pattern.compile(sPattern);
+                        } catch (Exception e) {
+                            throw new IllegalArgumentException("Illegal pattern: " + sPattern);
+                        }
                     }
-                    catch (Exception e)
-                    {
-                        throw new IllegalArgumentException("Illegal pattern: " + sPattern);
-                    }
-
                     // Add the field to the record.
                     rtRecord.lFieldList.add(ftField);
 
@@ -699,16 +638,13 @@ public class RecordValidator
      * @return  The create XML structure root node.
      */
     protected int createRecordNode(RecordType rtRecord, List<String> lFieldValueList, Document dDoc,
-                                   int iParentNode)
-    {
+            int iParentNode) {
         // Check parameter sanity
-        if (rtRecord.lFieldList.size() != lFieldValueList.size())
-        {
+        if (rtRecord.lFieldList.size() != lFieldValueList.size()) {
             throw new IllegalArgumentException("INTERNAL_ERROR: Record field list and field value list size mismatch.");
         }
 
-        if ((dDoc == null) || (iParentNode == 0))
-        {
+        if ((dDoc == null) || (iParentNode == 0)) {
             throw new IllegalArgumentException("INTERNAL_ERROR: Document or parent node not set.");
         }
 
@@ -722,14 +658,12 @@ public class RecordValidator
         Iterator<String> iValueIter = lFieldValueList.iterator();
 
         // Scan through the fields.
-        while (iFieldIter.hasNext() && iValueIter.hasNext())
-        {
+        while (iFieldIter.hasNext() && iValueIter.hasNext()) {
             FieldType ftField = iFieldIter.next();
             String sValue = iValueIter.next();
 
             // Return only the element that are requested to be returned.
-            if (ftField.iResultGroup >= 0)
-            {
+            if (ftField.iResultGroup >= 0) {
                 // Create the field node that has the configured field name
                 // and the read field value.
                 dDoc.createTextElement(ftField.sFieldName, sValue, iRecNode);
@@ -781,27 +715,25 @@ public class RecordValidator
         iReadPos = iInputPos;
         mMatcher = rtRecord.pRecordPattern.matcher(csInput);
 
-        if (!mMatcher.find(iReadPos) || (mMatcher.start() > iReadPos))
-        {
+        if (!mMatcher.find(iReadPos) || (mMatcher.start() > iReadPos)) {
             // Record boundaries not found or not at the beginning of input.
             return -1;
         }
 
-        if ((rtRecord.iRecordPatternGroup < 0) ||
-                (rtRecord.iRecordPatternGroup >= mMatcher.groupCount()))
-        {
-            throw new ValidationException("At line " + iCurrentRecordNumber + " : " +
-                                          "Group index " + rtRecord.iRecordPatternGroup +
-                                          " not found for field " + rtRecord.sRecordName);
+        if ((rtRecord.iRecordPatternGroup < 0)
+                || (rtRecord.iRecordPatternGroup >= mMatcher.groupCount())) {
+            throw new ValidationException("At line " + iCurrentRecordNumber + " : "
+                    + "Group index " + rtRecord.iRecordPatternGroup
+                    + " not found for field " + rtRecord.sRecordName);
         }
 
         // Get the record start and end positions from the specified group.
         iRecordStart = mMatcher.start(rtRecord.iRecordPatternGroup + 1); // This is the record start
-                                                                         // for record fields.
+        // for record fields.
         iRecordEnd = mMatcher.end(rtRecord.iRecordPatternGroup + 1); // This is the record end for
-                                                                     // record fields.
+        // record fields.
         iRecordMatchEnd = mMatcher.end(); // This is the real record end, including a possible
-                                          // record separators.
+        // record separators.
 
         // Get the record subsequence so that we match the fields only inside this record.
         csRecordInput = csInput.subSequence(iRecordStart, iRecordEnd);
@@ -811,17 +743,14 @@ public class RecordValidator
         // Try to match the fields in the order that is specified for the record.
         iReadPos = 0;
 
-        for (Iterator<FieldType> iter = rtRecord.lFieldList.iterator(); iter.hasNext();)
-        {
+        for (Iterator<FieldType> iter = rtRecord.lFieldList.iterator(); iter.hasNext();) {
             FieldType ftField = iter.next();
 
-            if (ftField.fixedLength < 0)
-            {
+            if (ftField.fixedLength < 0) {
                 // Run the regexp against the input.
                 mMatcher = ftField.pPattern.matcher(csRecordInput);
 
-                if (!mMatcher.find(iReadPos))
-                {
+                if (!mMatcher.find(iReadPos)) {
                     // The field did not match, so the record does not match either.
                     if( bContinueOnError )
                     {
@@ -835,8 +764,7 @@ public class RecordValidator
                     }
                 }
 
-                if (mMatcher.start() != iReadPos)
-                {
+                if (mMatcher.start() != iReadPos) {
                     // The match does not start at the beginning of input.
                     if( bContinueOnError )
                     {
@@ -851,15 +779,12 @@ public class RecordValidator
                 }
 
                 iReadPos = mMatcher.end();
-            }
-            else
-            {
+            } else {
                 // This is a fixed length field, so read the correct amount and
                 // try to match it against the regexp.
                 int len = ftField.fixedLength;
 
-                if (csRecordInput.length() < (iReadPos + len))
-                {
+                if (csRecordInput.length() < (iReadPos + len)) {
                     // Not enough data to read for this field.
                 	return bContinueOnError? -iRecordMatchEnd : -1;
                 }
@@ -868,8 +793,7 @@ public class RecordValidator
 
                 mMatcher = ftField.pPattern.matcher(cdFieldData);
 
-                if (!mMatcher.matches())
-                {
+                if (!mMatcher.matches()) {
                     // Field doesn't match.
                 	return bContinueOnError? -iRecordMatchEnd : -1;
                 }
@@ -878,29 +802,23 @@ public class RecordValidator
             }
 
             // Add the field value to the list
-            if (lResFieldValueList != null)
-            {
-                if (ftField.iResultGroup >= 0)
-                {
+            if (lResFieldValueList != null) {
+                if (ftField.iResultGroup >= 0) {
                     // Get the correct regexp group
-                    if (ftField.iResultGroup >= mMatcher.groupCount())
-                    {
-                        throw new ValidationException("At line " + iCurrentRecordNumber + " : " +
-                                                      "Group index " + ftField.iResultGroup +
-                                                      " not found for field " + ftField.sFieldName);
+                    if (ftField.iResultGroup >= mMatcher.groupCount()) {
+                        throw new ValidationException("At line " + iCurrentRecordNumber + " : "
+                                + "Group index " + ftField.iResultGroup
+                                + " not found for field " + ftField.sFieldName);
                     }
 
                     String sGroupValue = mMatcher.group(ftField.iResultGroup + 1);
 
-                    if (ftField.trimField)
-                    {
+                    if (ftField.trimField) {
                         sGroupValue = sGroupValue.trim();
                     }
 
                     lResFieldValueList.add(sGroupValue);
-                }
-                else
-                {
+                } else {
                     // We don't want a field value for this field.
                     lResFieldValueList.add("");
                 }
@@ -908,29 +826,24 @@ public class RecordValidator
 
             iMatchedFields++;
 
-            if (iReadPos >= csRecordInput.length())
-            {
+            if (iReadPos >= csRecordInput.length()) {
                 // We matched at the end of input. The number of matched fields tell if we matched
                 // the whole record.
                 break;
             }
         }
 
-        if (iMatchedFields != rtRecord.iNumFields)
-        {
+        if (iMatchedFields != rtRecord.iNumFields) {
             // If the last field can match an empty string and that is the only field we are
             // missing, this we have succeeded.
-            if ((iMatchedFields == (rtRecord.iNumFields - 1)) && (rtRecord.lFieldList.size() > 0))
-            {
+            if ((iMatchedFields == (rtRecord.iNumFields - 1)) && (rtRecord.lFieldList.size() > 0)) {
                 FieldType ftField = rtRecord.lFieldList.get(rtRecord.lFieldList.size() - 1);
 
                 mMatcher = ftField.pPattern.matcher("");
 
-                if (mMatcher.matches())
-                {
+                if (mMatcher.matches()) {
                     // Check if we need to fill the field value.
-                    if (lResFieldValueList != null)
-                    {
+                    if (lResFieldValueList != null) {
                         lResFieldValueList.add("");
                     }
                     return iRecordMatchEnd;
@@ -956,8 +869,8 @@ public class RecordValidator
      *
      * @author  mpoyhone
      */
-    public static class FieldType
-    {
+    public static class FieldType {
+
         /**
          * Length of a fixed field. If < 0 this is not a fixed field.
          */
@@ -976,6 +889,10 @@ public class RecordValidator
          */
         public String sFieldName;
         /**
+         * The column index that will be used while creating the record XML structure(Excel type).
+         */
+        public String sColumnIndex;
+        /**
          * If true the field contents are removed from space before returning it.
          */
         public boolean trimField = false;
@@ -986,8 +903,8 @@ public class RecordValidator
      *
      * @author  mpoyhone
      */
-    public static class FileType
-    {
+    public static class FileType {
+
         /**
          * A list of RecordType objects that contain the file type record configuration.
          */
@@ -1003,6 +920,10 @@ public class RecordValidator
          */
         public String sFileType;
         /**
+         * The sheet index of excel file.
+         */
+        public String sSheetindex;
+        /**
          * If <code>true</code>, empty files are allowed.
          */
         public boolean bAllowEmptyFiles;
@@ -1013,8 +934,8 @@ public class RecordValidator
      *
      * @author  mpoyhone
      */
-    public static class RecordType
-    {
+    public static class RecordType {
+
         /**
          * Needed number of fields to be matched for this type of record. This is always the same as
          * the number of configured fields.
