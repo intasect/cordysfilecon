@@ -11,7 +11,7 @@
 			</action>
         </release>
     </template>
-    </template>
+    
     <body>
         <release description="Development release" version="@NEXT@">
 			<action dev="srkrishnan" type="add">ReadFileRecords method includes a feature to read Excel files.</action>
