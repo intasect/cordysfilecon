@@ -1,3 +1,6 @@
+version 1.2.20 (released 2011-05-30)
+-fix: Directory Poller : processing of the file does not start after the track time has elapsed.
+
 version 1.2.19 (released 2011-04-25)
 -add: ReadFileRecords method includes a feature to read Excel files.
 -add: ReadFileRecords method includes the probable error records in the response.

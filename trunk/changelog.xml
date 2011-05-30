@@ -15,6 +15,9 @@
     <body>
         <release description="Development release" version="@NEXT@">
 				</release>
+<release date="2011-05-30" description="Development release" version="1.2.20">
+		<action dev="kdinesh" type="fix">Directory Poller : processing of the file does not start after the track time has elapsed.</action>
+				</release>
 <release date="2011-04-25" description="Development release" version="1.2.19">
 			<action dev="srkrishnan" type="add">ReadFileRecords method includes a feature to read Excel files.</action>
 			<action dev="kdinesh" type="add">ReadFileRecords method includes the probable error records in the response.</action>
