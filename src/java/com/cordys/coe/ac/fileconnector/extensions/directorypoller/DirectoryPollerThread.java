@@ -493,7 +493,7 @@ public class DirectoryPollerThread
                     // Go to sleep
                     try
                     {
-                        Thread.sleep(pollingInterval);
+                        Thread.sleep(getLeastSleepTime());
                     }
                     catch (InterruptedException e)
                     {
@@ -905,6 +905,7 @@ public class DirectoryPollerThread
             fileContext.setOriginalFile(file);
             fileContext.setCurrentState(EFileState.TRACKING.createState(null, fileContext));
             fileContext.setErrorRootFolder(errorFolder);
+            fileContext.setLastNonModifiedCheck(System.currentTimeMillis());
             fileTrackMap.put(file, fileContext);
             jmxWrapper.onNewFile();
         }
@@ -993,4 +994,33 @@ public class DirectoryPollerThread
         
         return fDirectory.listFiles();
     }
+	 /**
+     * Return the least track time based on the files in fileTrackMap
+     * @return the least time for which the Poller thread should sleep before going into polling interval
+     */
+    private long getLeastSleepTime()
+    {
+    	long leastTrackTime = -1L;
+    	
+    	Iterator<Map.Entry<File, FileContext>> entryIter = fileTrackMap.entrySet().iterator();
+
+		while (entryIter.hasNext())
+		{
+			Map.Entry<File, FileContext> entry = entryIter.next();
+			FileContext fileContext = entry.getValue();
+			Folder folder = fileContext.getInputFolder();
+			long tracktime = folder.getTrackTime();
+			if ( leastTrackTime == -1 )
+			{
+				leastTrackTime = tracktime;
+			} 
+			if( tracktime < leastTrackTime )
+				leastTrackTime = tracktime;
+		}
+ 
+		leastTrackTime = leastTrackTime == -1 ? pollingInterval : 
+    				leastTrackTime < pollingInterval ? leastTrackTime : pollingInterval;
+		
+		return leastTrackTime > 10L ? leastTrackTime : 100L;  
+    }    
 }
