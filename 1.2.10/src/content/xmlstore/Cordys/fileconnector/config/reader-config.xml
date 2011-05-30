@@ -1,9 +1,0 @@
-<configuration>
-	<filetype name="READ_TEST" recordsequence="r" >
-		<record name="r" pattern="([^\n\r]*)[\n\r]+" index="0">
-			<field name="value1" pattern="(.*)" index="0" width="60" trim="true" />
-			<field name="value2" pattern="(.*)" index="0" width="60" trim="true" />
-			<field name="value3" pattern="(.*)" index="0" width="60" trim="true" />
-		</record>
-	</filetype>	
-</configuration>

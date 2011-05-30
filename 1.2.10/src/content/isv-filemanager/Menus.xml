@@ -1,5 +1,0 @@
-<menus>
-    <menu file="${src.content.menus}/Cordys/FileConnector/File Connector Administrator"
-          key="/Cordys/WCP/Menu/Cordys/FileConnector/File Connector Administrator"
-          name="File Connector Administrator"/>
-</menus>
