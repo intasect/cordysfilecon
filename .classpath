@@ -6,6 +6,10 @@
 	<classpathentry kind="lib" path="lib/stax2-2.1.jar"/>
 	<classpathentry kind="lib" path="lib/wstx-asl-3.2.3.jar"/>
 	<classpathentry kind="lib" path="lib/stax-api-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/poi-3.7.jar"/>
+	<classpathentry kind="lib" path="lib/poi-scratchpad-3.7-20101029.jar"/>
+	<classpathentry kind="lib" path="lib/poi-ooxml-schemas-3.7-20101029.jar"/>
+	<classpathentry kind="lib" path="lib/poi-ooxml-3.7.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3.8.1"/>
 	<classpathentry kind="lib" path="platform/components/eibxml/eibxml.jar">
 		<attributes>

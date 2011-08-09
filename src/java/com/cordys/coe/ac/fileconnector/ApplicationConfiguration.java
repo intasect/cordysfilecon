@@ -43,6 +43,7 @@ import com.eibus.xml.nom.Node;
  *
  * @author  mpoyhone
  */
+@SuppressWarnings("deprecation")
 public class ApplicationConfiguration
 {
     /**
@@ -231,7 +232,7 @@ public class ApplicationConfiguration
      *
      * @return  An array containing all the network drives.
      */
-    public NetworkDrive[] getNetworkDrives()
+	public NetworkDrive[] getNetworkDrives()
     {
         int[] aiMapping = XPathHelper.selectNodes(xpBase.getConfigNode(), PROP_DRIVE_MAPPINGS);
         

@@ -48,7 +48,6 @@ public class FileCharSequence
      * Character set decoder used to convert the bytes to a string.
      */
     private CharsetDecoder cdDecoder = null;
-
     /**
      * The file channel object that is used to read the file.
      */
