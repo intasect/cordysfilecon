@@ -147,7 +147,8 @@ public class FileConnector extends ApplicationConnector
      *
      * @return  The created transaction object
      */
-    @Override public ApplicationTransaction createTransaction(SOAPTransaction soapTransaction)
+    @SuppressWarnings("deprecation")
+	@Override public ApplicationTransaction createTransaction(SOAPTransaction soapTransaction)
     {
         if (cConnector == null)
         {

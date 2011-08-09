@@ -363,7 +363,8 @@ public class FileTransaction
         /**
          * @see  com.cordys.coe.ac.fileconnector.ISoapRequestContext#getRequestUserDn()
          */
-        public String getRequestUserDn()
+        @SuppressWarnings("deprecation")
+		public String getRequestUserDn()
         {
             return requestBlock.getSOAPTransaction().getUserCredentials().getOrganizationalUser();
         }
