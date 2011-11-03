@@ -1,0 +1,63 @@
+<configuration xmlns:FCDP="http://schemas.cordys.com/coe/FileConnector/Poller/1.0">
+	<!-- 
+		Sample configuration for starting a business process from files 
+		in folder coe/fileconnector/poller/test. The right organization DN,
+		user DN and BPM name needs to be filled.
+		
+		Now writing this file as "test123.xml" to the input folder (test):
+			<hello-bpm><msg>Hello World</msg></hello-bpm>
+		
+		will produce this SOAP request to be sent:
+			<RequestProcess xmlns="http://schemas.cordys.com/1.0/coboc">
+				<type>definition</type>
+				<receiver>DirectoryPollerDemo_vcmdemo10.bpm</receiver>
+				<message>
+					<inputmsg>
+						<file-info>
+							<name>test123.xml</name>
+							<path>d:\cordys\coe\fileconnector\poller\processing\9CF607EE0A01323D00DD8E0DD54D3372\test123.xml</path>
+						</file-info>
+						<content-xml>
+							<hello-bpm>
+								<msg>Hello World</msg>
+							</hello-bpm>
+						</content-xml>
+						<content-base64>
+							<![CDATA[PGhlbGxvLWJwbT48bXNnPkhlbGxvIFdvcmxkPC9tc2c+PC9oZWxsby1icG0+Cg==]]>
+						</content-base64>
+						<content-text>
+							<![CDATA[<hello-bpm><msg>Hello World</msg></hello-bpm>]]>
+						</content-text>
+					</inputmsg>
+				</message>
+				<source>Run from Directory Poller</source>
+			</RequestProcess>
+	-->
+	<folder>
+		<name>BPM</name>
+		<location>poller/bpm-input</location>
+		<track-time>0.1</track-time>
+		<trigger>
+			<method>RequestProcess</method>
+			<namespace>http://schemas.cordys.com/1.0/coboc</namespace>
+			<organization>o=system,cn=cordys,o=vanenburg.com</organization>
+			<user>cn=SYSTEM,cn=organizational users,o=system,cn=cordys,o=vanenburg.com</user>
+			<parameters>
+				<type>definition</type>
+				<receiver>DirectoryPollerDemo_vcmdemo10.bpm</receiver>
+				<message>
+					<inputmsg>
+						<file-info>
+							<name FCDP:element-data="filename"/>
+							<path FCDP:element-data="filepath"/>
+						</file-info>
+						<content-xml FCDP:element-data="content-xml"/>
+						<content-base64 FCDP:element-data="content-base64"/>
+						<content-text FCDP:element-data="content-text"/>
+					</inputmsg>
+				</message>
+				<source>Run from Directory Poller</source>
+			</parameters>
+		</trigger>
+	</folder>
+</configuration>
