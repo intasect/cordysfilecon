@@ -1691,6 +1691,12 @@
 										type="xsd:string"
 										maxOccurs="1"
 										minOccurs="0"
+										name="addnewline"
+									/>
+									<xsd:element
+										type="xsd:string"
+										maxOccurs="1"
+										minOccurs="0"
 										name="encoded"
 									/>
 									<xsd:element
