@@ -31,6 +31,7 @@ import com.eibus.xml.nom.Node;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintStream;
 
 import sun.misc.BASE64Decoder;
 
@@ -63,6 +64,10 @@ public class WriteFileMethod
      * The append boolean parameter for WriteFileRecords.
      */
     private static final String PARAM_APPEND = "append";
+    /**
+     * The addnewline boolean parameter for WriteFileRecords.
+     */
+    private static final String PARAM_ADDNEWLINE = "addnewline";
     /**
      * The data parameter for WriteFile and ReadFile.
      */
@@ -111,6 +116,7 @@ public class WriteFileMethod
         boolean encoded = XmlUtils.getBooleanParameter(requestNode, PARAM_ENCODED);
         String charset = XmlUtils.getStringParameter(requestNode, PARAM_CHARSET, false);
         boolean append = XmlUtils.getBooleanParameter(requestNode, PARAM_APPEND);
+        boolean addNewLine = XmlUtils.getBooleanParameter(requestNode, PARAM_ADDNEWLINE);
 
         // Get data from the SOAP request
         int dataNode = Find.firstMatch(requestNode, "?<" + PARAM_DATA + ">");
@@ -164,6 +170,10 @@ public class WriteFileMethod
                     }
 
                     fo.write(data.getBytes(charset));
+                }
+                if (addNewLine)
+                {
+                	new PrintStream(fo).println();
                 }
             }
             finally
