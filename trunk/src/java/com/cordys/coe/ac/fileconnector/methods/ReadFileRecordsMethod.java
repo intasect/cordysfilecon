@@ -260,11 +260,11 @@ public class ReadFileRecordsMethod
                 if (vcConfig.mConfigMap.get("excel").sSheetindex != null) {
                     iSheetNumber = Integer.parseInt(vcConfig.mConfigMap.get("excel").sSheetindex);
                 }
-                ExcelRead.validate(vcConfig, sFileName, dDoc, iResultNode, iSheetNumber,(int) lOffset, (int) lOffset+iNumRecords-1, lErrorList);
+                ExcelRead.validate(vcConfig, sFileName, dDoc, iResultNode, iSheetNumber,(int) lOffset, (int)iNumRecords, lErrorList);
 
                 if (lErrorList.isEmpty() && !bValidateOnly) {
                     iResultNode = dDoc.createElement("data");
-                    ExcelRead.readall(vcConfig, bUseTupleOld, sFileName, dDoc, iResultNode, iSheetNumber, (int) lOffset, (int) lOffset+iNumRecords-1, -1, -1);
+                    ExcelRead.readall(vcConfig, bUseTupleOld, sFileName, dDoc, iResultNode, iSheetNumber, (int) lOffset, (int)iNumRecords, -1, -1);
                 }
             } else { //For other file types
 
