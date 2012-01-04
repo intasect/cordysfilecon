@@ -1,3 +1,8 @@
+version 1.2.21 (released 2012-01-04)
+-change: id:32,Changed code formatting of ExcelRead.java, it is now in-line with rest of the code.
+-fix: id:36, Now when Excel is Read with "numrecords" = -1, it returns all valid rows.
+-change: id:37, Now when Excel is Read DATE field will be returned in Cordys Date format instead of Integer.
+
 version 1.2.20 (released 2011-05-30)
 -fix: Directory Poller : processing of the file does not start after the track time has elapsed.
 

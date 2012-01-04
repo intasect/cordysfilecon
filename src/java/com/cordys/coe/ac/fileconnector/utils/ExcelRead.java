@@ -24,11 +24,13 @@ import com.eibus.xml.nom.Document;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -40,17 +42,18 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  *
  * @author srkrishnan
  */
-public class ExcelRead {
+public class ExcelRead
+{
 
     /**
      * Number of columns in the excel sheet.
      */
     private static short maxcol;
-     /**
+    /**
      * Numbers of rows read from excel sheet.
      */
     protected static int recordsread = 0;
-     /**
+    /**
      * Flag to check all rows are read from excel sheet or not.
      */
     protected static Boolean endoffile = false;
@@ -60,7 +63,8 @@ public class ExcelRead {
      *
      * @return the value of endoffile
      */
-    public static Boolean getEndoffile() {
+    public static Boolean getEndoffile()
+    {
         return endoffile;
     }
 
@@ -69,7 +73,8 @@ public class ExcelRead {
      *
      * @param endoffile new value of endoffile
      */
-    public static void setEndoffile(Boolean endoffile) {
+    public static void setEndoffile(Boolean endoffile)
+    {
         ExcelRead.endoffile = endoffile;
     }
 
@@ -78,7 +83,8 @@ public class ExcelRead {
      *
      * @return the value of recordsread
      */
-    public static int getRecordsread() {
+    public static int getRecordsread()
+    {
         return recordsread;
     }
 
@@ -87,7 +93,8 @@ public class ExcelRead {
      *
      * @param recordsread new value of recordsread
      */
-    public static void setRecordsread(int recordsread) {
+    public static void setRecordsread(int recordsread)
+    {
         ExcelRead.recordsread = recordsread;
     }
 
@@ -103,65 +110,79 @@ public class ExcelRead {
      * @param endrow   row index upto which data to be read.
      * @param lErrorList LinkedList contains all the errors.
      */
-    public static void validate(ValidatorConfig vcConfig, String filename, Document dDoc, int iResultNode, int sheetno, int startrow, int endrow, List<FileException> lErrorList) {
-        try {
+    public static void validate(ValidatorConfig vcConfig, String filename, Document dDoc, int iResultNode, int sheetno, int startrow, int endrow, List<FileException> lErrorList)
+    {
+        try
+        {
 
             setRecordsread(0);
             setEndoffile(false);
 
             Workbook book = null;
             Sheet sheet = null;
-            Cell cell;
             Row row;
             FileInputStream fileinp = null;
-            String sRecordName = vcConfig.mConfigMap.get("excel").lRecordList.get(0).sRecordName;
-            int iRow;
-            int iCol;
+            //String sRecordName = vcConfig.mConfigMap.get("excel").lRecordList.get(0).sRecordName;
             int sheetindex;
             int noofsheets;
-            if (filename == null) {
+            if (filename == null)
+            {
                 throw new FileException("Please Provide filename.");
             }
             File file = new File(filename);
             fileinp = new FileInputStream(filename);
-            if (file.exists()) {
-                if (file.getName().substring(file.getName().lastIndexOf(".") + 1).equalsIgnoreCase("xls")) {
-                    try {
+            if (file.exists())
+            {
+                if (file.getName().substring(file.getName().lastIndexOf(".") + 1).equalsIgnoreCase("xls"))
+                {
+                    try
+                    {
                         book = (Workbook) new HSSFWorkbook(fileinp);
-                    } catch (IOException ex) {
+                    } catch (IOException ex)
+                    {
                         Logger.getLogger(ExcelRead.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                } else if (file.getName().substring(file.getName().lastIndexOf(".") + 1).equalsIgnoreCase("xlsx")) {
-                    try {
+                } else if (file.getName().substring(file.getName().lastIndexOf(".") + 1).equalsIgnoreCase("xlsx"))
+                {
+                    try
+                    {
                         book = new XSSFWorkbook(fileinp);
-                    } catch (IOException ex) {
+                    } catch (IOException ex)
+                    {
                         Logger.getLogger(ExcelRead.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                } else {
+                } else
+                {
                     //ERROR
                     fileinp.close();
                     throw new FileException("Input File not supported.");
                 }
-            } else {
+            } else
+            {
                 //ERROR
                 fileinp.close();
                 throw new FileException("File not found.");
             }
-            if (sheetno != -1) {
+            if (sheetno != -1)
+            {
                 sheetindex = sheetno;
                 noofsheets = sheetindex + 1;
-            } else {
+            } else
+            {
                 sheetindex = 0;
                 noofsheets = book.getNumberOfSheets();
             }
             //check whether the sheetindex exists or not
-            for (; sheetindex < noofsheets; sheetindex++) {
-                if (sheetindex >= book.getNumberOfSheets()) {
+            for (; sheetindex < noofsheets; sheetindex++)
+            {
+                if (sheetindex >= book.getNumberOfSheets())
+                {
                     //no sheet
                     throw new FileException("no sheet at: " + sheetindex);
                 }
                 sheet = book.getSheetAt(sheetindex);
-                if (sheet == null) {
+                if (sheet == null)
+                {
                     throw new FileException("No sheet found at: " + sheetindex);
                 }
             }
@@ -169,39 +190,60 @@ public class ExcelRead {
             //validate columns
 
             //get last column index
-            for (int i = sheet.getFirstRowNum(); i <= sheet.getLastRowNum(); i++) {
+            for (int i = sheet.getFirstRowNum(); i <= sheet.getLastRowNum(); i++)
+            {
                 row = sheet.getRow(i);
-                if (maxcol < row.getLastCellNum()) {
+                if (maxcol < row.getLastCellNum())
+                {
                     maxcol = row.getLastCellNum();
                 }
             }
             //check column index in reader-config
             ListIterator fieldslist = vcConfig.mConfigMap.get("excel").lRecordList.get(0).lFieldList.listIterator();
-            while (fieldslist.hasNext()) {
+            while (fieldslist.hasNext())
+            {
                 FieldType excelfields = (FieldType) fieldslist.next();
-                try {
-                    if (Short.parseShort(excelfields.sColumnIndex) < 0 || Short.parseShort(excelfields.sColumnIndex) >= maxcol) {
+                try
+                {
+                    if (Short.parseShort(excelfields.sColumnIndex) < 0 || Short.parseShort(excelfields.sColumnIndex) >= maxcol)
+                    {
                         throw new FileException("Column index " + excelfields.sColumnIndex + " not found. Maxcol index:" + (maxcol - 1));
                     }
-                } catch (NumberFormatException ex) {
+                } catch (NumberFormatException ex)
+                {
                     throw new FileException("Column index " + excelfields.sColumnIndex + " not valid. Enter a valid column index.");
                 }
             }
 
-            if (endrow == -1 || endrow >= sheet.getLastRowNum()) {
+            if (endrow == -1)
+            {
                 endrow = sheet.getLastRowNum();
-                setEndoffile(true);
+                if (startrow == -1)
+                {
+                    startrow = 0;
+                }
+            } else
+            {
+                endrow = startrow + endrow - 1;
+                if (endrow > sheet.getLastRowNum())
+                {
+                    endrow = sheet.getLastRowNum();
+                }
             }
 
             setRecordsread(endrow - startrow + 1);
 
-        } catch (IOException ex) {
-            try {
+        } catch (IOException ex)
+        {
+            try
+            {
                 throw new FileException();
-            } catch (FileException ex1) {
+            } catch (FileException ex1)
+            {
                 lErrorList.add(ex1);
             }
-        } catch (FileException ex) {
+        } catch (FileException ex)
+        {
             lErrorList.add(ex);
         }
 
@@ -221,7 +263,8 @@ public class ExcelRead {
      * @param startcolumn column index from which data to be read.
      * @param endcolumn column index upto which data to be read.
      */
-    public static void readall(ValidatorConfig vcConfig, Boolean bUseTupleOld, String filename, Document doc, int iResponsenode, int sheetno, int startrow, int endrow, int startcolumn, int endcolumn) {
+    public static void readall(ValidatorConfig vcConfig, Boolean bUseTupleOld, String filename, Document doc, int iResponsenode, int sheetno, int startrow, int endrow, int startcolumn, int endcolumn) throws FileException
+    {
 
         Workbook book = null;
         Sheet sheet;
@@ -229,65 +272,85 @@ public class ExcelRead {
         Row row;
         FileInputStream fileinp = null;
         String sRecordName = vcConfig.mConfigMap.get("excel").lRecordList.get(0).sRecordName;
-        try {
+        try
+        {
             int iRow, iCol, sheetindex, noofsheets;
             File file = new File(filename);
             fileinp = new FileInputStream(filename);
-            if (file.exists()) {
-                if (file.getName().substring(file.getName().lastIndexOf(".") + 1).equalsIgnoreCase("xls")) {
+            if (file.exists())
+            {
+                if (file.getName().substring(file.getName().lastIndexOf(".") + 1).equalsIgnoreCase("xls"))
+                {
                     book = (Workbook) new HSSFWorkbook(fileinp);
-                } else if (file.getName().substring(file.getName().lastIndexOf(".") + 1).equalsIgnoreCase("xlsx")) {
+                } else if (file.getName().substring(file.getName().lastIndexOf(".") + 1).equalsIgnoreCase("xlsx"))
+                {
                     book = new XSSFWorkbook(fileinp);
-                } else {
+                } else
+                {
                     //ERROR
                     fileinp.close();
                 }
-            } else {
+            } else
+            {
                 //ERROR
                 fileinp.close();
             }
 
-            if (sheetno != -1) {
+            if (sheetno != -1)
+            {
                 sheetindex = sheetno;
                 noofsheets = sheetindex + 1;
-            } else {
+            } else
+            {
                 sheetindex = 0;
                 noofsheets = book.getNumberOfSheets();
             }
-            for (; sheetindex < noofsheets; sheetindex++) {
+            for (; sheetindex < noofsheets; sheetindex++)
+            {
                 sheet = book.getSheetAt(sheetindex);
 
-                if (endrow == -1) {
+                if (endrow == -1)
+                {
                     endrow = sheet.getLastRowNum();
-                    if (startrow == -1) {
+                    if (startrow == -1)
+                    {
                         startrow = 0;
                     }
-                } else {
-                    if (endrow > sheet.getLastRowNum()) {
+                } else
+                {
+                    endrow = startrow + endrow - 1;
+                    if (endrow > sheet.getLastRowNum())
+                    {
                         endrow = sheet.getLastRowNum();
                     }
                 }
 
-                if (endcolumn == -1) {
+                if (endcolumn == -1)
+                {
                     endcolumn = 30;
-                    if (startcolumn == -1) {
+                    if (startcolumn == -1)
+                    {
                         startcolumn = 0;
                     }
                 }
-                for (int i = startrow; i <= endrow; i++) {
-                    
+                for (int i = startrow; i <= endrow; i++)
+                {
+
                     row = sheet.getRow(i);
 
-                    if (row == null) {
+                    if (row == null)
+                    {
                         int iTup = doc.createElement("tuple", iResponsenode);
 
-                        if (bUseTupleOld) {
+                        if (bUseTupleOld)
+                        {
                             iTup = doc.createElement("old", iTup);
                         }
                         iRow = doc.createElement(sRecordName, iTup);
                         //Node.setAttribute(iRow, "id", "" + i);
                         ListIterator fieldslist = vcConfig.mConfigMap.get("excel").lRecordList.get(0).lFieldList.listIterator();
-                        while (fieldslist.hasNext()) {
+                        while (fieldslist.hasNext())
+                        {
                             FieldType excelfields = (FieldType) fieldslist.next();
                             String sColumnName = excelfields.sFieldName;
 
@@ -296,21 +359,25 @@ public class ExcelRead {
                         continue;
                     }
                     int iTup = doc.createElement("tuple", iResponsenode);
-                    if (bUseTupleOld) {
+                    if (bUseTupleOld)
+                    {
                         iTup = doc.createElement("old", iTup);
                     }
                     iRow = doc.createElement(sRecordName, iTup);
                     ListIterator fieldslist = vcConfig.mConfigMap.get("excel").lRecordList.get(0).lFieldList.listIterator();
-                    while (fieldslist.hasNext()) {
+                    while (fieldslist.hasNext())
+                    {
                         FieldType excelfields = (FieldType) fieldslist.next();
                         int iColumnIndex = Integer.parseInt(excelfields.sColumnIndex);
                         cell = row.getCell(iColumnIndex);
                         String sColumnName = excelfields.sFieldName;
-                        if (cell == null) {
+                        if (cell == null)
+                        {
                             iCol = doc.createTextElement(sColumnName, "", iRow);
                             continue;
                         }
-                        switch (cell.getCellType()) {
+                        switch (cell.getCellType())
+                        {
                             case Cell.CELL_TYPE_BLANK:
                                 iCol = doc.createTextElement(sColumnName, "", iRow);
                                 break;
@@ -326,7 +393,15 @@ public class ExcelRead {
 
                                 break;
                             case Cell.CELL_TYPE_NUMERIC:
-                                iCol = doc.createTextElement(sColumnName, "" + cell.getNumericCellValue(), iRow);
+                                if (HSSFDateUtil.isCellDateFormatted(cell))
+                                {
+                                    SimpleDateFormat simpledateformat = new SimpleDateFormat("yyyy-MM-dd 'T' HH:mm:ss.S");
+                                    iCol = doc.createTextElement(sColumnName, "" + simpledateformat.format(cell.getDateCellValue()), iRow);
+
+                                } else
+                                {
+                                    iCol = doc.createTextElement(sColumnName, "" + cell.getNumericCellValue(), iRow);
+                                }
                                 break;
                             case Cell.CELL_TYPE_STRING:
                                 iCol = doc.createTextElement(sColumnName, "" + cell.getStringCellValue(), iRow);
@@ -337,12 +412,17 @@ public class ExcelRead {
                     }
                 }
             }
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
+             throw new FileException();
             //res = e.getMessage();
-        } finally {
-            try {
+        } finally
+        {
+            try
+            {
                 fileinp.close();
-            } catch (IOException ex) {
+            } catch (IOException ex)
+            {
                 Logger.getLogger(ExcelRead.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
