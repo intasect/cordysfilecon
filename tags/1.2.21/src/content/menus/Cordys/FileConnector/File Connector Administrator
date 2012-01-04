@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu
+	xmlns="">
+	<Application
+		focus="true"
+		taskbar="true"
+		display="visible"
+		toolbar="false"
+		title="true"
+		menu="true">
+		<description>File Manager</description>
+		<id>FC_FileManager</id>
+		<caption>File Manager</caption>
+		<url>/cordys/XForms/FileConnector/FileManager.caf</url>
+		<frame
+			docked="true">main</frame>
+		<icon/>
+		<openIcon/>
+		<data/>
+	</Application>
+</menu>

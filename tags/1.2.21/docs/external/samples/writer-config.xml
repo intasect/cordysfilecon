@@ -1,0 +1,90 @@
+<configuration>
+	<!-- 
+		A sample configuration for writing comma separated values.
+		Input SOAP request looks like this :
+		
+		<WriteFileRecords 
+			xmlns="http://schemas.cordys.com/1.0/ac/FileConnector">
+			<filename>c:\temp\write-csv-output.csv</filename>
+			<filetype>csv-sample</filetype>
+			<append>true</append>
+			<records>
+				<tuple>
+					<old>
+						<Record>
+							<ID>100</ID>
+							<Name>CSV Test</Name>
+							<Address>CSV Test Address</Address>
+						</Record>
+					</old>
+				</tuple>
+			</records>
+		</WriteFileRecords>
+		
+		Note that <tuple><old> structure is used as an example for selecting
+		XML subelements and it is not required.
+		
+		The output while should look like this :
+		   100;CSV Test;CSV Test Address;
+	-->
+	<filetype name="csv-sample">
+		<select path="tuple/old/Record">
+			<output path="./ID" type="text" />
+
+			<output type="text">
+				<input fixed=";" />
+			</output>
+
+			<output type="text">
+				<input path="./Name" />
+				<input fixed=";" />
+				<input path="./Address" />
+			</output>
+
+			<output type="text">
+				<input fixed=";\r\n" />
+			</output>
+		</select>
+	</filetype>
+	
+	<!-- 
+		A sample configuration for writing fixed length values.
+		Input SOAP request looks like this :
+		
+		<WriteFileRecords 
+			xmlns="http://schemas.cordys.com/1.0/ac/FileConnector">
+			<filename>c:\temp\write-fixedlength-output.csv</filename>
+			<filetype>fixedlength-sample</filetype>
+			<append>true</append>
+			<records>
+				<tuple>
+					<old>
+						<Record>
+							<ID>100</ID>
+							<Name>Fixed Length Test</Name>
+							<Address>Fixed Length Test Address</Address>
+						</Record>
+					</old>
+				</tuple>
+			</records>
+		</WriteFileRecords>
+		
+		Note that <tuple><old> structure is used as an example for selecting
+		XML subelements and it is not required.
+		
+		The output while should look like this (| character is the beginning of the 
+		line and is not included) :
+		  |   100   Fixed Length Test     Fixed Length Test Address
+	-->
+	<filetype name="fixedlength-sample">
+		<select path="tuple/old/Record">
+			<output path="./ID" type="text" width="6" align="right" />	
+			<output path="./Name" type="text" width="20" align="right" />
+			<output path="./Address" type="text" width="30" align="right" />
+
+			<output type="text">
+				<input fixed="\r\n" />
+			</output>
+		</select>
+	</filetype>	
+</configuration>
