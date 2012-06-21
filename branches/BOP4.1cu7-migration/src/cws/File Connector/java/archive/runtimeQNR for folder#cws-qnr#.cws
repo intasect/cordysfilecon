@@ -1,0 +1,19 @@
+
+<QualifiedNameRoot
+	type="com.cordys.cws.namespace.qualifiedname.QualifiedNameRoot"
+	RuntimeDocumentID="000c29b2-1b17-11e1-f3cf-ade11f649bd6">
+	<DocumentID>000c29b2-1b17-11e1-f3cf-ade11f5f9bd5</DocumentID>
+	<Name>runtimeQNR for folder</Name>
+	<Description>runtimeQNR for folder</Description>
+	<CreatedBy>root</CreatedBy>
+	<CreationDate>2012-05-15T11:12:42.129</CreationDate>
+	<Notes/>
+	<RuntimeQNRFolder>
+		<uri
+			id="000c29b2-1b17-11e1-f3cf-ade11f8f1bde"
+			path="development/java/archive"
+			type="com.cordys.cws.runtime.types.folder.StudioFolder"
+		/>
+	</RuntimeQNRFolder>
+	<DesigntimeQNRFolder/>
+</QualifiedNameRoot>

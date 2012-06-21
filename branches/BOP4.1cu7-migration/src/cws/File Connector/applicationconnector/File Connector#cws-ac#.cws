@@ -1,0 +1,52 @@
+
+<ApplicationConnectorDesigntime
+	xmlns=""
+	xmlns:cws="http://schemas.cordys.com/cws/1.0"
+	type="com.cordys.applicationconnector.ApplicationConnectorDesigntime"
+	typeVersion="0014C25C-F38B-71DF-A966-2D0AC4143A56"
+	RuntimeDocumentID="000c29b2-1b17-11e1-f3d0-21711adc5f06">
+	<DocumentID>000c29b2-1b17-11e1-f3d0-21711ad75f05</DocumentID>
+	<Name>File Connector</Name>
+	<Description>File Connector</Description>
+	<CreatedBy>root</CreatedBy>
+	<CreationDate>2012-05-15T11:38:07.244</CreationDate>
+	<Notes/>
+	<ClassPath>components/fileconnector/fileconnector.jar;ext/coelib.jar;ext/stax/stax2-2.1.jar;ext/stax/wstx-asl-3.2.3.jar;ext/stax/stax-api-1.0.jar;ext/excel/dom4j-1.6.1.jar;ext/excel/geronimo-stax-api_1.0_spec-1.0.jar;ext/excel/poi-3.7.jar;ext/excel/poi-ooxml-3.7.jar;ext/excel/poi-ooxml-schemas-3.7-20101029.jar;ext/excel/poi-scratchpad-3.7-20101029.jar;ext/excel/xmlbeans-2.3.0.jar;</ClassPath>
+	<ImplementationClass>com.cordys.coe.ac.fileconnector.FileConnector</ImplementationClass>
+	<LoggerCategoryGroups>
+		<loggercategory
+			xmlns:c="http://schemas.cordys.com/cws/1.0"
+			xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/"
+			xmlns="">
+			<categorygroup
+				displayname="File Connector">
+				<category
+					inserted="true">com.cordys.coe.ac.fileconnector</category>
+			</categorygroup>
+		</loggercategory>
+	</LoggerCategoryGroups>
+	<StartupDependencies>
+		<startupDependency
+			xmlns:c="http://schemas.cordys.com/cws/1.0"
+			xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/"
+			xmlns="">
+			<namespace>http://schemas.cordys.com/1.0/xmlstore</namespace>
+		</startupDependency>
+	</StartupDependencies>
+	<SupportsJVMSharing>true</SupportsJVMSharing>
+	<ConfigurationPage>
+		<uri
+			id="005056C0-0008-11E1-F460-865B7467FB6E"
+		/>
+	</ConfigurationPage>
+	<Image>
+		<uri
+			id="005056C0-0008-11E1-F4AC-16A5AA07BBEC"
+			path="File Connector/images/configurationconnector.png"
+			type="com.cordys.cws.documenttypes.image.Png"
+		/>
+	</Image>
+	<MetadataPage/>
+	<PropertyPage/>
+	<TypeImplementationMappings/>
+</ApplicationConnectorDesigntime>

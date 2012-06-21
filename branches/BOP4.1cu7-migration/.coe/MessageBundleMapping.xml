@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<MessageBundles>
+  <MessageBundle>
+    <propertiesChanged>false</propertiesChanged>
+    <JavaClassName>LogMessages</JavaClassName>
+    <JavaPackage>com.cordys.coe.ac.fileconnector.extensions.directorypoller</JavaPackage>
+    <JavaSrcDir>src/cws/FileConnector/com-cordys-coe/fileconnector/java/source</JavaSrcDir>
+    <SourceFile>src/cws/FileConnector/com-cordys-coe/fileconnector/localization/com.cordys.coe.ac.fileconnector.extensions.directorypoller.LogMessages#MessageBundle#.xml</SourceFile>
+  </MessageBundle>
+  <MessageBundle>
+    <propertiesChanged>true</propertiesChanged>
+    <JavaClassName>LogMessages</JavaClassName>
+    <JavaPackage>com.cordys.coe.ac.fileconnector</JavaPackage>
+    <JavaSrcDir>src/cws/FileConnector/com-cordys-coe/fileconnector/java/source</JavaSrcDir>
+    <SourceFile>src/cws/FileConnector/com-cordys-coe/fileconnector/localization/com.cordys.coe.ac.fileconnector.LogMessages#MessageBundle#.xml</SourceFile>
+  </MessageBundle>
+</MessageBundles>

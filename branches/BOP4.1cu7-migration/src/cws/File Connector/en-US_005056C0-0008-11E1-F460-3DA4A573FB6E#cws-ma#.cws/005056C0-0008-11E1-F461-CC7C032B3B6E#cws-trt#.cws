@@ -1,0 +1,24 @@
+
+<TranslatedText
+	xmlns=""
+	xmlns:cws="http://schemas.cordys.com/cws/1.0"
+	type="com.cordys.translation.TranslatedText"
+	RuntimeDocumentID="005056C0-0008-11E1-F461-CC7C032B5B6E">
+	<DocumentID>005056C0-0008-11E1-F461-CC7C032B3B6E</DocumentID>
+	<Name>005056C0-0008-11E1-F461-CC7C032B3B6E</Name>
+	<Description>fileconnectorconfig backup</Description>
+	<CreatedBy>gkaviyarasu</CreatedBy>
+	<CreationDate>2012-05-21T06:30:03.597</CreationDate>
+	<Notes/>
+	<Text>fileconnectorconfig backup</Text>
+	<Language>
+		<uri
+			id="005056C0-0008-11E1-F460-3DA4A573BB6E"
+		/>
+	</Language>
+	<TextIdentifier>
+		<uri
+			id="005056C0-0008-11E1-F461-CC7C032AFB6E"
+		/>
+	</TextIdentifier>
+</TranslatedText>

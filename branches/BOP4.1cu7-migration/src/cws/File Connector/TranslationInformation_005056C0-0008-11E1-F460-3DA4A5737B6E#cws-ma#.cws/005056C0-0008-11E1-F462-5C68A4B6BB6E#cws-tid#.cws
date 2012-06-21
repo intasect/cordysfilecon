@@ -1,0 +1,25 @@
+
+<TextIdentifier
+	xmlns=""
+	xmlns:cws="http://schemas.cordys.com/cws/1.0"
+	type="com.cordys.translation.TextIdentifier"
+	typeVersion="55890f21-u239-76j6-988a-92j7opq6ws09"
+	RuntimeDocumentID="005056C0-0008-11E1-F462-5C68A4B6DB6E">
+	<DocumentID>005056C0-0008-11E1-F462-5C68A4B6BB6E</DocumentID>
+	<Name>005056C0-0008-11E1-F462-5C68A4B6BB6E</Name>
+	<Description>FileConnector Details</Description>
+	<CreatedBy>gkaviyarasu</CreatedBy>
+	<CreationDate>2012-05-21T07:13:13.956</CreationDate>
+	<Notes/>
+	<DefaultText>FileConnector Details</DefaultText>
+	<TranslationInformation>
+		<uri
+			id="005056C0-0008-11E1-F460-3DA4A5733B6E"
+		/>
+	</TranslationInformation>
+	<Translations>
+		<uri
+			id="005056C0-0008-11E1-F462-5C68A4B6FB6E"
+		/>
+	</Translations>
+</TextIdentifier>

@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MessageBundle xmlns:c="http://schemas.cordys.com/cws/1.0" xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/" id="com.cordys.coe.ac.fileconnector.extensions.directorypoller.LogMessages">
+    <Message id="CONNECTOR_MANAGEMENT_DESCRIPTION">
+        <MessageText><![CDATA[Directory Poller]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="CNTR_FILE_SCAN_TIME">
+        <MessageText><![CDATA[Time used for scanning files in the input folder(s).]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="CNTR_TRIGGER_TIME">
+        <MessageText><![CDATA[Duration of SOAP message trigger.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="CNTR_INPUT_FILES">
+        <MessageText><![CDATA[Number of seen input files]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="CNTR_RESTARTED_FILES">
+        <MessageText><![CDATA[Number of times file processing is restarted after connector restart.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="CNTR_PROCESSED_FILES_SUCCESS">
+        <MessageText><![CDATA[Number of successfully processed files]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="CNTR_PROCESSED_FILES_ERROR">
+        <MessageText><![CDATA[Number of processed files moved to the error folder]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="CNTR_PROCESSED_FILES_TOTAL">
+        <MessageText><![CDATA[Total number of processed files]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="CNTR_PROCESSING_TIME">
+        <MessageText><![CDATA[Average processing time. This does not include the scanning time.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="CNTR_FILE_SIZE">
+        <MessageText><![CDATA[Average incoming file size]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="CNTR_CUR_WORKER_THREADS">
+        <MessageText><![CDATA[Number of active worker threads.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="CNTR_CUR_WORK_QUEUE_SIZE">
+        <MessageText><![CDATA[Current size of the thread pool queue.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="CNTR_CUR_FILES_IN_PROCESS">
+        <MessageText><![CDATA[Number of files in the processing folder.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ALERT_FILE_ERROR">
+        <MessageText><![CDATA[Processing of file {0} ended in an error: {1}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ALERT_FILE_ERROR_DESC">
+        <MessageText><![CDATA[File processing error]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="HOTSETTING_NUM_WORKERS">
+        <MessageText><![CDATA[Number of worker threads.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="HOTSETTING_MIN_WORKERS">
+        <MessageText><![CDATA[Minumum number of worker threads.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="HOTSETTING_MAX_WORKERS">
+        <MessageText><![CDATA[Maxumum number of worker threads.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UNABLE_TO_DELETE_SRC_FILE">
+        <MessageText><![CDATA[Unable to delete the source file.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="FOLDER_IS_ALREADY_DEFINED">
+        <MessageText><![CDATA[Folder is already defined with name: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ACTUAL_LOCATION_NOT_SPECIFIED">
+        <MessageText><![CDATA[The actual location (directory) needs to be specified.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="NAME_NOT_SPECIFIED">
+        <MessageText><![CDATA[The name needs to be specified.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UNABLE_TO_CREATE_INPUT_FOLDER">
+        <MessageText><![CDATA[Unable to create input folder: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="INPUT_DIR_IS_NOT_A_DIRECTORY">
+        <MessageText><![CDATA[Input folder is not a folder: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="INPUT_DIR_NOT_REACHABLE">
+        <MessageText><![CDATA[Input folder is not readable: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="INPUT_DIR_NOT_WRITABLE">
+        <MessageText><![CDATA[Input folder is not writable: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="TRACK_TIME_PARAM_NOT_SPECIFIED">
+        <MessageText><![CDATA[The track-time parameter needs to be specified.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="INVALID_TRACK_TIME">
+        <MessageText><![CDATA[Invalid track-time value: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="TRIGGER_NODE_UNDEFINED">
+        <MessageText><![CDATA[The trigger node is undefined.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="METHODNAME_NOT_SPECIFIED">
+        <MessageText><![CDATA[The methodname is not specified for the folder.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="NAMESPACE_NOT_SPECIFIED">
+        <MessageText><![CDATA[The namespace for the trigger method is not specified for the folder.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UNABLE_TO_LOAD_ERROR_HANDLER_CLASS">
+        <MessageText><![CDATA[Unable to load error handler class: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="INVALID_FILTER_TYPE">
+        <MessageText><![CDATA[Invalid filter type: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="INVALID_FILE_FILTER">
+        <MessageText><![CDATA[Invalid file filter: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UNABLE_TO_LOCK_PROC_FOLDER">
+        <MessageText><![CDATA[Unable to lock the processing folder: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="FILE_NOT_EXIST">
+        <MessageText><![CDATA[File {0} does not exist.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="COULD_NOT_RESUME_FILE_PROCESS">
+        <MessageText><![CDATA[File processing could not be resumed.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="FOLDER_NOT_FOUND">
+        <MessageText><![CDATA[Folder {0} could not be found on the filesystem.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="NO_DIR_SPECIFIED_FOR_POLLER">
+        <MessageText><![CDATA[No folders specified for the DirectoryPoller.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="CONFIGURATION_FILE_NOT_SET">
+        <MessageText><![CDATA[Configuration file not set for this connector.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="INVALID_RESPONSE_RECIVED">
+        <MessageText><![CDATA[Invalid response received from XMLStore.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="DIRECTORYPOLLER_CONFIG_FILE_NOT_FOUND">
+        <MessageText><![CDATA[DirectoryPoller configuration file not found: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UNABLE_TO_LOAD_CONFIGURATION">
+        <MessageText><![CDATA[Unable to load configuration from XMLStore.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="INVALID_PARAM_TYPE">
+        <MessageText><![CDATA[Invalid parameter type: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="FOLDER_CONFIGURATION_NOT_SET">
+        <MessageText><![CDATA[Folder configuration is not set.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="CONFIG_FOLDER_NAME_NOT_SET">
+        <MessageText><![CDATA[Configured folder name is not set.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="CONFIGURED_FOLDER_NOT_FOUND">
+        <MessageText><![CDATA[Configured folder not found: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ERROR_ENCODING_INPUT_FILE">
+        <MessageText><![CDATA[Error encoding input file: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ERROR_READING_INPUT_FILE">
+        <MessageText><![CDATA[Error reading input file: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="FILE_STATE_CANNOT_RETURN_FALSE">
+        <MessageText><![CDATA[File state cannot return false in the processing folder!]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="FILE_STATE_NOT_SET">
+        <MessageText><![CDATA[File state is not set.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="FINISH_STATE_REACHED_WHILE_SCANNING">
+        <MessageText><![CDATA[Finished state reached while scanning.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="REQUEST_ALREADY_SENT_PROBABLY_FAILED">
+        <MessageText><![CDATA[SOAP request has already been sent and probably failed.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="INPUT_FOLDER_NOT_SET">
+        <MessageText><![CDATA[Input folder it not set.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="CURRENT_FILE_NOT_SET">
+        <MessageText><![CDATA[Current file it not set.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ORIGINAL_INPUT_FILE_NOT_SET">
+        <MessageText><![CDATA[Original input file it not set.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="NOM_CONNECTOR_NOT_SET">
+        <MessageText><![CDATA[NOM connector it not set.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UNABLE_TO_CREATE_SOAP_METHOD">
+        <MessageText><![CDATA[Unable to create SOAP method.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UNABLE_TO_TRIGGER_SOAP_REQUEST">
+        <MessageText><![CDATA[Unable to create trigger SOAP request.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ERROR_TRIGGERING_WEBSERVICE">
+        <MessageText><![CDATA[Error triggering the webservice for {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="NO_FILE_FOUND">
+        <MessageText><![CDATA[No file found from the processing folder: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="FILE_ID_NOT_SET">
+        <MessageText><![CDATA[File ID is not set.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="FILE_LOCKING_FAILED">
+        <MessageText><![CDATA[File locking failed.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UNABLE_TO_CREATE_PROC_FOLDER">
+        <MessageText><![CDATA[Unable to create the processing folder: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="RENAMING_FILE_FAILED">
+        <MessageText><![CDATA[The renaming of file {0} to {1} failed.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="FILE_COULD_NOT_BE_LOCKED">
+        <MessageText><![CDATA[File could not be locked. Cordys user probably does not have write permissions. File: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="TRIGGER_REQUIRES_APP_PROCESSING_FOLDER">
+        <MessageText><![CDATA[Trigger requires an application processing folder but it has not been configured.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="NO_START_ENTRY_WRITTEN">
+        <MessageText><![CDATA[No start entry written.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UNABLE_TO_WIRTE_STATE_TIMESTAMP">
+        <MessageText><![CDATA[Unable to write state finished timestamp to file state log: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UNABLE_TO_OPEN_STATE_LOG_FILE">
+        <MessageText><![CDATA[Unable to open/create state log file: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UNABLE_TO_READ_STATE_LOG_FILE">
+        <MessageText><![CDATA[Unable to read state log file: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="LOG_FILE_NOT_EXIST">
+        <MessageText><![CDATA[Log file does not exist: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UNABLE_TO_WRITE_STATE_TO_LOG_FILE">
+        <MessageText><![CDATA[Unable write state {0} to file state log: {1}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UNABLE_TO_READ_STATE_LOG">
+        <MessageText><![CDATA[Unable read the file state log: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="TRIGGER_STATE_RETURNED_FALSE">
+        <MessageText><![CDATA[Trigger state returned false]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+</MessageBundle>
