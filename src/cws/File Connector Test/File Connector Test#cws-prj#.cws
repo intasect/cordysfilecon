@@ -1,0 +1,96 @@
+
+<Project
+	xmlns=""
+	xmlns:cws="http://schemas.cordys.com/cws/1.0"
+	type="com.cordys.cws.documenttypes.project.Project"
+	typeVersion="0019B980-5ADC-71DF-9C5A-1C9DE0779704"
+	RuntimeDocumentID="00505681-03c7-11e1-f76c-b4e9df76972d">
+	<DocumentID>00505681-03c7-11e1-f76c-b4e9df6dd72c</DocumentID>
+	<Name>File Connector Test</Name>
+	<Description>File Connector Test</Description>
+	<CreatedBy>root</CreatedBy>
+	<CreationDate>2012-06-21T05:57:08.711</CreationDate>
+	<Notes/>
+	<NamespacePrefix></NamespacePrefix>
+	<ISVPackageInfo>
+		<ISVPackageInfo
+			type="com.cordys.cws.packaging.isvp.ISVPackageInfo"
+			RuntimeDocumentID="00505681-03c7-11e1-f76c-b4e9df3f9727">
+			<DocumentID>00505681-03c7-11e1-f76c-b4e9df309726</DocumentID>
+			<Name>My Company File Connector Test</Name>
+			<Description>My Company File Connector Test</Description>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2012-06-21T05:57:08.712</CreationDate>
+			<Notes/>
+			<BuildNumber>0</BuildNumber>
+			<ISVPackageFileName>My Company File Connector Test 1.0.0</ISVPackageFileName>
+			<ISVPackageOwner>My Company</ISVPackageOwner>
+			<PackageForRuntime>true</PackageForRuntime>
+			<PostISVLoaderInformation/>
+			<Product>File Connector Test</Product>
+			<Version>1.0</Version>
+			<LicenseAgreement/>
+			<ThirdPartyAgreement/>
+		</ISVPackageInfo>
+	</ISVPackageInfo>
+	<RuntimeQualifiedName/>
+	<SourceFolder>
+		<uri
+			id="00505681-03c7-11e1-f76c-b4e9df5b172a"
+			path="File Connector Test"
+			type="com.cordys.cws.runtime.types.folder.StudioFolder"
+		/>
+	</SourceFolder>
+	<_AddOns>
+		<TranslationInformation
+			type="com.cordys.translation.TranslationInformation"
+			typeVersion="b81bb9b4-8af7-470f-a5fa-864be49acb9d"
+			RuntimeDocumentID="00505681-03c7-11e1-f76c-b4e9df219725">
+			<DocumentID>00505681-03c7-11e1-f76c-b4e9df13d724</DocumentID>
+			<Name>TranslationInformation</Name>
+			<Description>TranslationInformation</Description>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2012-06-21T05:57:08.711</CreationDate>
+			<Notes/>
+			<LanguagePacks>
+				<LanguagePack
+					type="com.cordys.translation.LanguagePack"
+					typeVersion="11456b87-q895-32f2-584q-58f3tlm2so65"
+					RuntimeDocumentID="00505681-03c7-11e1-f76c-b4e9dee81721">
+					<DocumentID>00505681-03c7-11e1-f76c-b4e9dede1720</DocumentID>
+					<Name>en-US</Name>
+					<Description>en-US</Description>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2012-06-21T05:57:08.709</CreationDate>
+					<Notes/>
+					<Language>English - United States</Language>
+					<Texts>
+						<uri
+							id="00505681-03c7-11e1-f76c-b4e9decb571e"
+							path="File Connector Test/en-US_00505681-03c7-11e1-f76c-b4e9decb571e"
+							type="com.cordys.cws.associations.MergeableAssociation"
+						/>
+					</Texts>
+					<TranslationInformation>
+						<uri
+							id="00505681-03c7-11e1-f76c-b4e9df13d724"
+						/>
+					</TranslationInformation>
+				</LanguagePack>
+			</LanguagePacks>
+			<ProjectLanguage>
+				<uri
+					id="00505681-03c7-11e1-f76c-b4e9dede1720"
+				/>
+			</ProjectLanguage>
+			<Texts>
+				<uri
+					id="00505681-03c7-11e1-f76c-b4e9def5d722"
+					path="File Connector Test/TranslationInformation_00505681-03c7-11e1-f76c-b4e9def5d722"
+					type="com.cordys.cws.associations.MergeableAssociation"
+				/>
+			</Texts>
+			<TranslationInformation/>
+		</TranslationInformation>
+	</_AddOns>
+</Project>

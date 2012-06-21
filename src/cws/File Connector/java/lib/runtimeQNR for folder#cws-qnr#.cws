@@ -1,0 +1,19 @@
+
+<QualifiedNameRoot
+	type="com.cordys.cws.namespace.qualifiedname.QualifiedNameRoot"
+	RuntimeDocumentID="000c29b2-1b17-11e1-f3d0-21711b3f1f17">
+	<DocumentID>000c29b2-1b17-11e1-f3d0-21711b3a1f16</DocumentID>
+	<Name>runtimeQNR for folder</Name>
+	<Description>runtimeQNR for folder</Description>
+	<CreatedBy>root</CreatedBy>
+	<CreationDate>2012-05-15T11:32:10.788</CreationDate>
+	<Notes/>
+	<RuntimeQNRFolder>
+		<uri
+			id="000c29b2-1b17-11e1-f3cf-ecb130525d49"
+			path="development/lib"
+			type="com.cordys.cws.runtime.types.folder.StudioFolder"
+		/>
+	</RuntimeQNRFolder>
+	<DesigntimeQNRFolder/>
+</QualifiedNameRoot>

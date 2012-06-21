@@ -1,0 +1,211 @@
+
+<JavaArchiveSource
+	xmlns=""
+	xmlns:cws="http://schemas.cordys.com/cws/1.0"
+	type="com.cordys.cws.documenttypes.javaarchivesource.JavaArchiveSource"
+	RuntimeDocumentID="000c29b2-1b17-11e1-f3cf-ade11f315bcc">
+	<DocumentID>000c29b2-1b17-11e1-f3cf-ade11f2c5bcb</DocumentID>
+	<Name>fileconnector</Name>
+	<Description>fileconnector</Description>
+	<CreatedBy>root</CreatedBy>
+	<CreationDate>2012-05-15T11:13:28.439</CreationDate>
+	<Notes/>
+	<JarFileName>fileconnector</JarFileName>
+	<NamespacePrefix></NamespacePrefix>
+	<Dependencies>
+		<JavaArchiveBinaryDependency
+			type="com.cordys.cws.documenttypes.javaarchivesource.JavaArchiveBinaryDependency"
+			RuntimeDocumentID="005056C0-0008-11E1-F460-865B746D1B6E">
+			<DocumentID>005056C0-0008-11E1-F460-865B746CFB6E</DocumentID>
+			<Name>005056C0-0008-11E1-F460-865B746CFB6E</Name>
+			<Description>File Connector_lib_coe_fileconnector_stax_stax2-2.1.jar</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T05:18:03.768</CreationDate>
+			<Notes/>
+			<DependsOnJAR>
+				<uri
+					id="00505681-03c7-11e1-f4ac-79593c5d9691"
+					path="File Connector/lib/ext/stax/stax2-2.1.jar"
+					type="com.cordys.cws.documenttypes.javaarchive.JavaArchiveBinary"
+				/>
+			</DependsOnJAR>
+		</JavaArchiveBinaryDependency>
+		<JavaArchiveBinaryDependency
+			type="com.cordys.cws.documenttypes.javaarchivesource.JavaArchiveBinaryDependency"
+			RuntimeDocumentID="005056C0-0008-11E1-F460-865B746D7B6E">
+			<DocumentID>005056C0-0008-11E1-F460-865B746D5B6E</DocumentID>
+			<Name>005056C0-0008-11E1-F460-865B746D5B6E</Name>
+			<Description>File Connector_lib_coe_fileconnector_excel_poi-ooxml-schemas-3.7-20101029.jar</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T05:18:03.766</CreationDate>
+			<Notes/>
+			<DependsOnJAR>
+				<uri
+					id="00505681-03c7-11e1-f4ac-79503e38d7e5"
+					path="File Connector/lib/ext/excel/poi-ooxml-schemas-3.7-20101029.jar"
+					type="com.cordys.cws.documenttypes.javaarchive.JavaArchiveBinary"
+				/>
+			</DependsOnJAR>
+		</JavaArchiveBinaryDependency>
+		<JavaArchiveBinaryDependency
+			type="com.cordys.cws.documenttypes.javaarchivesource.JavaArchiveBinaryDependency"
+			RuntimeDocumentID="005056C0-0008-11E1-F460-865B746DDB6E">
+			<DocumentID>005056C0-0008-11E1-F460-865B746DBB6E</DocumentID>
+			<Name>005056C0-0008-11E1-F460-865B746DBB6E</Name>
+			<Description>File Connector_lib_coe_fileconnector_excel_geronimo-stax-api_1.0_spec-1.0.jar</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T05:18:03.767</CreationDate>
+			<Notes/>
+			<DependsOnJAR>
+				<uri
+					id="00505681-03c7-11e1-f4ac-794bc62517d9"
+					path="File Connector/lib/ext/excel/geronimo-stax-api_1.0_spec-1.0.jar"
+					type="com.cordys.cws.documenttypes.javaarchive.JavaArchiveBinary"
+				/>
+			</DependsOnJAR>
+		</JavaArchiveBinaryDependency>
+		<JavaArchiveBinaryDependency
+			type="com.cordys.cws.documenttypes.javaarchivesource.JavaArchiveBinaryDependency"
+			RuntimeDocumentID="005056C0-0008-11E1-F460-865B746E3B6E">
+			<DocumentID>005056C0-0008-11E1-F460-865B746E1B6E</DocumentID>
+			<Name>005056C0-0008-11E1-F460-865B746E1B6E</Name>
+			<Description>File Connector_lib_coe_fileconnector_excel_xmlbeans-2.3.0.jar</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T05:18:03.767</CreationDate>
+			<Notes/>
+			<DependsOnJAR>
+				<uri
+					id="00505681-03c7-11e1-f4ac-794bf6ef17dd"
+					path="File Connector/lib/ext/excel/xmlbeans-2.3.0.jar"
+					type="com.cordys.cws.documenttypes.javaarchive.JavaArchiveBinary"
+				/>
+			</DependsOnJAR>
+		</JavaArchiveBinaryDependency>
+		<JavaArchiveBinaryDependency
+			type="com.cordys.cws.documenttypes.javaarchivesource.JavaArchiveBinaryDependency"
+			RuntimeDocumentID="005056C0-0008-11E1-F460-865B746E9B6E">
+			<DocumentID>005056C0-0008-11E1-F460-865B746E7B6E</DocumentID>
+			<Name>005056C0-0008-11E1-F460-865B746E7B6E</Name>
+			<Description>File Connector_lib_coe_fileconnector_stax_stax-api-1.0.jar</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T05:18:03.768</CreationDate>
+			<Notes/>
+			<DependsOnJAR>
+				<uri
+					id="00505681-03c7-11e1-f4ac-795990afd69f"
+					path="File Connector/lib/ext/stax/stax-api-1.0.jar"
+					type="com.cordys.cws.documenttypes.javaarchive.JavaArchiveBinary"
+				/>
+			</DependsOnJAR>
+		</JavaArchiveBinaryDependency>
+		<JavaArchiveBinaryDependency
+			type="com.cordys.cws.documenttypes.javaarchivesource.JavaArchiveBinaryDependency"
+			RuntimeDocumentID="005056C0-0008-11E1-F460-865B746EFB6E">
+			<DocumentID>005056C0-0008-11E1-F460-865B746EDB6E</DocumentID>
+			<Name>005056C0-0008-11E1-F460-865B746EDB6E</Name>
+			<Description>File Connector_lib_coe_fileconnector_excel_poi-ooxml-3.7.jar</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T05:18:03.767</CreationDate>
+			<Notes/>
+			<DependsOnJAR>
+				<uri
+					id="00505681-03c7-11e1-f4ac-7955f181167b"
+					path="File Connector/lib/ext/excel/poi-ooxml-3.7.jar"
+					type="com.cordys.cws.documenttypes.javaarchive.JavaArchiveBinary"
+				/>
+			</DependsOnJAR>
+		</JavaArchiveBinaryDependency>
+		<JavaArchiveBinaryDependency
+			type="com.cordys.cws.documenttypes.javaarchivesource.JavaArchiveBinaryDependency"
+			RuntimeDocumentID="005056C0-0008-11E1-F460-865B746F5B6E">
+			<DocumentID>005056C0-0008-11E1-F460-865B746F3B6E</DocumentID>
+			<Name>005056C0-0008-11E1-F460-865B746F3B6E</Name>
+			<Description>File Connector_lib_coe_fileconnector_excel_dom4j-1.6.1.jar</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T05:18:03.767</CreationDate>
+			<Notes/>
+			<DependsOnJAR>
+				<uri
+					id="00505681-03c7-11e1-f4ac-794fb77c57e1"
+					path="File Connector/lib/ext/excel/dom4j-1.6.1.jar"
+					type="com.cordys.cws.documenttypes.javaarchive.JavaArchiveBinary"
+				/>
+			</DependsOnJAR>
+		</JavaArchiveBinaryDependency>
+		<JavaArchiveBinaryDependency
+			type="com.cordys.cws.documenttypes.javaarchivesource.JavaArchiveBinaryDependency"
+			RuntimeDocumentID="005056C0-0008-11E1-F460-865B746FBB6E">
+			<DocumentID>005056C0-0008-11E1-F460-865B746F9B6E</DocumentID>
+			<Name>005056C0-0008-11E1-F460-865B746F9B6E</Name>
+			<Description>File Connector_lib_coe_fileconnector_stax_wstx-asl-3.2.3.jar</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T05:18:03.766</CreationDate>
+			<Notes/>
+			<DependsOnJAR>
+				<uri
+					id="00505681-03c7-11e1-f4ac-7959e23fd6a3"
+					path="File Connector/lib/ext/stax/wstx-asl-3.2.3.jar"
+					type="com.cordys.cws.documenttypes.javaarchive.JavaArchiveBinary"
+				/>
+			</DependsOnJAR>
+		</JavaArchiveBinaryDependency>
+		<JavaArchiveBinaryDependency
+			type="com.cordys.cws.documenttypes.javaarchivesource.JavaArchiveBinaryDependency"
+			RuntimeDocumentID="005056C0-0008-11E1-F460-865B74701B6E">
+			<DocumentID>005056C0-0008-11E1-F460-865B746FFB6E</DocumentID>
+			<Name>005056C0-0008-11E1-F460-865B746FFB6E</Name>
+			<Description>File Connector_lib_coe_fileconnector_excel_poi-scratchpad-3.7-20101029.jar</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T05:18:03.766</CreationDate>
+			<Notes/>
+			<DependsOnJAR>
+				<uri
+					id="00505681-03c7-11e1-f4ac-7956d20b967f"
+					path="File Connector/lib/ext/excel/poi-scratchpad-3.7-20101029.jar"
+					type="com.cordys.cws.documenttypes.javaarchive.JavaArchiveBinary"
+				/>
+			</DependsOnJAR>
+		</JavaArchiveBinaryDependency>
+		<JavaArchiveBinaryDependency
+			type="com.cordys.cws.documenttypes.javaarchivesource.JavaArchiveBinaryDependency"
+			RuntimeDocumentID="005056C0-0008-11E1-F460-865B74707B6E">
+			<DocumentID>005056C0-0008-11E1-F460-865B74705B6E</DocumentID>
+			<Name>005056C0-0008-11E1-F460-865B74705B6E</Name>
+			<Description>File Connector_lib_coe_fileconnector_excel_poi-3.7.jar</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T05:18:03.767</CreationDate>
+			<Notes/>
+			<DependsOnJAR>
+				<uri
+					id="00505681-03c7-11e1-f4ac-7948aa1717d5"
+					path="File Connector/lib/ext/excel/poi-3.7.jar"
+					type="com.cordys.cws.documenttypes.javaarchive.JavaArchiveBinary"
+				/>
+			</DependsOnJAR>
+		</JavaArchiveBinaryDependency>
+		<JavaArchiveBinaryDependency
+			type="com.cordys.cws.documenttypes.javaarchivesource.JavaArchiveBinaryDependency"
+			RuntimeDocumentID="005056C0-0008-11E1-F460-865B7470FB6E">
+			<DocumentID>005056C0-0008-11E1-F460-865B7470DB6E</DocumentID>
+			<Name>005056C0-0008-11E1-F460-865B7470DB6E</Name>
+			<Description>File Connector_lib_coe_fileconnector_coelib.jar</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T05:18:03.768</CreationDate>
+			<Notes/>
+			<DependsOnJAR>
+				<uri
+					id="00505681-03c7-11e1-f4ac-795850689685"
+					path="File Connector/lib/ext/coelib.jar"
+					type="com.cordys.cws.documenttypes.javaarchive.JavaArchiveBinary"
+				/>
+			</DependsOnJAR>
+		</JavaArchiveBinaryDependency>
+	</Dependencies>
+	<SourceFolder>
+		<uri
+			id="00505681-03c7-11e1-f4ac-7977c71ed7ad"
+			path="File Connector/java/source"
+			type="com.cordys.cws.runtime.types.folder.StudioFolder"
+		/>
+	</SourceFolder>
+</JavaArchiveSource>

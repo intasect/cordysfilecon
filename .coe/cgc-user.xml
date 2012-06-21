@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurations>
+    <configuration name="Default" type="webgateway">
+        <authenticationtype>SSO</authenticationtype>
+        <dausername>pgussow</dausername>
+        <dapassword>OBF:1yt41vg71z0h1ym71z0d1vgn1yti</dapassword>
+        <organization-name>dev</organization-name>
+        <organizational-user-name>pgussow</organizational-user-name>
+        <cws-workspace-name>filecon</cws-workspace-name>
+        <cordys-root-dir>C:\Cordys\BOP41\platform</cordys-root-dir>
+        <server>localhost</server>
+        <port>82</port>
+        <restart-soapprocessor-dn>cn=CIZ,cn=CIZ</restart-soapprocessor-dn>
+        <content-copy-verbose>true</content-copy-verbose>
+    </configuration>
+</configurations>
