@@ -1,0 +1,179 @@
+<!--
+	© 2008 Cordys R&D B.V. All rights reserved.
+	The computer program(s) is the proprietary information of Cordys R&D B.V. 
+	and provided under the relevant License Agreement containing restrictions 
+	on use and disclosure. Use is subject to the License Agreement.
+-->
+<html xmlns:eibus onselect="onAppSelect()">
+    <head>
+        <script src="/cordys/wcp/application.js"></script>
+        <script src="common.js"></script>
+        <title>FileConnector Configuration</title>
+    </head>
+    <script>
+    	/**
+    	 * Indicates whether the page is loaded completely.
+    	 */
+    	var pageInitialized = false; 
+    	/**
+    	 * Contains data passed from the parent page. This page registers
+    	 * callback methods for it.
+    	 */
+    	var parentPageData;
+    	
+    	var dataFields = [
+			{ id: "chkEnabled",		 	 name: "enabled",			 	def: "false" },
+			{ id: "txtConfigLocation", 	 name: "configuration-file", 	def: "/Cordys/fileconnector/config/poller-config.xml" },
+			{ id: "txtProcFolder", 		 name: "processing-folder", 	def: "poller/processing" },
+			{ id: "txtAppProcFolder",	 name: "app-processing-folder", def: "" },
+			{ id: "txtErrorFolder",		 name: "error-folder", 			def: "poller/error" },
+			{ id: "txtPollInterval", 	 name: "poll-interval", 		def: "10" },
+			{ id: "txtMinWorkerThreads", name: "minConcurrentWorkers",	def: "1" },
+			{ id: "txtMaxWorkerThreads", name: "maxConcurrentWorkers",	def: "10" },
+			{ id: "txtDefaultUserDn",    name: "defaultUserDn", 	    def: "" }
+    	];
+        
+        /**
+         * Called when this page is selected by application.select()
+         */
+        function onAppSelect()
+        {
+			if (application.event && application.event.data) {
+        		parentPageData = application.event.data;
+        		parentPageData.isPageLoaded = isPageLoaded;
+        		parentPageData.createConnectorConfiguration = createConnectorConfiguration;
+        		parentPageData.fillInPropertyScreen = fillInPropertyScreen;
+			}
+			
+			pageInitialized = true;
+        }
+        
+        /**
+         * Returns true if the pages has been completely loaded.
+         */
+        function isPageLoaded()
+        {
+        	return pageInitialized;
+        }
+
+        /**
+         * This method creates the needed configuration for the connector
+         *
+         * @param xmlConfig The configuration-XML.
+         */
+        function createConnectorConfiguration(xmlConfig)
+        {
+        	var pollerConfig = xmlConfig.ownerDocument.createElement("component");
+        	
+        	pollerConfig.setAttribute("name", "Directory Poller");
+
+			xmlConfig.parentNode.appendChild(pollerConfig);
+        	copyFieldsToXml(dataFields, pollerConfig, document);
+
+            return true;
+        }//createConnectorConfiguration
+        
+        /**
+         * This method fills the inputfields based on the XML
+         *
+         * @param xmlConfig The configuration-XML.
+         */
+        function fillInPropertyScreen(xmlConfig)
+        {   
+        	var pollerConfig = xmlConfig.selectSingleNode("../component[@name='Directory Poller']");
+        	
+        	if (! pollerConfig) {
+        		// Create a dummy section.
+        		pollerConfig = xmlConfig.ownerDocument.createElement("component");
+        	}
+
+           	copyFieldsFromXml(dataFields, pollerConfig, document);
+            
+            return true;
+        }
+    </script>
+    <body>
+        <table width="100%" style="border: 1px solid black;" cellspacing="0" cellpadding="5">
+            <tr class="medium">
+                <td colspan="2" align="center">
+                    <STRONG>Directory Poller Details</STRONG>
+                </td>
+            </tr>
+            <tr>
+                <td width="50%" align="right" valign="top">
+                    Poller Enabled
+                </td>
+                <td  align="left">
+                    <input type="checkbox" id="chkEnabled" />
+                </td>
+            </tr>            
+            <tr>
+                <td width="50%" align="right" valign="top">
+                    XMLStore location for the configuration:
+                </td>
+                <td  align="left">
+                    <input type="text" style="width:300px" id="txtConfigLocation" class="input"  value="/Cordys/fileconnector/config/poller-config.xml"/>
+                </td>
+            </tr>
+			<tr>
+                <td width="50%" align="right" valign="top">
+                    Processing folder:
+                </td>
+                <td  align="left">
+                    <input type="text" style="width:300px" id="txtProcFolder" class="input"  value="poller/processing"/>
+                </td>
+            </tr>
+			<tr>
+                <td width="50%" align="right" valign="top">
+                    Application processing folder:
+                </td>
+                <td  align="left">
+                    <input type="text" style="width:300px" id="txtAppProcFolder" class="input"  value=""/>
+                    <br/>
+                    Optional. Used only for configured triggers.
+                </td>
+            </tr>            
+			<tr>
+                <td width="50%" align="right" valign="top">
+                    Error folder:
+                </td>
+                <td  align="left">
+                    <input type="text" style="width:300px" id="txtErrorFolder" class="input"  value="poller/error"/>
+                </td>
+            </tr>            
+			<tr>
+                <td width="50%" align="right">
+                    Polling interval:
+                </td>
+                <td  align="left">
+                    <input type="text" style="width:100px" id="txtPollInterval" class="input"  value="10"/>
+                    seconds
+                </td>
+            </tr>
+			<tr>
+                <td width="50%" align="right">
+                    Minimum worker threads:
+                </td>
+                <td  align="left">
+                    <input type="text" style="width:100px" id="txtMinWorkerThreads" class="input"  value="1"/>
+                </td>
+            </tr>       
+			<tr>
+                <td width="50%" align="right">
+                    Maximum worker threads:
+                </td>
+                <td  align="left">
+                    <input type="text" style="width:100px" id="txtMaxWorkerThreads" class="input"  value="10"/>
+                </td>
+            </tr> 
+            <tr>
+                <td width="50%" align="right">
+                    Default UserDn:
+                </td>
+                <td  align="left">
+                    <input type="text" style="width:300px" id="txtDefaultUserDn" class="input"  value=""/>
+                </td>
+            </tr>                   
+		</table>
+    </body>
+</html>
