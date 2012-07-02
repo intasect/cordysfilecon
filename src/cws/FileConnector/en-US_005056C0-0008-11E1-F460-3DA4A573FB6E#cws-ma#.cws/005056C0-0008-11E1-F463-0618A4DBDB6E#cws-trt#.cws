@@ -1,0 +1,24 @@
+
+<TranslatedText
+	xmlns=""
+	xmlns:cws="http://schemas.cordys.com/cws/1.0"
+	type="com.cordys.translation.TranslatedText"
+	RuntimeDocumentID="005056C0-0008-11E1-F463-0618A4DBFB6E">
+	<DocumentID>005056C0-0008-11E1-F463-0618A4DBDB6E</DocumentID>
+	<Name>005056C0-0008-11E1-F463-0618A4DBDB6E</Name>
+	<Description>Processing folder</Description>
+	<CreatedBy>gkaviyarasu</CreatedBy>
+	<CreationDate>2012-05-21T07:43:30.401</CreationDate>
+	<Notes/>
+	<Text>Processing folder</Text>
+	<Language>
+		<uri
+			id="005056C0-0008-11E1-F460-3DA4A573BB6E"
+		/>
+	</Language>
+	<TextIdentifier>
+		<uri
+			id="005056C0-0008-11E1-F463-0618A4DB9B6E"
+		/>
+	</TextIdentifier>
+</TranslatedText>

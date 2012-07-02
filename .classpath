@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src/java"/>
-	<classpathentry kind="src" path="test/java"/>
+	<classpathentry kind="src" path="src/cws/FileConnector/com-cordys-coe/fileconnector/java/source"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="lib/stax2-2.1.jar"/>
-	<classpathentry kind="lib" path="lib/wstx-asl-3.2.3.jar"/>
-	<classpathentry kind="lib" path="lib/stax-api-1.0.jar"/>
-	<classpathentry kind="lib" path="lib/poi-3.7.jar"/>
-	<classpathentry kind="lib" path="lib/poi-scratchpad-3.7-20101029.jar"/>
-	<classpathentry kind="lib" path="lib/poi-ooxml-schemas-3.7-20101029.jar"/>
-	<classpathentry kind="lib" path="lib/poi-ooxml-3.7.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3.8.1"/>
 	<classpathentry kind="lib" path="platform/components/eibxml/eibxml.jar">
 		<attributes>
@@ -48,10 +40,16 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="platform/ext/log4j-1.2.14_cordys.jar"/>
 	<classpathentry kind="lib" path="platform/ext/ldap.jar"/>
-	<classpathentry kind="lib" path="sdk/lib/coelib.jar" sourcepath="/coelib">
-		<attributes>
-			<attribute name="javadoc_location" value="jar:platform:/resource/FileConnector/sdk/docs/coelib-javadocs.zip!/"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="lib" path="src/cws/FileConnector/com-cordys-coe/fileconnector/java/lib/excel/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="src/cws/FileConnector/com-cordys-coe/fileconnector/java/lib/excel/geronimo-stax-api_1.0_spec-1.0.jar"/>
+	<classpathentry kind="lib" path="src/cws/FileConnector/com-cordys-coe/fileconnector/java/lib/excel/poi-3.7.jar"/>
+	<classpathentry kind="lib" path="src/cws/FileConnector/com-cordys-coe/fileconnector/java/lib/excel/poi-ooxml-3.7.jar"/>
+	<classpathentry kind="lib" path="src/cws/FileConnector/com-cordys-coe/fileconnector/java/lib/excel/poi-ooxml-schemas-3.7-20101029.jar"/>
+	<classpathentry kind="lib" path="src/cws/FileConnector/com-cordys-coe/fileconnector/java/lib/excel/poi-scratchpad-3.7-20101029.jar"/>
+	<classpathentry kind="lib" path="src/cws/FileConnector/com-cordys-coe/fileconnector/java/lib/excel/xmlbeans-2.3.0.jar"/>
+	<classpathentry kind="lib" path="src/cws/FileConnector/com-cordys-coe/fileconnector/java/lib/stax/stax-api-1.0.jar"/>
+	<classpathentry kind="lib" path="src/cws/FileConnector/com-cordys-coe/fileconnector/java/lib/stax/stax2-2.1.jar"/>
+	<classpathentry kind="lib" path="src/cws/FileConnector/com-cordys-coe/fileconnector/java/lib/stax/wstx-asl-3.2.3.jar"/>
+	<classpathentry kind="lib" path="src/cws/FileConnector/com-cordys-coe/fileconnector/java/lib/coelib.jar"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>
