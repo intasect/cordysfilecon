@@ -1,0 +1,21 @@
+
+<WebSource
+	xmlns=""
+	xmlns:cws="http://schemas.cordys.com/cws/1.0"
+	type="com.cordys.cws.documenttypes.websource.WebSource"
+	RuntimeDocumentID="00505681-03c7-11e1-f788-25dca569d783">
+	<DocumentID>00505681-03c7-11e1-f788-25dca55e9782</DocumentID>
+	<Name>WebContent</Name>
+	<Description>WebContent</Description>
+	<CreatedBy>root</CreatedBy>
+	<CreationDate>2012-06-22T08:59:37.643</CreationDate>
+	<Notes/>
+	<NamespacePrefix></NamespacePrefix>
+	<SourceFolder>
+		<uri
+			id="00505681-03c7-11e1-f4ac-795b221b96ae"
+			path="FileConnector/com-cordys-coe/fileconnector/web"
+			type="com.cordys.cws.runtime.types.folder.StudioFolder"
+		/>
+	</SourceFolder>
+</WebSource>

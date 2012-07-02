@@ -1,0 +1,24 @@
+
+<TranslatedText
+	xmlns=""
+	xmlns:cws="http://schemas.cordys.com/cws/1.0"
+	type="com.cordys.translation.TranslatedText"
+	RuntimeDocumentID="005056C0-0008-11E1-F466-A8EECFBB3B51">
+	<DocumentID>005056C0-0008-11E1-F466-A8EECFBB1B51</DocumentID>
+	<Name>005056C0-0008-11E1-F466-A8EECFBB1B51</Name>
+	<Description>Use simple XPath expressions ***</Description>
+	<CreatedBy>gkaviyarasu</CreatedBy>
+	<CreationDate>2012-05-21T11:19:08.53</CreationDate>
+	<Notes/>
+	<Text>Use simple XPath expressions ***</Text>
+	<Language>
+		<uri
+			id="005056C0-0008-11E1-F460-3DA4A573BB6E"
+		/>
+	</Language>
+	<TextIdentifier>
+		<uri
+			id="005056C0-0008-11E1-F466-A8EECFBADB51"
+		/>
+	</TextIdentifier>
+</TranslatedText>

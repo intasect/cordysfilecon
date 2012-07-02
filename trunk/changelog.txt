@@ -1,3 +1,6 @@
+version 2.1.1 (released 2012-07-02)
+-migration: Migrating the connector to bop 4.1 cu7.
+
 version 1.2.21 (released 2012-01-04)
 -change: id:32,Changed code formatting of ExcelRead.java, it is now in-line with rest of the code.
 -fix: id:36, Now when Excel is Read with "numrecords" = -1, it returns all valid rows.

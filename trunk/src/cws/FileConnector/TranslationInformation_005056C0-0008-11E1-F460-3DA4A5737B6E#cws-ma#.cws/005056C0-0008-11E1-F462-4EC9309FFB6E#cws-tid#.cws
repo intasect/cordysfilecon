@@ -1,0 +1,29 @@
+
+<TextIdentifier
+	xmlns=""
+	xmlns:cws="http://schemas.cordys.com/cws/1.0"
+	type="com.cordys.translation.TextIdentifier"
+	typeVersion="55890f21-u239-76j6-988a-92j7opq6ws09"
+	RuntimeDocumentID="005056C0-0008-11E1-F462-4EC930A01B6E">
+	<DocumentID>005056C0-0008-11E1-F462-4EC9309FFB6E</DocumentID>
+	<Name>005056C0-0008-11E1-F462-4EC9309FFB6E</Name>
+	<Description>005056C0-0008-11E1-F462-4EC9309FFB6E</Description>
+	<CreatedBy>gkaviyarasu</CreatedBy>
+	<CreationDate>2012-05-21T07:01:55.367</CreationDate>
+	<Notes/>
+	<DefaultText>Allowed File And Directory Namesed are : 
+* - Match portions of the string, e.g. c:\dir\*.txt&lt;/li&gt;&lt;li&gt; ** - Match any sub-directory, e.g. c:\dir\**\*.txt&lt;/li&gt; If this is left empty, all files are allowed.
+&lt;br/&gt;Write each name in a separate line. Wildcards allowed are : 
+&lt;li&gt;* - Match portions of the string, e.g. c:\dir\*.txt&lt;/li&gt;&lt;li&gt; ** - Match any sub-directory, e.g. c:\dir\**\*.txt&lt;/li&gt; If this is left empty, all files are allowed.Write each name in a separate line. Wildcards allowed are : 
+* - Match portions of the string, e.g. c:\dir\*.txt&lt;/li&gt;&lt;li&gt; ** - Match any sub-directory, e.g. c:\dir\**\*.txt&lt;/li&gt; If this is left empty, all files are allowed.</DefaultText>
+	<TranslationInformation>
+		<uri
+			id="005056C0-0008-11E1-F460-3DA4A5733B6E"
+		/>
+	</TranslationInformation>
+	<Translations>
+		<uri
+			id="005056C0-0008-11E1-F462-4EC930A03B6E"
+		/>
+	</Translations>
+</TextIdentifier>

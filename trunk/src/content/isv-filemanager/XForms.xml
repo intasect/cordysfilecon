@@ -1,6 +1,0 @@
-<xforms>
-    <xform file="${src.content.studio.xforms}/FileConnector/FileManager.caf" key="/Cordys/WCP/XForms/runtime/FileManager.caf"
-           name="FileManager.caf"/>
-    <xform file="${src.content.studio.xforms}/FileConnector/UploadForm.caf" key="/Cordys/WCP/XForms/runtime/UploadForm.caf"
-           name="UploadForm.caf"/>
-</xforms>

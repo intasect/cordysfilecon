@@ -1,0 +1,906 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MessageBundle xmlns:c="http://schemas.cordys.com/cws/1.0" xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/" id="com.cordys.coe.ac.fileconnector.LogMessages">
+    <Message id="DriveMappingUnreadable">
+        <MessageText><![CDATA[Exception reading drive mappings]]></MessageText>
+        <Description/>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="NoConnectorFound">
+        <MessageText><![CDATA[No connector object found. Aborting.]]></MessageText>
+        <Description/>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="NoConfigurationFound">
+        <MessageText><![CDATA[No application configuration found. Aborting.]]></MessageText>
+        <Description/>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="CoeLibVersionInvalid">
+        <MessageText><![CDATA[There is a problem with the CoE library version.]]></MessageText>
+        <Description/>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToOpenConnector">
+        <MessageText><![CDATA[Unable to open the connector object.]]></MessageText>
+        <Description/>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToLoadCharset">
+        <MessageText><![CDATA[Unable to load the custom character set provider.]]></MessageText>
+        <Description/>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToGetConfigurationElement">
+        <MessageText><![CDATA[Unable to get the configuration element.]]></MessageText>
+        <Description/>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToCreateMapping">
+        <MessageText><![CDATA[The mapping to {0} could not be created]]></MessageText>
+        <Description/>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="TransactionFailed">
+        <MessageText><![CDATA[FileConnector transaction failed.]]></MessageText>
+        <Description/>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="CONNECTOR_MANAGEMENT_DESCRIPTION">
+        <MessageText><![CDATA[File Connector]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="NoActionSpecified">
+        <MessageText><![CDATA[No actions specified in the request.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnknownAction">
+        <MessageText><![CDATA[Unknown action '{0}']]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ConfigurationNotFound">
+        <MessageText><![CDATA[Configuration not found]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="RootElementMissMatch">
+        <MessageText><![CDATA[Root-tag of the configuration should be <configuration>]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ExceptionCreatingConfigObject">
+        <MessageText><![CDATA[Exception while creating the configuration-object.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToPareseDirectorySpecification">
+        <MessageText><![CDATA[Unable to parse the directory specification.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="DriveletterNotValid">
+        <MessageText><![CDATA[Driveletter '{0}' is not a valid drive name.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="InvalidConfigurationFileRootElement">
+        <MessageText><![CDATA[Invalid configuration file root element {0}.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToReadSelectElement">
+        <MessageText><![CDATA[Unable to read 'select'-element.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToReadFileTypeElement">
+        <MessageText><![CDATA[Unable to read 'file type'-element.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="FilterElementHasNoTypeAttribute">
+        <MessageText><![CDATA[Filter element has no 'type' attribute]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToReadFilterElement">
+        <MessageText><![CDATA[Unable to read 'filter'-element.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="RegExpFilterMissingRegexpAttribute">
+        <MessageText><![CDATA[Regular expression filter is missing 'regexp' attribute.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="RegExpFilterMissingOutputAttribute">
+        <MessageText><![CDATA[Regular expression filter is missing 'output' attribute.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="InvalidRegExp">
+        <MessageText><![CDATA[Invalid regular expression {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="InvalidSubElement">
+        <MessageText><![CDATA[Invalid subelement '{0}']]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToReadForeachElement">
+        <MessageText><![CDATA[Unable to read 'foreach'-element.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ThenBranchIsAlreadySet">
+        <MessageText><![CDATA['then' branch is already set for this 'if'.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ElseBranchIsAlreadySet">
+        <MessageText><![CDATA['else' branch is already set for this 'if'.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="InvalidCondition">
+        <MessageText><![CDATA[Invalid condition '{0}']]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="InputElementXmlMustHavePathAttrib">
+        <MessageText><![CDATA[Input element with type 'xml' must have a path attribute.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="InpElementPrettyXmlMustHavePathAttrib">
+        <MessageText><![CDATA[Input element with type 'pretty-xml' must have a path attribute.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="InvalidTypeAttribForInputElement">
+        <MessageText><![CDATA[Invalid type attribute value '{0}'for the input element.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToReadInputElement">
+        <MessageText><![CDATA[Unable to read 'input'-element]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="NoOutvaluesAttribForOutputElm">
+        <MessageText><![CDATA[No 'outvalues' attribute for output element.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="InvalidOutvaluesAttrib">
+        <MessageText><![CDATA[Invalid 'outvalues' attribute value ]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToReadOutputElm">
+        <MessageText><![CDATA[Unable to read 'output'-element.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="InvalidNumberFormat">
+        <MessageText><![CDATA[Invalid number format '{0}']]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="InvalidInputDateFormat">
+        <MessageText><![CDATA[Invalid input date format '{0}']]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="InvalidOutputDateFormat">
+        <MessageText><![CDATA[Invalid output date format {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="InputDateFormatMissing">
+        <MessageText><![CDATA[Input date format missing.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="OutputDateFormatMissing">
+        <MessageText><![CDATA[Input date format missing.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="RecordWriterUninitialized">
+        <MessageText><![CDATA[RecordWriter is uninitialized.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="FileTypeNotFound">
+        <MessageText><![CDATA[File type '{0}' not found in configuration.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="InvalidFileType">
+        <MessageText><![CDATA[Invalid file type {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="FileEmpty">
+        <MessageText><![CDATA[File is empty.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="AtLineNoMatchingRecordsFound">
+        <MessageText><![CDATA[At line {0} : No matching record found.Already read records: {1}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="AtLineGroupIndexNotFound">
+        <MessageText><![CDATA[At line {0} : Group index {1} not found for field {2}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="PleaseProvideFileName">
+        <MessageText><![CDATA[Please Provide filename.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="InputFileNotSupported">
+        <MessageText><![CDATA[Input File not supported.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="FileNotFound">
+        <MessageText><![CDATA[File not found.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="NoSheetFound">
+        <MessageText><![CDATA[no sheet found at: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ColumnIndexNotFound">
+        <MessageText><![CDATA[Column index {0} not found. Maxcol index:{1}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ColumnIndexNotValid">
+        <MessageText><![CDATA[Column index {0} not valid. Enter a valid column index.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="IOExceptionWhileReadingFile">
+        <MessageText><![CDATA[IOException occurred while reading file {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToOpenSourceFile">
+        <MessageText><![CDATA[Unable to open source file.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToCreateDestFile">
+        <MessageText><![CDATA[Unable to create destination file.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ErrorCopyingFile">
+        <MessageText><![CDATA[Error while copying the file.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToCreateProcFolder">
+        <MessageText><![CDATA[Unable to create processing folder: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ProcFolderIsNotFolder">
+        <MessageText><![CDATA[Processing folder is not a folder: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ProcFolderNotReachable">
+        <MessageText><![CDATA[Processing folder is not readable: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ProcDirNotWritable">
+        <MessageText><![CDATA[Processing folder is not writable: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="CharsetCouldNotFound">
+        <MessageText><![CDATA[Character set '{0}' could not be found.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="MissingAttribPrefix">
+        <MessageText><![CDATA[Missing attribute 'prefix' from namespace binding element.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="MissingAttribUri">
+        <MessageText><![CDATA[Missing attribute 'uri' from namespace binding element.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="IllegalValueForParam">
+        <MessageText><![CDATA[Illegal value {0} for parameter {1}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ParamMissing">
+        <MessageText><![CDATA["Parameter {0} is missing.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToCreateXPath">
+        <MessageText><![CDATA[Unable to create XPath: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="FileAccessNotAllowed">
+        <MessageText><![CDATA[File access is not allowed.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToOpenOutputFile">
+        <MessageText><![CDATA[Unable to open the output file {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToWriteOutputFile">
+        <MessageText><![CDATA[Unable to write the output file {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ConfigurationFileNotSet">
+        <MessageText><![CDATA[Configuration file not set for this connector.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="InvalidResponsefromXMLStore">
+        <MessageText><![CDATA[Invalid response received from XMLStore.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToLoadWriteFileRecords">
+        <MessageText><![CDATA[Unable to load WriteFileRecords configuration: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ParamEmpty">
+        <MessageText><![CDATA[Parameter {0} is Empty.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToWriteFile">
+        <MessageText><![CDATA[Unable to write file: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="SrcDirAccessNotAllowed">
+        <MessageText><![CDATA["Source directory access is not allowed.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="DestDirAccessNotAllowed">
+        <MessageText><![CDATA[Destination directory access is not allowed.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="SrcDirNotExist">
+        <MessageText><![CDATA[Source directory does not exist.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="SrcDirIsNotDirectory">
+        <MessageText><![CDATA[Source directory is not a directory.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="DestDirNotExist">
+        <MessageText><![CDATA[Destination directory does not exist.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="DestDirIsNotDirectory">
+        <MessageText><![CDATA[Destination directory is not a directory.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="InvalidFileTypeParam">
+        <MessageText><![CDATA[Invalid file type parameter.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToMoveFile">
+        <MessageText><![CDATA[Unable to move file from {0} to {1}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="FileNotExist">
+        <MessageText><![CDATA[File Does not exist. {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToReadInputFile">
+        <MessageText><![CDATA[Unable to read input file: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="XMLQueryFoundNoElements">
+        <MessageText><![CDATA[XML query found no elements.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToPerformXMLQuery">
+        <MessageText><![CDATA[Unable to perform the XML query '{0}'."]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToParseCursorData">
+        <MessageText><![CDATA[Unable to parse the cursor data.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToOpenFile">
+        <MessageText><![CDATA[Unable to open the file: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToCreateResponseCursorData">
+        <MessageText><![CDATA[Unable to create the response cursor data.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToLoadReadFileConfig">
+        <MessageText><![CDATA[Unable to load ReadFileRecords configuration: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToOpenInputFile">
+        <MessageText><![CDATA[Unable to open the input file.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="FileSizeBigger">
+        <MessageText><![CDATA[Files bigger than 2GB are not supported.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToParseFile">
+        <MessageText><![CDATA[Unable to parse the file.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToReadFile">
+        <MessageText><![CDATA[Unable to read file: {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="SrcFileAccessNotAllowed">
+        <MessageText><![CDATA[Source file access is not allowed.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="DestfileAccessNotAllowed">
+        <MessageText><![CDATA[Destination file access is not allowed.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="SrcFileNotExist">
+        <MessageText><![CDATA[Source file does not exist.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="SrcFileIsADirectory">
+        <MessageText><![CDATA[Source file is a directory.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="DestFileIsADirectory">
+        <MessageText><![CDATA[Destination file exists and is a directory.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="DestFileAreadyExist">
+        <MessageText><![CDATA[Destination file exists and overwrite is not specified.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToDeleteDestFile">
+        <MessageText><![CDATA[Unable to delete the destination file.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToDeleteSrcFile">
+        <MessageText><![CDATA[Unable to delete the source file.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="InvalidValueForParam">
+        <MessageText><![CDATA[Invalid value for parameter {0}]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="DirNotExist">
+        <MessageText><![CDATA[Directory does not exist.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="DirIsNotADirectory">
+        <MessageText><![CDATA[Directory is not a directory.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToListFiles">
+        <MessageText><![CDATA[Unable to list files in the directory.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="FileIsADirectory">
+        <MessageText><![CDATA[File is a directory.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToDeleteFile">
+        <MessageText><![CDATA[Unable to delete the file.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ParentDirAccessNotAllowed">
+        <MessageText><![CDATA[Parent directory access is not allowed.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ParentDirNotFound">
+        <MessageText><![CDATA[The specified parent directory cannot be found by the system.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="UnableToCreateDir">
+        <MessageText><![CDATA[Unable to create directory ]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="DirAccessNotAllowed">
+        <MessageText><![CDATA[Directory access is not allowed.]]></MessageText>
+        <Description>
+											</Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+</MessageBundle>

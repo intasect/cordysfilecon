@@ -1,0 +1,25 @@
+
+<TextIdentifier
+	xmlns=""
+	xmlns:cws="http://schemas.cordys.com/cws/1.0"
+	type="com.cordys.translation.TextIdentifier"
+	typeVersion="55890f21-u239-76j6-988a-92j7opq6ws09"
+	RuntimeDocumentID="005056C0-0008-11E1-F463-0618A4D7FB6E">
+	<DocumentID>005056C0-0008-11E1-F463-0618A4D7DB6E</DocumentID>
+	<Name>005056C0-0008-11E1-F463-0618A4D7DB6E</Name>
+	<Description>Maximum worker threads</Description>
+	<CreatedBy>gkaviyarasu</CreatedBy>
+	<CreationDate>2012-05-21T07:43:30.404</CreationDate>
+	<Notes/>
+	<DefaultText>Maximum worker threads</DefaultText>
+	<TranslationInformation>
+		<uri
+			id="005056C0-0008-11E1-F460-3DA4A5733B6E"
+		/>
+	</TranslationInformation>
+	<Translations>
+		<uri
+			id="005056C0-0008-11E1-F463-0618A4D81B6E"
+		/>
+	</Translations>
+</TextIdentifier>

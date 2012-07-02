@@ -1,0 +1,24 @@
+
+<TranslatedText
+	xmlns=""
+	xmlns:cws="http://schemas.cordys.com/cws/1.0"
+	type="com.cordys.translation.TranslatedText"
+	RuntimeDocumentID="005056C0-0008-11E1-F467-A6BDB42E1B51">
+	<DocumentID>005056C0-0008-11E1-F467-A6BDB42DFB51</DocumentID>
+	<Name>005056C0-0008-11E1-F467-A6BDB42DFB51</Name>
+	<Description>Password</Description>
+	<CreatedBy>gkaviyarasu</CreatedBy>
+	<CreationDate>2012-05-21T12:06:18.123</CreationDate>
+	<Notes/>
+	<Text>Password</Text>
+	<Language>
+		<uri
+			id="005056C0-0008-11E1-F460-3DA4A573BB6E"
+		/>
+	</Language>
+	<TextIdentifier>
+		<uri
+			id="005056C0-0008-11E1-F467-A6BDB42DBB51"
+		/>
+	</TextIdentifier>
+</TranslatedText>

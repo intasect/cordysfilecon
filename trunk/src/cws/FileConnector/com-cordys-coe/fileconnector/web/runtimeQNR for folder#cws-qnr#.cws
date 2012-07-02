@@ -1,0 +1,21 @@
+
+<QualifiedNameRoot
+	xmlns=""
+	xmlns:cws="http://schemas.cordys.com/cws/1.0"
+	type="com.cordys.cws.namespace.qualifiedname.QualifiedNameRoot"
+	RuntimeDocumentID="00505681-03c7-11e1-f788-25dca8d617c1">
+	<DocumentID>00505681-03c7-11e1-f788-25dca8c997c0</DocumentID>
+	<Name>runtimeQNR for folder</Name>
+	<Description>runtimeQNR for folder</Description>
+	<CreatedBy>root</CreatedBy>
+	<CreationDate>2012-06-22T08:33:54.434</CreationDate>
+	<Notes/>
+	<DesigntimeQNRFolder/>
+	<RuntimeQNRFolder>
+		<uri
+			id="00505681-03c7-11e1-f4ac-795b221b96ae"
+			path="FileConnector/com-cordys-coe/fileconnector/web"
+			type="com.cordys.cws.runtime.types.folder.StudioFolder"
+		/>
+	</RuntimeQNRFolder>
+</QualifiedNameRoot>

@@ -1,0 +1,52 @@
+
+<ApplicationConnectorDesigntime
+	xmlns=""
+	xmlns:cws="http://schemas.cordys.com/cws/1.0"
+	type="com.cordys.applicationconnector.ApplicationConnectorDesigntime"
+	typeVersion="0014C25C-F38B-71DF-A966-2D0AC4143A56"
+	RuntimeDocumentID="000c29b2-1b17-11e1-f3d0-21711adc5f06">
+	<DocumentID>000c29b2-1b17-11e1-f3d0-21711ad75f05</DocumentID>
+	<Name>FileConnector</Name>
+	<Description>FileConnector</Description>
+	<CreatedBy>root</CreatedBy>
+	<CreationDate>2012-05-15T11:38:07.244</CreationDate>
+	<Notes/>
+	<ClassPath>com-cordys-coe/fileconnector/java/fileconnector.jar;com-cordys-coe/fileconnector/java/lib/coelib.jar;com-cordys-coe/fileconnector/java/lib/stax/stax2-2.1.jar;com-cordys-coe/fileconnector/java/lib/stax/wstx-asl-3.2.3.jar;com-cordys-coe/fileconnector/java/lib/stax/stax-api-1.0.jar;com-cordys-coe/fileconnector/java/lib/excel/dom4j-1.6.1.jar;com-cordys-coe/fileconnector/java/lib/excel/geronimo-stax-api_1.0_spec-1.0.jar;com-cordys-coe/fileconnector/java/lib/excel/poi-3.7.jar;com-cordys-coe/fileconnector/java/lib/excel/poi-ooxml-3.7.jar;com-cordys-coe/fileconnector/java/lib/excel/poi-ooxml-schemas-3.7-20101029.jar;com-cordys-coe/fileconnector/java/lib/excel/poi-scratchpad-3.7-20101029.jar;com-cordys-coe/fileconnector/java/lib/excel/xmlbeans-2.3.0.jar;</ClassPath>
+	<ImplementationClass>com.cordys.coe.ac.fileconnector.FileConnector</ImplementationClass>
+	<LoggerCategoryGroups>
+		<loggercategory
+			xmlns:c="http://schemas.cordys.com/cws/1.0"
+			xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/"
+			xmlns="">
+			<categorygroup
+				displayname="File Connector">
+				<category
+					inserted="true">com.cordys.coe.ac.fileconnector</category>
+			</categorygroup>
+		</loggercategory>
+	</LoggerCategoryGroups>
+	<StartupDependencies>
+		<startupDependency
+			xmlns:c="http://schemas.cordys.com/cws/1.0"
+			xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/"
+			xmlns="">
+			<namespace>http://schemas.cordys.com/1.0/xmlstore</namespace>
+		</startupDependency>
+	</StartupDependencies>
+	<SupportsJVMSharing>true</SupportsJVMSharing>
+	<ConfigurationPage>
+		<uri
+			id="005056C0-0008-11E1-F460-865B7467FB6E"
+		/>
+	</ConfigurationPage>
+	<Image>
+		<uri
+			id="00505681-03c7-11e1-f4ac-796ae445d7f7"
+			path="FileConnector/com-cordys-coe/fileconnector/web/com-cordys-coe/fileconnector/images/configurationconnector.png"
+			type="com.cordys.cws.documenttypes.image.Png"
+		/>
+	</Image>
+	<MetadataPage/>
+	<PropertyPage/>
+	<TypeImplementationMappings/>
+</ApplicationConnectorDesigntime>
