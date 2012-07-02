@@ -1,0 +1,1929 @@
+
+<XFormDesigntime
+	xmlns=""
+	xmlns:cws="http://schemas.cordys.com/cws/1.0"
+	type="com.cordys.xforms.XFormDesigntime"
+	typeVersion="005056C0-0008-11E0-F8FC-5E0A815B7FB8"
+	RuntimeDocumentID="005056C0-0008-11E1-F460-865B74681B6E">
+	<DocumentID>005056C0-0008-11E1-F460-865B7467FB6E</DocumentID>
+	<Name>FileConnectorConfig</Name>
+	<Description>FileConnectorConfig</Description>
+	<CreatedBy>gkaviyarasu</CreatedBy>
+	<CreationDate>2012-05-21T05:45:17.801</CreationDate>
+	<Notes/>
+	<XFormContent>
+		<xformhtml
+			xmlns="http://schemas.cordys.com/1.0/xform"
+			xmlns:xforms="http://www.w3.org/2002/xforms/cr"
+			xmlns:ev="http://www.w3.org/2001/xml-events"
+			xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+			xformsversion="2"
+			key="com-cordys-coe/fileconnector/ui/FileConnectorConfig"
+			focusatstartup="true"
+			showNotify="true"
+			showError="true">
+			<xhead>
+				<script
+					src="/cordys/wcp/admin/behavior/applicationconnector.js"
+				/>
+				<xforms:model
+					id="drivemapping"
+					wcpforms:gateway="com.eibus.web.soap.Gateway.wcp"
+					wcpforms:automatic="false"
+					wcpforms:businessElement="drivemapping"
+					singleTransaction="false"
+					promptToSave="false"
+					isConstraintValidation="false"
+					isInitializationRequired="false"
+					isApplyAccessControl="false"
+					instanceSchema="false"
+					wcpforms:nontransactional="true">
+					<xforms:instance
+						xmlns:xforms="http://www.w3.org/2002/xforms/cr"
+						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+						wcpforms:timeout=""
+						wcpforms:iteratorSize="50"
+					/>
+					<wcpforms:instanceschema/>
+					<wcpforms:xpathmetainfo
+						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+					/>
+					<xforms:action
+						ev:event="xforms-change">
+						<xforms:drivemapping_Change/>
+					</xforms:action>
+				</xforms:model>
+				<xml
+					xmlns="">
+					<xml
+						id="xmlConfiguration">
+						<Configuration
+							xmlns="http://schemas.cordys.com/1.0/ac/FileConnector">
+							<readerconfigfile/>
+							<writerconfigfile/>
+							<readercharset/>
+							<writercharset/>
+							<included-directories/>
+							<reload-configuration/>
+							<use-simple-xpath/>
+							<drivemappings/>
+						</Configuration>
+					</xml>
+					<xml
+						id="xmlPollerConfiguration">
+						<component
+							xmlns="http://schemas.cordys.com/1.0/ac/FileConnector"
+							name="Directory Poller">
+							<enabled>true</enabled>
+							<configuration-file/>
+							<processing-folder/>
+							<app-processing-folder/>
+							<error-folder/>
+							<poll-interval/>
+							<minConcurrentWorkers/>
+							<maxConcurrentWorkers/>
+							<defaultUserDn/>
+						</component>
+					</xml>
+				</xml>
+			</xhead>
+			<xbody>
+				<xforms:group
+					wcpforms:layout="vertical"
+					id="xbody_group"
+					wcpforms:labelalign="ontop">
+					<xforms:group
+						appearance="tabgroup"
+						wcpforms:orientation="top"
+						wcpforms:textDirection="horizontal"
+						wcpforms:scrollBy="roller"
+						wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsTabGroup"
+						id="tabgroup3"
+						isNavigationEnabled="true"
+						wcpforms:class="f_layout"
+						wcpforms:size="auto auto"
+						wcpforms:anchors="10px 0px 10px 15px"
+						wcpforms:position="10px 0px">
+						<xforms:group
+							appearance="tabpage"
+							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsTabPage"
+							id="tabpage3"
+							wcpforms:loadOnDemand="false"
+							wcpforms:layout="vertical"
+							wcpforms:class="simplecontainer"
+							wcpforms:labelalign="ontop">
+							<xforms:label
+								textIdentifier="005056C0-0008-11E1-F461-055CA59D7B6E">Main</xforms:label>
+							<xforms:group
+								appearance="box"
+								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsGroupbox"
+								id="groupbox1"
+								isNavigationEnabled="true"
+								wcpforms:layout="horizontal"
+								wcpforms:class="v_layout"
+								wcpforms:size="null 373px"
+								wcpforms:labelalign="ontop">
+								<xforms:label
+									textIdentifier="005056C0-0008-11E1-F462-5C68A4B6BB6E"
+									wcpforms:class="groupheader">FileConnector Details</xforms:label>
+								<xforms:input
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+									id="txtReaderConfigFile"
+									doEBIValidate="false"
+									wcpforms:class="h_layout"
+									wcpforms:size="null auto">
+									<xforms:label
+										textIdentifier="005056C0-0008-11E1-F461-055CA5977B6E"
+										wcpforms:class="v_label">Record Reader Configuration File XMLStore Key</xforms:label>
+									<xforms:action
+										ev:event="xforms-value-changed">
+										<xforms:txtReaderConfigFile_Change/>
+									</xforms:action>
+								</xforms:input>
+								<xforms:input
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+									id="txtWriterConfigFile"
+									doEBIValidate="false"
+									wcpforms:class="h_layout"
+									wcpforms:size="null auto">
+									<xforms:label
+										textIdentifier="005056C0-0008-11E1-F461-055CA5967B6E"
+										wcpforms:class="v_label">Record Writer Configuration File XMLStore Key</xforms:label>
+									<xforms:action
+										ev:event="xforms-value-changed">
+										<xforms:txtWriterConfigFile_Change/>
+									</xforms:action>
+								</xforms:input>
+								<xforms:input
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+									id="txtInputCharSet"
+									doEBIValidate="false"
+									wcpforms:class="h_layout"
+									wcpforms:size="null auto">
+									<xforms:label
+										textIdentifier="005056C0-0008-11E1-F466-A8EECFBC5B51"
+										wcpforms:class="v_label">Input Character Set (optional)*</xforms:label>
+									<xforms:action
+										ev:event="xforms-value-changed">
+										<xforms:txtInputCharSet_Change/>
+									</xforms:action>
+								</xforms:input>
+								<xforms:input
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+									id="txtOutputCharSet"
+									doEBIValidate="false"
+									wcpforms:class="h_layout"
+									wcpforms:size="null auto">
+									<xforms:label
+										textIdentifier="005056C0-0008-11E1-F461-EE368BEC5B6E"
+										wcpforms:class="v_label">Output Character Set (optional)</xforms:label>
+									<xforms:action
+										ev:event="xforms-value-changed">
+										<xforms:txtOutputCharSet_Change/>
+									</xforms:action>
+								</xforms:input>
+								<xforms:select1
+									appearance="check"
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsCheck"
+									id="chkReloadConfiguration"
+									doEBIValidate="false"
+									wcpforms:class="h_layout"
+									wcpforms:size="null auto">
+									<xforms:label
+										textIdentifier="005056C0-0008-11E1-F466-A8EECFBB9B51"
+										wcpforms:class="autosuggest">Reload configuration**</xforms:label>
+									<xforms:item>
+										<xforms:label>true</xforms:label>
+										<xforms:value>true</xforms:value>
+									</xforms:item>
+									<xforms:item>
+										<xforms:label>false</xforms:label>
+										<xforms:value>false</xforms:value>
+									</xforms:item>
+									<xforms:action
+										ev:event="xforms-value-changed">
+										<xforms:chkReloadConfiguration_Change/>
+									</xforms:action>
+								</xforms:select1>
+								<xforms:select1
+									appearance="check"
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsCheck"
+									id="chkUseSimpleXPath"
+									doEBIValidate="false"
+									wcpforms:class="h_layout"
+									wcpforms:size="null auto">
+									<xforms:label
+										textIdentifier="005056C0-0008-11E1-F466-A8EECFBADB51"
+										wcpforms:class="autosuggest">Use simple XPath expressions ***</xforms:label>
+									<xforms:item>
+										<xforms:label>true</xforms:label>
+										<xforms:value>true</xforms:value>
+									</xforms:item>
+									<xforms:item>
+										<xforms:label>false</xforms:label>
+										<xforms:value>false</xforms:value>
+									</xforms:item>
+									<xforms:action
+										ev:event="xforms-value-changed">
+										<xforms:chkUseSimpleXPath_Change/>
+									</xforms:action>
+								</xforms:select1>
+								<xforms:textarea
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsTextarea"
+									id="txtIncludedDirectories"
+									doEBIValidate="false"
+									wcpforms:layout="vertical"
+									wcpforms:class="h_layout"
+									wcpforms:size="null 108px">
+									<xforms:label
+										textIdentifier="005056C0-0008-11E1-F462-4EC9309FFB6E"
+										wcpforms:class="v_label">Allowed File And Directory Names</xforms:label>
+									<xforms:action
+										ev:event="xforms-value-changed">
+										<xforms:txtIncludedDirectories_Change/>
+									</xforms:action>
+								</xforms:textarea>
+								<xforms:label
+									appearance="richtext"
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsRichtext"
+									id="rte3"
+									textIdentifier="005056C0-0008-11E1-F466-D8FBA7C5DB51"
+									wcpforms:class="h_layout"
+									wcpforms:size="null auto">
+									<![CDATA[<P>Write each name in a separate line.<BR />Wildcards allowed are : </P>
+<UL>
+<LI>* - Match portions of the string, e.g. c:\dir\*.txt </LI>
+<LI>** - Match any sub-directory, e.g. c:\dir\**\*.txt </LI></UL>
+<P>If this is left empty, all files are allowed.</P>]]>
+								</xforms:label>
+								<xforms:label
+									appearance="codesnippet"
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsText"
+									id="text1"
+									wcpforms:class="h_layout"
+									wcpforms:size="auto auto">
+									<p
+										xmlns="">* Only single byte character sets are supported.</p>
+									<p
+										xmlns="">** If enabled, the ReadFileRecords and WriteFileRecords configuration is loaded for each execution. Use only for development.</p>
+									<p
+										xmlns="">*** Use backwards compatible XPath expressions.</p>
+								</xforms:label>
+							</xforms:group>
+						</xforms:group>
+						<xforms:group
+							appearance="tabpage"
+							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsTabPage"
+							id="tabpage4"
+							wcpforms:layout="vertical"
+							wcpforms:class="simplecontainer">
+							<xforms:label
+								textIdentifier="005056C0-0008-11E1-F461-055CA59CBB6E">Drive Mappings</xforms:label>
+							<xforms:group
+								appearance="box"
+								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsGroupbox"
+								id="groupbox3"
+								wcpforms:layout="vertical"
+								wcpforms:class="v_layout"
+								wcpforms:size="null 200px"
+								wcpforms:labelalign="ontop">
+								<xforms:label
+									textIdentifier="005056C0-0008-11E1-F466-FB92E87B5B51"
+									wcpforms:class="groupheader">Drivemappings to make</xforms:label>
+								<xforms:repeat
+									wcpforms:displayContextMenu="false"
+									wcpforms:toggleColumns="false"
+									wcpforms:movableColumns="false"
+									wcpforms:saveState="false"
+									wcpforms:autoInsert="false"
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsTable"
+									id="tableDriveMapping"
+									synchronizedDialogFrame="main"
+									isNavigationEnabled="true"
+									model="drivemapping"
+									nodeset="drivemapping"
+									wcpforms:gridtype="datagrid"
+									wcpforms:checkboxes="true"
+									wcpforms:layout="vertical"
+									wcpforms:class="v_layout"
+									wcpforms:size="null 157px">
+									<xforms:group
+										appearance="elementbar"
+										id="_elementBar"
+										wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsElementbar">
+										<xforms:group
+											appearance="controlbar"
+											id="_controlBar"
+											wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsControlbar"
+											wcpforms:class="controlbar">
+											<xforms:trigger
+												wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsElementbarItem"
+												id="navInsert1"
+												standardid="navInsert">
+												<xforms:label>
+													<img
+														src="/cordys/wcp/theme/default/icon/action/add.png"
+													/>
+												</xforms:label>
+												<xforms:hint>Insert</xforms:hint>
+												<xforms:action
+													ev:event="onafterinsert">
+													<xforms:navInsert1_AfterInsert/>
+												</xforms:action>
+											</xforms:trigger>
+											<xforms:trigger
+												wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsElementbarItem"
+												id="navDelete1"
+												standardid="navDelete">
+												<xforms:label>
+													<img
+														src="/cordys/wcp/theme/default/icon/action/delete.png"
+													/>
+												</xforms:label>
+												<xforms:hint>Delete</xforms:hint>
+												<xforms:action
+													ev:event="onafterdelete">
+													<xforms:navDelete1_AfterDelete/>
+												</xforms:action>
+											</xforms:trigger>
+										</xforms:group>
+									</xforms:group>
+									<xforms:input
+										wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+										id="txtLocation"
+										doEBIValidate="false"
+										ref="location"
+										wcpforms:size="40% 100%">
+										<xforms:label
+											textIdentifier="005056C0-0008-11E1-F466-FB92E874DB51">Share location</xforms:label>
+									</xforms:input>
+									<xforms:input
+										wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+										id="txtDriveLetter"
+										doEBIValidate="false"
+										ref="driveletter"
+										wcpforms:displayformat="text"
+										wcpforms:minLength="1"
+										wcpforms:maxLength="1"
+										wcpforms:legalCharacter="[A-Za-z]"
+										wcpforms:dataType="string"
+										wcpforms:required="false"
+										wcpforms:size="10% 100%">
+										<xforms:label
+											textIdentifier="005056C0-0008-11E1-F466-FB92E8741B51">Drive</xforms:label>
+									</xforms:input>
+									<xforms:input
+										wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+										id="txtUsername"
+										doEBIValidate="false"
+										ref="username"
+										wcpforms:size="25% 100%">
+										<xforms:label
+											textIdentifier="005056C0-0008-11E1-F467-A6BDB42E7B51">Username</xforms:label>
+									</xforms:input>
+									<xforms:secret
+										wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsPassword"
+										id="txtPassword"
+										doEBIValidate="false"
+										ref="password"
+										wcpforms:size="auto 100%">
+										<xforms:label
+											textIdentifier="005056C0-0008-11E1-F467-A6BDB42DBB51">Password</xforms:label>
+									</xforms:secret>
+								</xforms:repeat>
+							</xforms:group>
+						</xforms:group>
+						<xforms:group
+							appearance="tabpage"
+							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsTabPage"
+							id="tabpage5"
+							wcpforms:layout="vertical"
+							wcpforms:class="simplecontainer">
+							<xforms:label
+								textIdentifier="005056C0-0008-11E1-F461-055CA59A3B6E">Directory Poller</xforms:label>
+							<xforms:group
+								appearance="box"
+								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsGroupbox"
+								id="groupbox2"
+								isNavigationEnabled="true"
+								wcpforms:layout="horizontal"
+								wcpforms:class="v_layout"
+								wcpforms:size="null 293px"
+								wcpforms:labelalign="ontop">
+								<xforms:label
+									textIdentifier="005056C0-0008-11E1-F462-8FE33AC6FB6E"
+									wcpforms:class="groupheader">Directory Poller Details</xforms:label>
+								<xforms:select1
+									appearance="check"
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsCheck"
+									id="chkEnabled"
+									doEBIValidate="false"
+									wcpforms:class="h_layout"
+									wcpforms:size="null auto">
+									<xforms:label
+										textIdentifier="005056C0-0008-11E1-F466-65BA774A9B51"
+										wcpforms:class="autosuggest">Poller Enabled</xforms:label>
+									<xforms:item>
+										<xforms:label>true</xforms:label>
+										<xforms:value>true</xforms:value>
+									</xforms:item>
+									<xforms:item>
+										<xforms:label>false</xforms:label>
+										<xforms:value>false</xforms:value>
+									</xforms:item>
+									<xforms:action
+										ev:event="xforms-value-changed">
+										<xforms:chkEnabled_Change/>
+									</xforms:action>
+								</xforms:select1>
+								<xforms:input
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+									id="txtConfigLocation"
+									doEBIValidate="false"
+									wcpforms:class="h_layout"
+									wcpforms:size="null auto">
+									<xforms:label
+										textIdentifier="005056C0-0008-11E1-F463-0618A4DC5B6E"
+										wcpforms:class="v_label">XMLStore location for the configuration</xforms:label>
+									<xforms:action
+										ev:event="xforms-value-changed">
+										<xforms:txtConfigLocation_Change/>
+									</xforms:action>
+								</xforms:input>
+								<xforms:input
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+									id="txtProcFolder"
+									doEBIValidate="false"
+									wcpforms:class="h_layout"
+									wcpforms:size="null auto">
+									<xforms:label
+										textIdentifier="005056C0-0008-11E1-F463-0618A4DB9B6E"
+										wcpforms:class="v_label">Processing folder</xforms:label>
+									<xforms:action
+										ev:event="xforms-value-changed">
+										<xforms:txtProcFolder_Change/>
+									</xforms:action>
+								</xforms:input>
+								<xforms:input
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+									id="txtAppProcFolder"
+									doEBIValidate="false"
+									wcpforms:class="h_layout"
+									wcpforms:size="null auto">
+									<xforms:label
+										textIdentifier="005056C0-0008-11E1-F467-A6BDB42A9B51"
+										wcpforms:class="v_label">Application processing folder (optional)*</xforms:label>
+									<xforms:action
+										ev:event="xforms-value-changed">
+										<xforms:txtAppProcFolder_Change/>
+									</xforms:action>
+								</xforms:input>
+								<xforms:input
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+									id="txtErrorFolder"
+									doEBIValidate="false"
+									wcpforms:class="h_layout"
+									wcpforms:size="null auto">
+									<xforms:label
+										textIdentifier="005056C0-0008-11E1-F463-0618A4DA1B6E"
+										wcpforms:class="v_label">Error folder</xforms:label>
+									<xforms:action
+										ev:event="xforms-value-changed">
+										<xforms:txtErrorFolder_Change/>
+									</xforms:action>
+								</xforms:input>
+								<xforms:input
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+									id="txtPollInterval"
+									doEBIValidate="false"
+									wcpforms:minValue="0"
+									wcpforms:dataType="integer"
+									wcpforms:required="false"
+									wcpforms:class="h_layout"
+									wcpforms:size="null auto">
+									<xforms:label
+										textIdentifier="005056C0-0008-11E1-F466-65BA7747FB51"
+										wcpforms:class="v_label">Polling interval (in seconds)</xforms:label>
+									<xforms:action
+										ev:event="xforms-value-changed">
+										<xforms:txtPollInterval_Change/>
+									</xforms:action>
+								</xforms:input>
+								<xforms:input
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+									id="txtMinWorkerThreads"
+									doEBIValidate="false"
+									wcpforms:minValue="0"
+									wcpforms:dataType="integer"
+									wcpforms:required="false"
+									wcpforms:class="h_layout"
+									wcpforms:size="null auto">
+									<xforms:label
+										textIdentifier="005056C0-0008-11E1-F463-0618A4D89B6E"
+										wcpforms:class="v_label">Minimum worker threads</xforms:label>
+									<xforms:action
+										ev:event="xforms-value-changed">
+										<xforms:txtMinWorkerThreads_Change/>
+									</xforms:action>
+								</xforms:input>
+								<xforms:input
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+									id="txtMaxWorkerThreads"
+									doEBIValidate="false"
+									wcpforms:minValue="0"
+									wcpforms:dataType="integer"
+									wcpforms:required="false"
+									wcpforms:class="h_layout"
+									wcpforms:size="null auto">
+									<xforms:label
+										textIdentifier="005056C0-0008-11E1-F463-0618A4D7DB6E"
+										wcpforms:class="v_label">Maximum worker threads</xforms:label>
+									<xforms:action
+										ev:event="xforms-value-changed">
+										<xforms:txtMaxWorkerThreads_Change/>
+									</xforms:action>
+								</xforms:input>
+								<xforms:input
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+									id="txtDefaultUserDn"
+									doEBIValidate="false"
+									wcpforms:class="h_layout"
+									wcpforms:size="null auto">
+									<xforms:label
+										textIdentifier="005056C0-0008-11E1-F463-0618A4D71B6E"
+										wcpforms:class="v_label">Default UserDn</xforms:label>
+									<xforms:action
+										ev:event="xforms-value-changed">
+										<xforms:txtDefaultUserDn_Change/>
+									</xforms:action>
+								</xforms:input>
+								<xforms:label
+									appearance="codesnippet"
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsText"
+									id="text2"
+									wcpforms:class="v_layout"
+									wcpforms:size="null auto">   * Used only for configured triggers.</xforms:label>
+							</xforms:group>
+						</xforms:group>
+					</xforms:group>
+				</xforms:group>
+			</xbody>
+			<xformsscript>
+				<![CDATA[var base64Obj;
+var isFormLoad = true;
+var ns= {"filecon": "http://schemas.cordys.com/1.0/ac/FileConnector"};
+var gConfigurationNode;
+
+function Form_InitDone(eventObject)
+{
+    application.importType("wcp.library.util.Base64Encoder");
+    
+    //Set Default values
+    txtInputCharSet.setValue("ISO-8859-1");
+    txtOutputCharSet.setValue("ISO-8859-1");
+    txtReaderConfigFile.setValue("/Cordys/fileconnector/config/reader-config.xml");
+    txtWriterConfigFile.setValue("/Cordys/fileconnector/config/writer-config.xml");
+    txtConfigLocation.setValue("/Cordys/fileconnector/config/poller-config.xml");
+    txtProcFolder.setValue("poller/processing");
+    txtErrorFolder.setValue("poller/error");
+    txtPollInterval.setValue("10");
+    txtMinWorkerThreads.setValue("1");
+    txtMaxWorkerThreads.setValue("10");
+    
+    disablePollerView();
+    
+    var appData = application.event.data;
+    if(!application.container.isWizardContainer)
+    {
+       if(appData && appData.isDisabled)
+       {
+          application.disable();
+       }
+    }
+    initialize();
+    isFormLoad = false;
+}
+
+function raiseConfigurationChanges()
+{
+    if(!isFormLoad && !application.container.isWizardContainer)
+        system.windows.servicepropertiesPage_SystemResourceManager.configurationChanged();
+}
+
+function chkEnabled_Change(eventObject)
+{
+    raiseConfigurationChanges();
+    if(eventObject.srcElement.getValue()=="true")
+    {
+        enablePollerView();
+    }
+    else
+    {
+        disablePollerView();
+    }
+}
+
+function enablePollerView()
+{
+    txtConfigLocation.enable();
+    txtPollInterval.enable();
+    txtProcFolder.enable();
+    txtMinWorkerThreads.enable();
+    txtMaxWorkerThreads.enable();
+    txtErrorFolder.enable();
+    txtDefaultUserDn.enable();
+    txtAppProcFolder.enable();
+}
+
+function disablePollerView()
+{
+    txtConfigLocation.disable();
+    txtPollInterval.disable();
+    txtProcFolder.disable();
+    txtMinWorkerThreads.disable();
+    txtMaxWorkerThreads.disable();
+    txtErrorFolder.disable();
+    txtDefaultUserDn.disable();
+    txtAppProcFolder.disable();
+}
+
+function fillInPropertyScreen(configurationNode)
+{  
+    var config = cordys.selectXMLNode(configurationNode,".//filecon:Configuration",ns);
+    
+    var readerConfigFile = cordys.selectXMLNode(config ,".//filecon:readerconfigfile",ns);
+    var writerConfigFile = cordys.selectXMLNode(config ,".//filecon:writerconfigfile",ns);
+    var inputCharSet = cordys.selectXMLNode(config ,".//filecon:readercharset",ns);
+    var outputCharSet = cordys.selectXMLNode(config ,".//filecon:writercharset",ns);
+    var includedDirectories = cordys.selectXMLNode(config ,".//filecon:included-directories",ns);
+    var reloadConfiguration = cordys.selectXMLNode(config ,".//filecon:reload-configuration",ns);
+    var useSimpleXPath = cordys.selectXMLNode(config ,".//filecon:use-simple-xpath",ns);
+    var driveMappingNode = cordys.selectXMLNode(config ,".//filecon:drivemappings",ns);
+
+    var pollerConfig = cordys.selectXMLNode(configurationNode,".//filecon:component[@name='Directory Poller']",ns);
+
+    var pollerEnabled = cordys.selectXMLNode(pollerConfig ,".//filecon:enabled",ns);
+    var pollerConfigLocation = cordys.selectXMLNode(pollerConfig ,".//filecon:configuration-file",ns);
+    var pollerProcFolder = cordys.selectXMLNode(pollerConfig ,".//filecon:processing-folder",ns);
+    var pollerAppProcFolder = cordys.selectXMLNode(pollerConfig ,".//filecon:app-processing-folder",ns);
+    var pollerErrorFolder = cordys.selectXMLNode(pollerConfig ,".//filecon:error-folder",ns);
+    var pollerPollInterval = cordys.selectXMLNode(pollerConfig ,".//filecon:poll-interval",ns);
+    var pollerMinWorkerThreads = cordys.selectXMLNode(pollerConfig ,".//filecon:minConcurrentWorkers",ns);
+    var pollerMaxWorkerThreads = cordys.selectXMLNode(pollerConfig ,".//filecon:maxConcurrentWorkers",ns);
+    var pollerDefaultUserDn = cordys.selectXMLNode(pollerConfig ,".//filecon:defaultUserDn",ns);
+    
+    txtReaderConfigFile.setValue(cordys.getTextContent(readerConfigFile));
+    txtWriterConfigFile.setValue(cordys.getTextContent(writerConfigFile));
+    txtInputCharSet.setValue(cordys.getTextContent(inputCharSet));
+    txtOutputCharSet.setValue(cordys.getTextContent(outputCharSet));
+    txtIncludedDirectories.setValue(cordys.getTextContent(includedDirectories));
+    chkReloadConfiguration.setValue(cordys.getTextContent(reloadConfiguration));
+    chkUseSimpleXPath.setValue(cordys.getTextContent(useSimpleXPath));
+
+    drivemapping.clear();
+    if(driveMappingNode!=null)
+    {
+        decodeAllPasswords(cordys.selectXMLNodes(driveMappingNode,".//filecon:password",ns));
+        drivemapping.putData(driveMappingNode,true);
+    }
+    else
+    {
+    }
+
+    chkEnabled.setValue(cordys.getTextContent(pollerEnabled ));
+    txtConfigLocation.setValue(cordys.getTextContent(pollerConfigLocation ));
+    txtProcFolder.setValue(cordys.getTextContent(pollerProcFolder ));
+    txtAppProcFolder.setValue(cordys.getTextContent(pollerAppProcFolder ));
+    txtErrorFolder.setValue(cordys.getTextContent(pollerErrorFolder ));
+    txtPollInterval.setValue(cordys.getTextContent(pollerPollInterval ));
+    txtMinWorkerThreads.setValue(cordys.getTextContent(pollerMinWorkerThreads ));
+    txtMaxWorkerThreads.setValue(cordys.getTextContent(pollerMaxWorkerThreads ));
+    txtDefaultUserDn.setValue(cordys.getTextContent(pollerDefaultUserDn ));
+}
+
+function createConnectorConfiguration(configurationNode)
+{
+    var oldConfigNode = cordys.selectXMLNode(configurationNode,".//filecon:Configuration",ns);
+    
+    if(oldConfigNode!=null)
+        oldConfigNode.parentNode.removeChild(oldConfigNode);
+    
+    var config = cordys.cloneXMLDocument(xmlConfiguration.XMLDocument).documentElement;
+    
+    var readerConfigFile = cordys.selectXMLNode(config ,".//filecon:readerconfigfile",ns);
+    var writerConfigFile = cordys.selectXMLNode(config ,".//filecon:writerconfigfile",ns);
+    var inputCharSet = cordys.selectXMLNode(config ,".//filecon:readercharset",ns);
+    var outputCharSet = cordys.selectXMLNode(config ,".//filecon:writercharset",ns);
+    var includedDirectories = cordys.selectXMLNode(config ,".//filecon:included-directories",ns);
+    var reloadConfiguration = cordys.selectXMLNode(config ,".//filecon:reload-configuration",ns);
+    var useSimpleXPath = cordys.selectXMLNode(config ,".//filecon:use-simple-xpath",ns);
+    var driveMappingNode = cordys.selectXMLNode(config ,".//filecon:drivemappings",ns);
+
+    var pollerConfig = cordys.cloneXMLDocument(xmlPollerConfiguration.XMLDocument).documentElement;
+
+    var pollerEnabled = cordys.selectXMLNode(pollerConfig ,".//filecon:enabled",ns);
+    var pollerConfigLocation = cordys.selectXMLNode(pollerConfig ,".//filecon:configuration-file",ns);
+    var pollerProcFolder = cordys.selectXMLNode(pollerConfig ,".//filecon:processing-folder",ns);
+    var pollerAppProcFolder = cordys.selectXMLNode(pollerConfig ,".//filecon:app-processing-folder",ns);
+    var pollerErrorFolder = cordys.selectXMLNode(pollerConfig ,".//filecon:error-folder",ns);
+    var pollerPollInterval = cordys.selectXMLNode(pollerConfig ,".//filecon:poll-interval",ns);
+    var pollerMinWorkerThreads = cordys.selectXMLNode(pollerConfig ,".//filecon:minConcurrentWorkers",ns);
+    var pollerMaxWorkerThreads = cordys.selectXMLNode(pollerConfig ,".//filecon:maxConcurrentWorkers",ns);
+    var pollerDefaultUserDn = cordys.selectXMLNode(pollerConfig ,".//filecon:defaultUserDn",ns);
+    
+    cordys.setTextContent(readerConfigFile,txtReaderConfigFile.getValue());
+    cordys.setTextContent(writerConfigFile ,txtWriterConfigFile.getValue());
+    cordys.setTextContent(inputCharSet ,txtInputCharSet.getValue());
+    cordys.setTextContent(outputCharSet ,txtOutputCharSet.getValue());
+    cordys.setTextContent(includedDirectories ,txtIncludedDirectories.getValue());
+    cordys.setTextContent(reloadConfiguration ,chkReloadConfiguration.getValue());
+    cordys.setTextContent(useSimpleXPath ,chkUseSimpleXPath.getValue());
+    
+    var driveMappingDataNode = cordys.cloneXMLDocument(drivemapping.getData());
+    
+    encodeAllPasswords(cordys.selectXMLNodes(driveMappingDataNode ,".//*[local-name()='password']"));
+    
+    copyDriveMappingToConfig(cordys.selectXMLNodes(driveMappingDataNode ,".//*[local-name()='drivemapping']"), driveMappingNode);
+    
+    cordys.setTextContent(pollerEnabled,chkEnabled.getValue());
+    cordys.setTextContent(pollerConfigLocation,txtConfigLocation.getValue());
+    cordys.setTextContent(pollerProcFolder ,txtProcFolder.getValue());
+    cordys.setTextContent(pollerAppProcFolder ,txtAppProcFolder.getValue());
+    cordys.setTextContent(pollerErrorFolder ,txtErrorFolder.getValue());
+    cordys.setTextContent(pollerPollInterval ,txtPollInterval.getValue());
+    cordys.setTextContent(pollerMinWorkerThreads ,txtMinWorkerThreads.getValue());
+    cordys.setTextContent(pollerMaxWorkerThreads ,txtMaxWorkerThreads.getValue());
+    cordys.setTextContent(pollerDefaultUserDn ,txtDefaultUserDn.getValue());
+    
+    
+    cordys.appendXMLNode(config ,configurationNode);
+    cordys.appendXMLNode(pollerConfig ,configurationNode);
+    
+    return true;
+    
+}
+
+
+function setWizardHeading() 
+{
+    if(application.container.isWizardContainer) 
+    {
+        var wizard =  application.container.srcApplication.container.applicationWindow.wizard;
+        wizard.setHeading(localization_get("Provide Details for File Connector"));
+     }
+ } 
+ 
+function onEnterForward()
+{
+    setWizardHeading(); 
+}
+
+function onEnterBackward()
+{
+    setWizardHeading();
+}
+
+
+function decodeAllPasswords(drivePasswordNodes)
+{
+    if(drivePasswordNodes==null)
+    {
+        return;
+    }
+    
+    if ( !base64Obj)
+    {
+        base64Obj = new (Base64Encoder);   
+    }
+
+    for(var i=0;i<drivePasswordNodes.length;i++)
+    {
+        var textContent = cordys.getTextContent(drivePasswordNodes[i]);
+        if(textContent!=null && textContent!="")
+        {
+            cordys.setTextContent(drivePasswordNodes[i],base64Obj.decode(textContent));
+        }
+    }
+}
+
+function encodeAllPasswords(drivePasswordNodes)
+{
+    if(drivePasswordNodes==null)
+    {
+        return;
+    }
+    
+    if ( !base64Obj)
+    {
+        base64Obj = new (Base64Encoder);   
+    }
+
+    for(var i=0;i<drivePasswordNodes.length;i++)
+    {
+        var textContent = cordys.getTextContent(drivePasswordNodes[i]);
+        if(textContent!=null && textContent!="")
+        {
+            cordys.setTextContent(drivePasswordNodes[i],base64Obj.encode(textContent));
+        }
+    }
+}
+
+function copyDriveMappingToConfig(source,target)
+{
+    if(source==null)
+    {
+        return;
+    }
+    for(var i=0;i<source.length;i++)
+    {
+        while (source[i].attributes.length>0)
+        {
+            var attnode=source[i].attributes[0];
+            source[i].removeAttributeNode(attnode);
+        }
+        cordys.setXMLNamespaces(source[i],"http://schemas.cordys.com/1.0/ac/FileConnector");
+        cordys.appendXMLNode(source[i],target);
+    }
+}
+
+function txtReaderConfigFile_Change(eventObject)
+{
+    raiseConfigurationChanges();
+}
+function txtWriterConfigFile_Change(eventObject)
+{
+    raiseConfigurationChanges();
+}
+function txtInputCharSet_Change(eventObject)
+{
+    raiseConfigurationChanges();
+}
+function txtOutputCharSet_Change(eventObject)
+{
+    raiseConfigurationChanges();
+}
+function chkReloadConfiguration_Change(eventObject)
+{
+    raiseConfigurationChanges();
+}
+function chkUseSimpleXPath_Change(eventObject)
+{
+    raiseConfigurationChanges();
+}
+function txtIncludedDirectories_Change(eventObject)
+{
+    raiseConfigurationChanges();
+}
+function txtConfigLocation_Change(eventObject)
+{
+    raiseConfigurationChanges();
+}
+function txtProcFolder_Change(eventObject)
+{
+    raiseConfigurationChanges();
+}
+function txtAppProcFolder_Change(eventObject)
+{
+    raiseConfigurationChanges();
+}
+function txtErrorFolder_Change(eventObject)
+{
+    raiseConfigurationChanges();
+}
+function txtPollInterval_Change(eventObject)
+{
+    raiseConfigurationChanges();
+}
+function txtMinWorkerThreads_Change(eventObject)
+{
+    raiseConfigurationChanges();
+}
+function txtMaxWorkerThreads_Change(eventObject)
+{
+    raiseConfigurationChanges();
+}
+function txtDefaultUserDn_Change(eventObject)
+{
+    raiseConfigurationChanges();
+}
+function navDelete1_AfterDelete(eventObject)
+{
+    raiseConfigurationChanges();    
+}
+function navInsert1_AfterInsert(eventObject)
+{
+    raiseConfigurationChanges();
+}
+function drivemapping_Change(eventObject)
+{
+    raiseConfigurationChanges();
+}]]>
+			</xformsscript>
+			<xforms:action
+				ev:event="xforms-initialize-done">
+				<xforms:Form_InitDone/>
+			</xforms:action>
+		</xformhtml>
+	</XFormContent>
+	<XFormWSDL/>
+	<automatic>false</automatic>
+	<caption></caption>
+	<data/>
+	<height></height>
+	<isInternal>false</isInternal>
+	<isLegacy>false</isLegacy>
+	<left></left>
+	<mode>full</mode>
+	<parameters/>
+	<qualifiedclassname></qualifiedclassname>
+	<showOnStartPage>false</showOnStartPage>
+	<taskDescription>FileConnectorConfig</taskDescription>
+	<taskName>FileConnectorConfig</taskName>
+	<title>true</title>
+	<top></top>
+	<type>XForm</type>
+	<width></width>
+	<CompositeControls/>
+	<Htms/>
+	<Images/>
+	<InstanceSchemaFragments/>
+	<Javascripts/>
+	<ReferredXForms/>
+	<Representations/>
+	<StyleSheets/>
+	<TranslatableApplications/>
+	<TranslatableName>
+		<TranslatableText
+			type="com.cordys.translation.TranslatableText"
+			RuntimeDocumentID="005056C0-0008-11E1-F460-865B7466DB6E">
+			<DocumentID>005056C0-0008-11E1-F460-865B7466BB6E</DocumentID>
+			<Name>005056C0-0008-11E1-F460-865B7466BB6E</Name>
+			<Description>005056C0-0008-11E1-F460-865B7466BB6E</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T05:45:17.802</CreationDate>
+			<Notes/>
+			<Identifier>
+				<uri
+					id="005056C0-0008-11E1-F460-865B7466FB6E"
+				/>
+			</Identifier>
+		</TranslatableText>
+	</TranslatableName>
+	<TranslatableUITexts>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-F461-055CA5981B6E">
+			<DocumentID>005056C0-0008-11E1-F461-055CA597FB6E</DocumentID>
+			<Name>005056C0-0008-11E1-F461-055CA597FB6E</Name>
+			<Description>005056C0-0008-11E1-F461-055CA597FB6E</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T06:01:40.054</CreationDate>
+			<Notes/>
+			<UIRef>txtWriterConfigFile</UIRef>
+			<TooltipText/>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-F461-055CA5965B6E">
+					<DocumentID>005056C0-0008-11E1-F461-055CA5963B6E</DocumentID>
+					<Name>005056C0-0008-11E1-F461-055CA5963B6E</Name>
+					<Description>005056C0-0008-11E1-F461-055CA5963B6E</Description>
+					<CreatedBy>gkaviyarasu</CreatedBy>
+					<CreationDate>2012-05-21T06:01:40.051</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-F461-055CA5967B6E"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-F460-865B7467FB6E"
+				/>
+			</XForm>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-F461-055CA5991B6E">
+			<DocumentID>005056C0-0008-11E1-F461-055CA598FB6E</DocumentID>
+			<Name>005056C0-0008-11E1-F461-055CA598FB6E</Name>
+			<Description>005056C0-0008-11E1-F461-055CA598FB6E</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T06:01:40.052</CreationDate>
+			<Notes/>
+			<UIRef>txtReaderConfigFile</UIRef>
+			<TooltipText/>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-F461-055CA5975B6E">
+					<DocumentID>005056C0-0008-11E1-F461-055CA5973B6E</DocumentID>
+					<Name>005056C0-0008-11E1-F461-055CA5973B6E</Name>
+					<Description>005056C0-0008-11E1-F461-055CA5973B6E</Description>
+					<CreatedBy>gkaviyarasu</CreatedBy>
+					<CreationDate>2012-05-21T06:01:40.052</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-F461-055CA5977B6E"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-F460-865B7467FB6E"
+				/>
+			</XForm>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-F461-055CA59B9B6E">
+			<DocumentID>005056C0-0008-11E1-F461-055CA59B7B6E</DocumentID>
+			<Name>005056C0-0008-11E1-F461-055CA59B7B6E</Name>
+			<Description>005056C0-0008-11E1-F461-055CA59B7B6E</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T06:01:40.054</CreationDate>
+			<Notes/>
+			<UIRef>tabpage5</UIRef>
+			<TooltipText/>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-F461-3766D8FFFB6E">
+					<DocumentID>005056C0-0008-11E1-F461-3766D8FFDB6E</DocumentID>
+					<Name>005056C0-0008-11E1-F461-3766D8FFDB6E</Name>
+					<Description>005056C0-0008-11E1-F461-3766D8FFDB6E</Description>
+					<CreatedBy>gkaviyarasu</CreatedBy>
+					<CreationDate>2012-05-21T06:10:34.557</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-F461-055CA59A3B6E"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-F460-865B7467FB6E"
+				/>
+			</XForm>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-F461-055CA59E1B6E">
+			<DocumentID>005056C0-0008-11E1-F461-055CA59DFB6E</DocumentID>
+			<Name>005056C0-0008-11E1-F461-055CA59DFB6E</Name>
+			<Description>005056C0-0008-11E1-F461-055CA59DFB6E</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T06:01:40.056</CreationDate>
+			<Notes/>
+			<UIRef>tabpage4</UIRef>
+			<TooltipText/>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-F461-055CA59C9B6E">
+					<DocumentID>005056C0-0008-11E1-F461-055CA59C7B6E</DocumentID>
+					<Name>005056C0-0008-11E1-F461-055CA59C7B6E</Name>
+					<Description>005056C0-0008-11E1-F461-055CA59C7B6E</Description>
+					<CreatedBy>gkaviyarasu</CreatedBy>
+					<CreationDate>2012-05-21T06:01:40.053</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-F461-055CA59CBB6E"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-F460-865B7467FB6E"
+				/>
+			</XForm>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-F461-055CA59F1B6E">
+			<DocumentID>005056C0-0008-11E1-F461-055CA59EFB6E</DocumentID>
+			<Name>005056C0-0008-11E1-F461-055CA59EFB6E</Name>
+			<Description>005056C0-0008-11E1-F461-055CA59EFB6E</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T06:01:40.051</CreationDate>
+			<Notes/>
+			<UIRef>tabpage3</UIRef>
+			<TooltipText/>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-F461-055CA5971B6E">
+					<DocumentID>005056C0-0008-11E1-F461-055CA596FB6E</DocumentID>
+					<Name>005056C0-0008-11E1-F461-055CA596FB6E</Name>
+					<Description>005056C0-0008-11E1-F461-055CA596FB6E</Description>
+					<CreatedBy>gkaviyarasu</CreatedBy>
+					<CreationDate>2012-05-21T06:01:40.055</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-F461-055CA59D7B6E"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-F460-865B7467FB6E"
+				/>
+			</XForm>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-F461-3766D8FDFB6E">
+			<DocumentID>005056C0-0008-11E1-F461-3766D8FDDB6E</DocumentID>
+			<Name>005056C0-0008-11E1-F461-3766D8FDDB6E</Name>
+			<Description>005056C0-0008-11E1-F461-3766D8FDDB6E</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T06:10:34.558</CreationDate>
+			<Notes/>
+			<UIRef>chkReloadConfiguration</UIRef>
+			<TooltipText/>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-F466-A8EECFBB7B51">
+					<DocumentID>005056C0-0008-11E1-F466-A8EECFBB5B51</DocumentID>
+					<Name>005056C0-0008-11E1-F466-A8EECFBB5B51</Name>
+					<Description>005056C0-0008-11E1-F466-A8EECFBB5B51</Description>
+					<CreatedBy>gkaviyarasu</CreatedBy>
+					<CreationDate>2012-05-21T11:19:08.53</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-F466-A8EECFBB9B51"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-F460-865B7467FB6E"
+				/>
+			</XForm>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-F461-7EFFDF6FFB6E">
+			<DocumentID>005056C0-0008-11E1-F461-7EFFDF6FDB6E</DocumentID>
+			<Name>005056C0-0008-11E1-F461-7EFFDF6FDB6E</Name>
+			<Description>005056C0-0008-11E1-F461-7EFFDF6FDB6E</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T06:26:55.323</CreationDate>
+			<Notes/>
+			<UIRef>txtInputCharSet</UIRef>
+			<TooltipText/>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-F466-A8EECFBC3B51">
+					<DocumentID>005056C0-0008-11E1-F466-A8EECFBC1B51</DocumentID>
+					<Name>005056C0-0008-11E1-F466-A8EECFBC1B51</Name>
+					<Description>005056C0-0008-11E1-F466-A8EECFBC1B51</Description>
+					<CreatedBy>gkaviyarasu</CreatedBy>
+					<CreationDate>2012-05-21T11:19:08.53</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-F466-A8EECFBC5B51"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-F460-865B7467FB6E"
+				/>
+			</XForm>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-F461-7EFFDF74FB6E">
+			<DocumentID>005056C0-0008-11E1-F461-7EFFDF74DB6E</DocumentID>
+			<Name>005056C0-0008-11E1-F461-7EFFDF74DB6E</Name>
+			<Description>005056C0-0008-11E1-F461-7EFFDF74DB6E</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T06:14:21.771</CreationDate>
+			<Notes/>
+			<UIRef>chkUseSimpleXPath</UIRef>
+			<TooltipText/>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-F466-A8EECFBABB51">
+					<DocumentID>005056C0-0008-11E1-F466-A8EECFBA9B51</DocumentID>
+					<Name>005056C0-0008-11E1-F466-A8EECFBA9B51</Name>
+					<Description>005056C0-0008-11E1-F466-A8EECFBA9B51</Description>
+					<CreatedBy>gkaviyarasu</CreatedBy>
+					<CreationDate>2012-05-21T11:19:08.531</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-F466-A8EECFBADB51"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-F460-865B7467FB6E"
+				/>
+			</XForm>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-F461-CC7C03225B6E">
+			<DocumentID>005056C0-0008-11E1-F461-EE368BEE5B6E</DocumentID>
+			<Name>005056C0-0008-11E1-F461-EE368BEE5B6E</Name>
+			<Description>005056C0-0008-11E1-F461-EE368BEE5B6E</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T06:38:33.184</CreationDate>
+			<Notes/>
+			<UIRef>txtOutputCharSet</UIRef>
+			<TooltipText/>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-F461-EE368BEC3B6E">
+					<DocumentID>005056C0-0008-11E1-F461-EE368BEC1B6E</DocumentID>
+					<Name>005056C0-0008-11E1-F461-EE368BEC1B6E</Name>
+					<Description>005056C0-0008-11E1-F461-EE368BEC1B6E</Description>
+					<CreatedBy>gkaviyarasu</CreatedBy>
+					<CreationDate>2012-05-21T06:40:14.029</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-F461-EE368BEC5B6E"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-F460-865B7467FB6E"
+				/>
+			</XForm>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-F461-FF5682BB3B6E">
+			<DocumentID>005056C0-0008-11E1-F461-FF5682BB1B6E</DocumentID>
+			<Name>005056C0-0008-11E1-F461-FF5682BB1B6E</Name>
+			<Description>005056C0-0008-11E1-F461-FF5682BB1B6E</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T06:52:15.721</CreationDate>
+			<Notes/>
+			<UIRef>txtIncludedDirectories</UIRef>
+			<TooltipText/>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-F462-4EC9309FDB6E">
+					<DocumentID>005056C0-0008-11E1-F462-4EC9309FBB6E</DocumentID>
+					<Name>005056C0-0008-11E1-F462-4EC9309FBB6E</Name>
+					<Description>005056C0-0008-11E1-F462-4EC9309FBB6E</Description>
+					<CreatedBy>gkaviyarasu</CreatedBy>
+					<CreationDate>2012-05-21T07:01:55.367</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-F462-4EC9309FFB6E"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-F460-865B7467FB6E"
+				/>
+			</XForm>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-F462-2F5760189B6E">
+			<DocumentID>005056C0-0008-11E1-F462-2F5760187B6E</DocumentID>
+			<Name>005056C0-0008-11E1-F462-2F5760187B6E</Name>
+			<Description>005056C0-0008-11E1-F462-2F5760187B6E</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T06:52:15.721</CreationDate>
+			<Notes/>
+			<UIRef>rte3</UIRef>
+			<TooltipText/>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-F466-D8FBA7C5BB51">
+					<DocumentID>005056C0-0008-11E1-F466-D8FBA7C59B51</DocumentID>
+					<Name>005056C0-0008-11E1-F466-D8FBA7C59B51</Name>
+					<Description>005056C0-0008-11E1-F466-D8FBA7C59B51</Description>
+					<CreatedBy>gkaviyarasu</CreatedBy>
+					<CreationDate>2012-05-21T11:25:47.121</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-F466-D8FBA7C5DB51"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-F460-865B7467FB6E"
+				/>
+			</XForm>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-F462-5C68A4BB1B6E">
+			<DocumentID>005056C0-0008-11E1-F462-5C68A4BAFB6E</DocumentID>
+			<Name>005056C0-0008-11E1-F462-5C68A4BAFB6E</Name>
+			<Description>005056C0-0008-11E1-F462-5C68A4BAFB6E</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T07:10:11.756</CreationDate>
+			<Notes/>
+			<UIRef>groupbox1</UIRef>
+			<TooltipText/>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-F462-5C68A4B69B6E">
+					<DocumentID>005056C0-0008-11E1-F462-5C68A4B67B6E</DocumentID>
+					<Name>005056C0-0008-11E1-F462-5C68A4B67B6E</Name>
+					<Description>005056C0-0008-11E1-F462-5C68A4B67B6E</Description>
+					<CreatedBy>gkaviyarasu</CreatedBy>
+					<CreationDate>2012-05-21T07:13:13.956</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-F462-5C68A4B6BB6E"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-F460-865B7467FB6E"
+				/>
+			</XForm>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-F462-8FE33AC79B6E">
+			<DocumentID>005056C0-0008-11E1-F462-8FE33AC77B6E</DocumentID>
+			<Name>005056C0-0008-11E1-F462-8FE33AC77B6E</Name>
+			<Description>005056C0-0008-11E1-F462-8FE33AC77B6E</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T07:15:49.308</CreationDate>
+			<Notes/>
+			<UIRef>groupbox2</UIRef>
+			<TooltipText/>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-F462-8FE33AC6DB6E">
+					<DocumentID>005056C0-0008-11E1-F462-8FE33AC6BB6E</DocumentID>
+					<Name>005056C0-0008-11E1-F462-8FE33AC6BB6E</Name>
+					<Description>005056C0-0008-11E1-F462-8FE33AC6BB6E</Description>
+					<CreatedBy>gkaviyarasu</CreatedBy>
+					<CreationDate>2012-05-21T07:15:49.308</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-F462-8FE33AC6FB6E"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-F460-865B7467FB6E"
+				/>
+			</XForm>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-F462-E06D3C669B6E">
+			<DocumentID>005056C0-0008-11E1-F462-E06D3C667B6E</DocumentID>
+			<Name>005056C0-0008-11E1-F462-E06D3C667B6E</Name>
+			<Description>005056C0-0008-11E1-F462-E06D3C667B6E</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T07:43:30.405</CreationDate>
+			<Notes/>
+			<UIRef>txtProcFolder</UIRef>
+			<TooltipText/>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-F463-0618A4DB7B6E">
+					<DocumentID>005056C0-0008-11E1-F463-0618A4DB5B6E</DocumentID>
+					<Name>005056C0-0008-11E1-F463-0618A4DB5B6E</Name>
+					<Description>005056C0-0008-11E1-F463-0618A4DB5B6E</Description>
+					<CreatedBy>gkaviyarasu</CreatedBy>
+					<CreationDate>2012-05-21T07:43:30.407</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-F463-0618A4DB9B6E"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-F460-865B7467FB6E"
+				/>
+			</XForm>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-F462-E06D3C679B6E">
+			<DocumentID>005056C0-0008-11E1-F462-E06D3C677B6E</DocumentID>
+			<Name>005056C0-0008-11E1-F462-E06D3C677B6E</Name>
+			<Description>005056C0-0008-11E1-F462-E06D3C677B6E</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T07:43:30.402</CreationDate>
+			<Notes/>
+			<UIRef>txtConfigLocation</UIRef>
+			<TooltipText/>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-F463-0618A4DC3B6E">
+					<DocumentID>005056C0-0008-11E1-F463-0618A4DC1B6E</DocumentID>
+					<Name>005056C0-0008-11E1-F463-0618A4DC1B6E</Name>
+					<Description>005056C0-0008-11E1-F463-0618A4DC1B6E</Description>
+					<CreatedBy>gkaviyarasu</CreatedBy>
+					<CreationDate>2012-05-21T07:43:30.4</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-F463-0618A4DC5B6E"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-F460-865B7467FB6E"
+				/>
+			</XForm>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-F462-E06D3C68DB6E">
+			<DocumentID>005056C0-0008-11E1-F462-E06D3C68BB6E</DocumentID>
+			<Name>005056C0-0008-11E1-F462-E06D3C68BB6E</Name>
+			<Description>005056C0-0008-11E1-F462-E06D3C68BB6E</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T07:43:30.402</CreationDate>
+			<Notes/>
+			<UIRef>txtDefaultUserDn</UIRef>
+			<TooltipText/>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-F463-0618A4D6FB6E">
+					<DocumentID>005056C0-0008-11E1-F463-0618A4D6DB6E</DocumentID>
+					<Name>005056C0-0008-11E1-F463-0618A4D6DB6E</Name>
+					<Description>005056C0-0008-11E1-F463-0618A4D6DB6E</Description>
+					<CreatedBy>gkaviyarasu</CreatedBy>
+					<CreationDate>2012-05-21T07:43:30.406</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-F463-0618A4D71B6E"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-F460-865B7467FB6E"
+				/>
+			</XForm>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-F463-0618A4DCFB6E">
+			<DocumentID>005056C0-0008-11E1-F463-0618A4DCDB6E</DocumentID>
+			<Name>005056C0-0008-11E1-F463-0618A4DCDB6E</Name>
+			<Description>005056C0-0008-11E1-F463-0618A4DCDB6E</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T07:43:30.403</CreationDate>
+			<Notes/>
+			<UIRef>txtMaxWorkerThreads</UIRef>
+			<TooltipText/>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-F463-0618A4D7BB6E">
+					<DocumentID>005056C0-0008-11E1-F463-0618A4D79B6E</DocumentID>
+					<Name>005056C0-0008-11E1-F463-0618A4D79B6E</Name>
+					<Description>005056C0-0008-11E1-F463-0618A4D79B6E</Description>
+					<CreatedBy>gkaviyarasu</CreatedBy>
+					<CreationDate>2012-05-21T07:43:30.402</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-F463-0618A4D7DB6E"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-F460-865B7467FB6E"
+				/>
+			</XForm>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-F463-0618A4DDFB6E">
+			<DocumentID>005056C0-0008-11E1-F463-0618A4DDDB6E</DocumentID>
+			<Name>005056C0-0008-11E1-F463-0618A4DDDB6E</Name>
+			<Description>005056C0-0008-11E1-F463-0618A4DDDB6E</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T07:43:30.404</CreationDate>
+			<Notes/>
+			<UIRef>txtMinWorkerThreads</UIRef>
+			<TooltipText/>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-F463-0618A4D87B6E">
+					<DocumentID>005056C0-0008-11E1-F463-0618A4D85B6E</DocumentID>
+					<Name>005056C0-0008-11E1-F463-0618A4D85B6E</Name>
+					<Description>005056C0-0008-11E1-F463-0618A4D85B6E</Description>
+					<CreatedBy>gkaviyarasu</CreatedBy>
+					<CreationDate>2012-05-21T07:43:30.4</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-F463-0618A4D89B6E"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-F460-865B7467FB6E"
+				/>
+			</XForm>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-F463-0618A4DEFB6E">
+			<DocumentID>005056C0-0008-11E1-F463-0618A4DEDB6E</DocumentID>
+			<Name>005056C0-0008-11E1-F463-0618A4DEDB6E</Name>
+			<Description>005056C0-0008-11E1-F463-0618A4DEDB6E</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T07:43:30.404</CreationDate>
+			<Notes/>
+			<UIRef>txtPollInterval</UIRef>
+			<TooltipText/>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-F466-65BA7747DB51">
+					<DocumentID>005056C0-0008-11E1-F466-65BA7747BB51</DocumentID>
+					<Name>005056C0-0008-11E1-F466-65BA7747BB51</Name>
+					<Description>005056C0-0008-11E1-F466-65BA7747BB51</Description>
+					<CreatedBy>gkaviyarasu</CreatedBy>
+					<CreationDate>2012-05-21T11:06:26.203</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-F466-65BA7747FB51"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-F460-865B7467FB6E"
+				/>
+			</XForm>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-F463-0618A4DFFB6E">
+			<DocumentID>005056C0-0008-11E1-F463-0618A4DFDB6E</DocumentID>
+			<Name>005056C0-0008-11E1-F463-0618A4DFDB6E</Name>
+			<Description>005056C0-0008-11E1-F463-0618A4DFDB6E</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T07:43:30.403</CreationDate>
+			<Notes/>
+			<UIRef>txtErrorFolder</UIRef>
+			<TooltipText/>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-F463-0618A4D9FB6E">
+					<DocumentID>005056C0-0008-11E1-F463-0618A4D9DB6E</DocumentID>
+					<Name>005056C0-0008-11E1-F463-0618A4D9DB6E</Name>
+					<Description>005056C0-0008-11E1-F463-0618A4D9DB6E</Description>
+					<CreatedBy>gkaviyarasu</CreatedBy>
+					<CreationDate>2012-05-21T07:43:30.406</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-F463-0618A4DA1B6E"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-F460-865B7467FB6E"
+				/>
+			</XForm>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-F463-0618A4E0FB6E">
+			<DocumentID>005056C0-0008-11E1-F463-0618A4E0DB6E</DocumentID>
+			<Name>005056C0-0008-11E1-F463-0618A4E0DB6E</Name>
+			<Description>005056C0-0008-11E1-F463-0618A4E0DB6E</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T07:43:30.407</CreationDate>
+			<Notes/>
+			<UIRef>txtAppProcFolder</UIRef>
+			<TooltipText/>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-F467-A6BDB42A7B51">
+					<DocumentID>005056C0-0008-11E1-F467-A6BDB42A5B51</DocumentID>
+					<Name>005056C0-0008-11E1-F467-A6BDB42A5B51</Name>
+					<Description>005056C0-0008-11E1-F467-A6BDB42A5B51</Description>
+					<CreatedBy>gkaviyarasu</CreatedBy>
+					<CreationDate>2012-05-21T12:11:56.989</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-F467-A6BDB42A9B51"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-F460-865B7467FB6E"
+				/>
+			</XForm>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-F466-65BA774B7B51">
+			<DocumentID>005056C0-0008-11E1-F466-65BA774B5B51</DocumentID>
+			<Name>005056C0-0008-11E1-F466-65BA774B5B51</Name>
+			<Description>005056C0-0008-11E1-F466-65BA774B5B51</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T11:05:27.576</CreationDate>
+			<Notes/>
+			<UIRef>chkEnabled</UIRef>
+			<TooltipText/>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-F466-65BA774A7B51">
+					<DocumentID>005056C0-0008-11E1-F466-65BA774A5B51</DocumentID>
+					<Name>005056C0-0008-11E1-F466-65BA774A5B51</Name>
+					<Description>005056C0-0008-11E1-F466-65BA774A5B51</Description>
+					<CreatedBy>gkaviyarasu</CreatedBy>
+					<CreationDate>2012-05-21T11:05:27.577</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-F466-65BA774A9B51"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-F460-865B7467FB6E"
+				/>
+			</XForm>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-F466-FB92E875FB51">
+			<DocumentID>005056C0-0008-11E1-F466-FB92E875DB51</DocumentID>
+			<Name>005056C0-0008-11E1-F466-FB92E875DB51</Name>
+			<Description>005056C0-0008-11E1-F466-FB92E875DB51</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T12:04:23.96</CreationDate>
+			<Notes/>
+			<UIRef>txtDriveLetter</UIRef>
+			<TooltipText/>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-F466-FB92E873FB51">
+					<DocumentID>005056C0-0008-11E1-F466-FB92E873DB51</DocumentID>
+					<Name>005056C0-0008-11E1-F466-FB92E873DB51</Name>
+					<Description>005056C0-0008-11E1-F466-FB92E873DB51</Description>
+					<CreatedBy>gkaviyarasu</CreatedBy>
+					<CreationDate>2012-05-21T12:06:18.123</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-F466-FB92E8741B51"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-F460-865B7467FB6E"
+				/>
+			</XForm>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-F466-FB92E8795B51">
+			<DocumentID>005056C0-0008-11E1-F466-FB92E8793B51</DocumentID>
+			<Name>005056C0-0008-11E1-F466-FB92E8793B51</Name>
+			<Description>005056C0-0008-11E1-F466-FB92E8793B51</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T11:44:44.213</CreationDate>
+			<Notes/>
+			<UIRef>txtPassword</UIRef>
+			<TooltipText/>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-F467-A6BDB42D9B51">
+					<DocumentID>005056C0-0008-11E1-F467-A6BDB42D7B51</DocumentID>
+					<Name>005056C0-0008-11E1-F467-A6BDB42D7B51</Name>
+					<Description>005056C0-0008-11E1-F467-A6BDB42D7B51</Description>
+					<CreatedBy>gkaviyarasu</CreatedBy>
+					<CreationDate>2012-05-21T12:06:18.122</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-F467-A6BDB42DBB51"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-F460-865B7467FB6E"
+				/>
+			</XForm>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-F466-FB92E87A5B51">
+			<DocumentID>005056C0-0008-11E1-F466-FB92E87A3B51</DocumentID>
+			<Name>005056C0-0008-11E1-F466-FB92E87A3B51</Name>
+			<Description>005056C0-0008-11E1-F466-FB92E87A3B51</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T11:44:44.214</CreationDate>
+			<Notes/>
+			<UIRef>txtLocation</UIRef>
+			<TooltipText/>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-F467-A6BDB42D5B51">
+					<DocumentID>005056C0-0008-11E1-F467-A6BDB42D3B51</DocumentID>
+					<Name>005056C0-0008-11E1-F467-A6BDB42D3B51</Name>
+					<Description>005056C0-0008-11E1-F467-A6BDB42D3B51</Description>
+					<CreatedBy>gkaviyarasu</CreatedBy>
+					<CreationDate>2012-05-21T12:06:18.123</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-F466-FB92E874DB51"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-F460-865B7467FB6E"
+				/>
+			</XForm>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-F466-FB92E87BFB51">
+			<DocumentID>005056C0-0008-11E1-F466-FB92E87BDB51</DocumentID>
+			<Name>005056C0-0008-11E1-F466-FB92E87BDB51</Name>
+			<Description>005056C0-0008-11E1-F466-FB92E87BDB51</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T11:44:44.212</CreationDate>
+			<Notes/>
+			<UIRef>groupbox3</UIRef>
+			<TooltipText/>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-F466-FB92E87B3B51">
+					<DocumentID>005056C0-0008-11E1-F466-FB92E87B1B51</DocumentID>
+					<Name>005056C0-0008-11E1-F466-FB92E87B1B51</Name>
+					<Description>005056C0-0008-11E1-F466-FB92E87B1B51</Description>
+					<CreatedBy>gkaviyarasu</CreatedBy>
+					<CreationDate>2012-05-21T11:44:44.213</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-F466-FB92E87B5B51"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-F460-865B7467FB6E"
+				/>
+			</XForm>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-F467-A6BDB42F5B51">
+			<DocumentID>005056C0-0008-11E1-F467-A6BDB42F3B51</DocumentID>
+			<Name>005056C0-0008-11E1-F467-A6BDB42F3B51</Name>
+			<Description>005056C0-0008-11E1-F467-A6BDB42F3B51</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T12:06:18.125</CreationDate>
+			<Notes/>
+			<UIRef>txtUsername</UIRef>
+			<TooltipText/>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-F467-A6BDB42E5B51">
+					<DocumentID>005056C0-0008-11E1-F467-A6BDB42E3B51</DocumentID>
+					<Name>005056C0-0008-11E1-F467-A6BDB42E3B51</Name>
+					<Description>005056C0-0008-11E1-F467-A6BDB42E3B51</Description>
+					<CreatedBy>gkaviyarasu</CreatedBy>
+					<CreationDate>2012-05-21T12:06:18.125</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-F467-A6BDB42E7B51"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-F460-865B7467FB6E"
+				/>
+			</XForm>
+		</TranslatableUIText>
+	</TranslatableUITexts>
+	<Webservices/>
+	<aclFragments/>
+	<deliveryModels/>
+	<image/>
+	<input/>
+	<messageParts>
+		<MessagePart
+			type="com.cordys.task.MessagePart"
+			RuntimeDocumentID="005056C0-0008-11E1-F461-3766D9029B6E">
+			<DocumentID>005056C0-0008-11E1-F461-3766D9027B6E</DocumentID>
+			<Name>freeformcontrols</Name>
+			<Description>freeformcontrols</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T06:01:40.051</CreationDate>
+			<Notes/>
+			<isRefExists>false</isRefExists>
+			<namespace>http://schemas.cordys.com/1.0/xforms/processapi</namespace>
+			<operationName>freeformcontrols</operationName>
+		</MessagePart>
+		<MessagePart
+			type="com.cordys.task.MessagePart"
+			RuntimeDocumentID="005056C0-0008-11E1-F467-A6BDB42C1B51">
+			<DocumentID>005056C0-0008-11E1-F467-A6BDB42BFB51</DocumentID>
+			<Name>drivemapping</Name>
+			<Description>drivemapping</Description>
+			<CreatedBy>gkaviyarasu</CreatedBy>
+			<CreationDate>2012-05-21T12:08:17.816</CreationDate>
+			<Notes/>
+			<isRefExists>false</isRefExists>
+			<namespace>http://schemas.cordys.com/1.0/xforms/processapi</namespace>
+			<operationName></operationName>
+		</MessagePart>
+	</messageParts>
+	<messages/>
+	<output/>
+	<tagsContainer/>
+	<taskParts/>
+</XFormDesigntime>

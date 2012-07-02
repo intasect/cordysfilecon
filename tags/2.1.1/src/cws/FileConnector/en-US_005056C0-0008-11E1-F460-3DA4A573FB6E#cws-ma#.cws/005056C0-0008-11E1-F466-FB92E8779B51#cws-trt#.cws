@@ -1,0 +1,24 @@
+
+<TranslatedText
+	xmlns=""
+	xmlns:cws="http://schemas.cordys.com/cws/1.0"
+	type="com.cordys.translation.TranslatedText"
+	RuntimeDocumentID="005056C0-0008-11E1-F466-FB92E877BB51">
+	<DocumentID>005056C0-0008-11E1-F466-FB92E8779B51</DocumentID>
+	<Name>005056C0-0008-11E1-F466-FB92E8779B51</Name>
+	<Description>Input2</Description>
+	<CreatedBy>gkaviyarasu</CreatedBy>
+	<CreationDate>2012-05-21T12:04:23.962</CreationDate>
+	<Notes/>
+	<Text>Input2</Text>
+	<Language>
+		<uri
+			id="005056C0-0008-11E1-F460-3DA4A573BB6E"
+		/>
+	</Language>
+	<TextIdentifier>
+		<uri
+			id="005056C0-0008-11E1-F466-FB92E8775B51"
+		/>
+	</TextIdentifier>
+</TranslatedText>

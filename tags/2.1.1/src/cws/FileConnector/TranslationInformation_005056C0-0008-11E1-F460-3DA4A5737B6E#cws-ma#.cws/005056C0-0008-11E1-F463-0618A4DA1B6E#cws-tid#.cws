@@ -1,0 +1,25 @@
+
+<TextIdentifier
+	xmlns=""
+	xmlns:cws="http://schemas.cordys.com/cws/1.0"
+	type="com.cordys.translation.TextIdentifier"
+	typeVersion="55890f21-u239-76j6-988a-92j7opq6ws09"
+	RuntimeDocumentID="005056C0-0008-11E1-F463-0618A4DA3B6E">
+	<DocumentID>005056C0-0008-11E1-F463-0618A4DA1B6E</DocumentID>
+	<Name>005056C0-0008-11E1-F463-0618A4DA1B6E</Name>
+	<Description>Error folder</Description>
+	<CreatedBy>gkaviyarasu</CreatedBy>
+	<CreationDate>2012-05-21T07:43:30.402</CreationDate>
+	<Notes/>
+	<DefaultText>Error folder</DefaultText>
+	<TranslationInformation>
+		<uri
+			id="005056C0-0008-11E1-F460-3DA4A5733B6E"
+		/>
+	</TranslationInformation>
+	<Translations>
+		<uri
+			id="005056C0-0008-11E1-F463-0618A4DA5B6E"
+		/>
+	</Translations>
+</TextIdentifier>

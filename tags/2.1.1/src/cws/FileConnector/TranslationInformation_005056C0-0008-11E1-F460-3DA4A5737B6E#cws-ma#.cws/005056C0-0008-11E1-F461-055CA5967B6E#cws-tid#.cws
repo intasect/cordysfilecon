@@ -1,0 +1,25 @@
+
+<TextIdentifier
+	xmlns=""
+	xmlns:cws="http://schemas.cordys.com/cws/1.0"
+	type="com.cordys.translation.TextIdentifier"
+	typeVersion="55890f21-u239-76j6-988a-92j7opq6ws09"
+	RuntimeDocumentID="005056C0-0008-11E1-F461-055CA5969B6E">
+	<DocumentID>005056C0-0008-11E1-F461-055CA5967B6E</DocumentID>
+	<Name>005056C0-0008-11E1-F461-055CA5967B6E</Name>
+	<Description>Record Writer Configuration File XMLStore Key</Description>
+	<CreatedBy>gkaviyarasu</CreatedBy>
+	<CreationDate>2012-05-21T06:01:40.053</CreationDate>
+	<Notes/>
+	<DefaultText>Record Writer Configuration File XMLStore Key</DefaultText>
+	<TranslationInformation>
+		<uri
+			id="005056C0-0008-11E1-F460-3DA4A5733B6E"
+		/>
+	</TranslationInformation>
+	<Translations>
+		<uri
+			id="005056C0-0008-11E1-F461-055CA596BB6E"
+		/>
+	</Translations>
+</TextIdentifier>
