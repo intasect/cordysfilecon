@@ -1,0 +1,1 @@
+The File Connector wiki pages can be found at the [Cordys Professional Network](https://wiki.cordys.com/display/dsc/File+Connector)

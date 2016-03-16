@@ -1,0 +1,1 @@
+Cordys connector for reading and writing files. Supports simple flat files and XML files. Also file copying, moving and deletion are supported.
